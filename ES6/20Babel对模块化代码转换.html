@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Babel能把最新ES规范语法转换成ES5语法，从而适配大多数浏览器(尤其是旧版浏览器)
+            步骤：
+                1.初始化项目    npm init -y
+                2.安装          npm i babel-cli babel-perset-env browserify    /大厂通常用Webpack打包而非browserify
+                3.使用babel转换 npx babel ./(js目录) -d ./(转换后js目录) --presets=babel-preset-env
+                4.打包          npx browserify ./app.js(转换后入口js文件) -o ./bundle.js(打包后入口文件)
+                5.引入bundle.js <script src="./bundle.js" type="module"><script>
+        */
+    </script>
+</body>
+</html>
