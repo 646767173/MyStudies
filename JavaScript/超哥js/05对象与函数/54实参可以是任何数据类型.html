@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            函数的实参可以是任何类型数据，包括对象
+            甚至是函数
+        */ 
+
+        function hello(obj){
+            console.log(
+    '我是'+obj.name+'，今年'+obj.age+'岁，我是性别是'+obj.gender+'。'
+            );
+        }
+        var obj = {
+            name:'孙悟空',
+            age:18,
+            gender:'男'
+        }
+        hello(obj);
+        
+        function fun(a){
+            console.log('传入的实参是'+a);
+            //还可以在函数里面调用函数
+            hello(obj);
+        }
+        fun(hello);
+
+        /*
+            -fun
+                函数对象
+                直接使用函数对象
+            -fun()
+                调用函数
+                使用函数的返回值
+        */ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

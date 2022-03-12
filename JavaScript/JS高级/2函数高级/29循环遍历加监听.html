@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <!-- 
+        需求，点击某个按钮，提示这个是第几个按钮
+     -->
+    <script>
+        var btns = document.getElementsByTagName('button');
+        // 遍历加监听
+        /* 
+        for (var i = 0;i<btns.length;i++){
+            var btn = btns[i];
+            btn.index = i;//把当前遍历下标作为对象属性存起来
+            btn.onclick = function(){
+                alert('我是第'+(this.index+1)+'个按钮');
+            }
+        }
+         */
+        // 采用一种闭包方式对按钮进行监听
+        for (var i = 0;i<btns.length;i++){
+            (function(i) {
+                var btn = btns[i];
+                btn.onclick = function(){
+                    alert('我是第'+(i+1)+'个按钮');
+                }
+            })(i);
+        }
+    </script>
+</body>
+</html>

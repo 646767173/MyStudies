@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            ES6引入Class类这个概念作为对象模板，使其写法更清晰，更像面向对象编程的语法
+            1.class声明类
+            2.constructor定义构造函数初始化
+            3.static定义静态方法和属性
+            4.extends继承父类
+            5.super调用父级构造方法
+            6.重写父类方法
+            7.设置getter、setter
+        */
+        // 1.类
+        class Phone{
+            // 2.构造方法名字是固定的
+            constructor(brand,price){
+                this.brand = brand;
+                this.price = price;
+            }
+            // 3.静态成员
+            static name = '手机';
+            // 打电话，方法必须以该形式书写
+            call(){
+                console.log('用手机打电话！！');
+            }
+        }
+        let HUAWEI = new Phone('华为',5999);
+        HUAWEI.call();//调用打电话方法
+        console.log(HUAWEI);//是一个Phone实例对象
+        console.log(Phone.name,HUAWEI.name);//构造函数静态属性仅其本身可访问
+
+        // 4.Class类继承
+        class SmartPhone extends Phone{
+            constructor(brand,price,color){
+                super(brand,price);// 5.super调用父类构造方法
+                this.color = color;
+            }
+            photo(){
+                console.log('智能手机可以拍照！！');
+            }
+            call(){// 6.重写父类方法
+                console.log('用智能手机打电话！！！');
+            }
+        }
+        let OnePlus = new SmartPhone();
+        console.log(OnePlus);
+        OnePlus.call();
+        OnePlus.photo();
+
+        class IPhone{
+            // 7.getter setter
+            get price(){
+                console.log('——————价格属性被get读取了！');
+                return 10999;
+            }
+            set price(value){
+                console.log('——————价格属性被set修改了！');
+            }
+        }
+        let IP13PM = new IPhone();
+        console.log(IP13PM.price);//获取价格
+        IP13PM.price = 15000;//修改价格
+    </script>
+</body>
+</html>

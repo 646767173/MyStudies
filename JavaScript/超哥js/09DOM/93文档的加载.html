@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            文档的加载是从上往下逐行加载的，如果JS代码写在body之前
+            事件响应的代码就容易遇到空对象，因为还没加载到页面body呢
+            因此需要一个window.onload，用于表示文档加载完成
+        */
+        window.onload = function(){
+            // 然后就可以往下写JS代码了，会在所有内容加载完成后才加载JS代码
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

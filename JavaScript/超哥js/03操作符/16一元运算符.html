@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            一元运算符，
+            + 正号
+                正号不会对数字产生任何影响
+            - 负号
+                负号会对数字的符号进行取反
+
+                对于非Number值，会先转换为Number值后进行运算
+        */ 
+        var result = 1 +'2' +3;//'123'
+        var result = 1 + +'2' +3;//6
+        var type = typeof result;
+        console.log(type+ '\n' +result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

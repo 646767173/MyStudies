@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName</title>
+    <script>
+        function selectAll() {//全选
+            var inputDOM = document.getElementsByTagName("input");
+            //返回带有指定标签名的有序对象集合，集合中每个元素都是dom对象
+            inputDOM[0].checked = true;
+            inputDOM[1].checked = true;
+            inputDOM[2].checked = true;
+        }
+    
+        function deleteAll() {//全不选
+            var inputDOM = document.getElementsByTagName("input");
+            inputDOM[0].checked = false;
+            inputDOM[1].checked = false;
+            inputDOM[2].checked = false;
+        }
+    
+        function reverse() {//反选
+            var inputDOM = document.getElementsByTagName("input");
+            for (var i = 0; i < inputDOM.length; i++) {
+                inputDOM[i].checked = !inputDOM[i].checked;
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>getElementByTagName</p>
+    兴趣爱好：
+    <input type="checkbox" value="c语言" checked="checked">c语言
+    <input type="checkbox" value="Java">Java
+    <input type="checkbox" value="JavaScript">JavaScript
+    <br>
+    <button onclick="selectAll()">全选</button>
+    <button onclick="deleteAll()">全不选</button>
+    <button onclick="reverse()">反选</button>
+</body>
+</html>

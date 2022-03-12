@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            for循环
+            for(初始化表达式;条件表达式;更新表达式){
+                语句...
+            }
+            执行顺序
+                1-初始化表达式(执行完第一次后就不再执行)
+                2-条件表达式
+                3-语句...
+                4-更新表达式(随后重复执行2-条件表达式)
+                循环...
+            通过条件表达式去判断是否继续循环
+        */ 
+
+        // for循环与while循环可以相互转换，使用时也可以择优择简选择使用
+        for(var i = 1 ; i < 10; i++){
+            console.log('我吃了'+i+'个苹果');
+        }
+
+        // for循环中的三部分也可以省略，或者写在for循环外部
+        var m = 0;
+        for(;m<10;){
+            console.log(m++);
+        }
+
+//'三部分都省略则是死循环'，死循环慎用！！容易造成电脑卡机
+        /*
+            for(;;){
+                死循环
+            }
+        */ 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

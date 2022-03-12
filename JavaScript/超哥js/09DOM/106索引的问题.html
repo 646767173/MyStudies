@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var all_a = document.getElementsByTagName('a');
+            // 为每一个超链接绑定单击事件
+            for (i = 0; i < all_a.length; i++) {
+                alert('for循环正在执行,i='+i);
+                all_a[i].onclick = function(){
+                    // 虽然说this是指当前对象(即all_a[i])，但是这里二者不相等
+                    console.log(all_a[i] == this);//不相等
+                    console.log(i);//为什么是3？明明all_a才0、1、2
+                    /* 
+                        为什么不相等呢？
+                        很简单，for循环会在页面加载完成后立即执行
+                        而超链接单击事件是在我们点击后，才会执行
+
+                        因此当响应函数执行完的时候，for循环早已执行完毕
+                        for循环最后的时候，i++使得i最后就停留在3
+                    */
+                    alert('响应函数正在执行,i='+i);
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table id="table" style="border: 1px solid black;">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="deleteEmp?id=001">删除</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a href="deleteEmp?id=002">删除</a></td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>Bob@tom.com</td>
+            <td>10000</td>
+            <td><a href="deleteEmp?id=003">删除</a></td>
+        </tr>
+    </table>
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="word">name:</td>
+                <td class="inp">
+                    <input type="text" name="name" id="name" value="hhh">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">email:</td>
+                <td class="inp">
+                    <input type="text" name="email" id="email" value="hhh@163.com">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">salary:</td>
+                <td class="inp">
+                    <input type="text" name="salary" id="salary" value="15000">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpBtn" value="abc">
+                        提交
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

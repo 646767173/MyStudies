@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        ES6引入了新的原始数据类型Symbol，用于表示独一无二的值。
+        <div>它是JavaScript的第七种数据类型，是一种类字符串的数据类型</div>
+        特点：
+            1.Symbol的值是唯一的，用来解决命名冲突问题
+            2.Symbol值不能与其他数据进行运算
+            3.Symbol定义的对象属性不能用for...in来遍历，但可以用Reflect.ownKeys来获取对象所有键名
+    </h1>
+    <script>
+        let s = Symbol();
+        console.log(s,typeof s);
+
+        let s2 = Symbol('哈哈哈');
+        let s3 = Symbol('哈哈哈');
+        console.log(`s2==s3吗?`+(s2==s3));
+
+        /*
+            Symbol.for()创建的symbol会被放入一个全局symbol注册表中，
+            它会先检查给定的key即括号内的字符串是否已经存在于注册表中，
+            已存在则直接返回储存好的那个，不存在才会创建一个新的symbol
+        */ 
+        let s4 = Symbol.for('哈哈哈');
+        let s5 = Symbol.for('哈哈哈');
+        console.log(`s4==s5吗?`+(s4==s5));
+
+        /* 
+            全局symbol注册表
+            结构如下：
+                全局注册表中的每个记录都有一个key，一个symbol
+                其中 -key是一个字符串，标识每个symbol
+                    -symbol则存储值
+        */
+
+        // symbol不能与其他数据类型进行运算
+
+        // 往game中添加方法up、down，常规法在定义时就添加方法(否则担心有重名，出现方法重写)
+        let game = {
+            name:'game',
+            up:function(){},
+            down:function(){}
+        }
+
+        // 我们要往game里面添加方法，又怕其中已经存在同名方法，因此需要使用symbol
+        // 方法一
+        let methods = {
+            up:Symbol(),
+            down:Symbol()
+        }
+        game[methods.up] = function () {
+            console.log('往上走');
+        }
+        game[methods.down] = function () {
+            console.log('往下走');
+        }
+        console.log(game);
+
+        // 方法二
+        let game2 = {
+            name:'game2',
+            [Symbol('say')]:function(){
+                console.log('发言');
+            },
+        }
+        console.log(game2);
+
+        // 如何调用对应方法？
+        var play = Symbol('play');
+        let game3 = {
+            name:'game3',
+            [play]:function(){//这个属性可调用
+                console.log('在玩');
+            },
+            [Symbol('laugh')]:function(){//这个属性没有变量去接收，无法使用
+                console.log('在在校');
+            }
+        }
+        game3[play]();
+
+        /*
+            Symbol内置值
+            除了定义自己使用的Symbol值以外，ES6还提供了11个内置的Symbol值，指向语言内部使用的方法。
+            可以称这些方法为魔术方法，因为它们会在特定的场景下自动执行
+
+内置Symbol的值              -调用时机
+Symbol.hasInstance          -当其他对象使用instanceof 运算符，判断是否为该对象的实例时，会调用这个方法
+Symbol.isConcatSpreadable   -对象的Symbol.isConcatSpreadable属性等于的是一个布尔值，表示该对象用于 Array.prototype.concat()时，是否可以展开。
+Symbol.species              -创建衍生对象时，会使用该属性
+Symbol.match                -当执行 str.match(myObject) 时，如果该属性存在，会调用它，返回该方法的返回值。
+Symbol.replace              -当该对象被 str.replace(myObject)方法调用时，会返回该方法的返回值。
+Symbol.search               -当该对象被 str. search (myObject)方法调用时，会返回该方法的返回值。
+Symbol.split                -当该对象被 str. split (myObject)方法调用时，会返回该方法的返回值。
+Symbol.iterator             -对象进行 for…of 循环时，会调用 Symbol.iterator 方法，返回该对象的默认遍历器
+Symbol.toPrimitive          -该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。
+Symbol.toStringTag          -在该对象上面调用 toString 方法时，返回该方法的返回值
+Symbol.unscopables          -该对象指定了使用 with 关键字时，哪些属性会被 with环境排除。
+
+        Symbol内置值的使用，都是作为某个对象类型的属性去使用；
+        */ 
+        
+    </script>
+</body>
+</html>

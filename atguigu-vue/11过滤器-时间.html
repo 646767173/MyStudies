@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器</title>
+</head>
+<body>
+    <div id="demo">
+        <h2>显示格式化的日期时间</h2>
+        <p>未过滤的时间：{{date}}</p>
+        <p>年月日时分秒：{{date | dateStr}}</p>
+        <p>年月日：{{date | dateStr('YYYY/MM/DD')}}</p>
+        <p>时分秒：{{date | dateStr('HH:mm:ss')}}</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.js">//时间的js</script>
+
+    <script>
+        //自定义过滤器
+        Vue.filter('dateStr',function(value,format='YYYY/MM/DD HH:mm:ss'){ //Vue.filter是一个函数对象
+            return moment(value).format(format);
+        })
+
+        const vm = new Vue({
+            el:'#demo',
+            data:{
+                date:new Date()
+            },
+            methods:{
+
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

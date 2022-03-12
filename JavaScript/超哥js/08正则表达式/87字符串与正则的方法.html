@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 字符串中与正则表达式有关的方法：
+        /* 
+            split()     将一个字符串拆分成一个数组
+                可以传一个正则表达式作为参数，据此去拆分字符串
+        */
+        var str = '1a2b3c4d5';
+        var reg = /[A-z]/;//任意字母
+        console.log(str.split(reg));
+
+        /* 
+            search()    搜索字符串中是否含有指定内容,有则返回指定内容开始位置索引，无则返回-1
+                可以传一个正则表达式作为参数，据此去作为指定内容
+                search只会返回第一个出现的位置索引，指定全局匹配也一样
+        */
+        str = 'Hello World';
+        reg = /llo/;
+        console.log(str.search(reg));
+
+        /* 
+            match()     将字符串中符合要求的内容提取为一个数组对象返回
+                默认找到一个就停止了，若无则返回null
+                同样可以传一个正则表达式，作为寻找的内容，
+                同时可以开全局匹配模式使其将所有符合要求的都提取出来
+        */
+        reg = /l/g;
+        console.log(str.match(reg));
+
+        /* 
+            replace()   可以将字符串中指定内容换成新内容
+                参数：
+                1.被替换内容(可以是正则表达式或字符串)，
+                    指定内容有多个时默认只替换第一个。
+                2.新内容
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

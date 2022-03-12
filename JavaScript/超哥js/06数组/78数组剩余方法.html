@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['a','b','c'];
+        var arr2 = ['1','2','3'];
+        var arr3 = ['x','y','z'];
+
+        //1 concat() 可以连接两个或多个数组，并将其新数组返回(不影响原数组)
+        var newArr = arr.concat(arr2,arr3,'String',true,123);//还可以手动加其他内容
+        console.log(newArr);
+
+        /*
+          2 join() 可以把数组转换成字符串，将其作为返回值(不影响原数组)
+            同时可以指定一个字符串参数作为元素间的连接符(默认是逗号)
+        */ 
+        var r1 = arr.join('+');
+        console.log(r1);
+
+        // reverse() 用于反转数组，将数组元素顺序翻转(会直接修改原数组，返回值也是颠倒后的数组)
+        var r2 = arr2.reverse();
+        console.log(arr2);
+        console.log(r2);
+
+        /*
+        -sort() 会影响原数组，进行Unicode编码的排序(对纯数字数组排序可能会出错)
+        我们可以自定义排序规则，在sort()里面添加一个回调函数用于指定排列规则
+            回调函数中需要定义两个形参，
+            浏览器会分别使用数组中的元素作为实参去调用回调函数，
+            使用哪个元素调用是不确定的，但在数组中，参数b是参数a后一项
+        -浏览器会根据回调函数的返回值来决定元素的顺序，
+            返回值>0，则数组元素将升序排列(小到大)
+            返回值<0，则数组元素将降序排列(大到小)
+            返回值=0，则认为两者相等，位置也不变
+        */
+        var arr3 = [4,3,2,6,9,1];
+        arr3.sort(function(a,b){
+            // return a-b;// 升序 a-b
+            return b-a;// 降序 b-a
+        })
+        console.log(arr3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

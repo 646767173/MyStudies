@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1什么是json</title>
+</head>
+<script>
+    window.onload = function () {
+        var jsonOBJ = {
+            "key1": 123,
+            "key2": "JSON本身其实就是一个对象",
+            "key3": true,
+            "key4": [11, "arr", false],
+            "key5": {
+                "keykey1": 123,
+                "keykey2": "我又是一个JSON对象"
+            }
+        };
+        alert(jsonOBJ.key5.keykey1);
+    }
+
+</script>
+
+<body>
+    <h2>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式</h2>
+    <hr>
+    <h3>JSON采用完全独立于语言的文本格式</h3>
+    <hr>
+    <h2>
+        为什么说是轻量级？<br>
+        因为早期是使用xml，跟xml对比JSON更轻量级。<br>
+        什么是数据交换？<br>
+        指的是客户端和服务器之间的业务数据的传递格式。<br>
+        在JavaScript中用json就是在客户端。
+    </h2>
+    <hr>
+    <h3>
+        JSON是由键值对组成，并且由花括号{}包围。<br>
+        每一个键由引号包括，键和值之间用冒号分隔，多组键值对用逗号隔开。<Br />
+        JSON其实就是一个对象。因此访问JSON中的KEY就跟访问对象中的属性一样。
+    </h3>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            水平布局：
+            元素在其父元素中水平方向的位置由以下几个属性共同决定
+                -margin-left
+                -border-left
+                -padding-left
+                -width
+                -padding-right
+                -border-right
+                -margin-right
+            同时它的水平布局!必须!满足如下等式：
+            margin-left + border-left + padding-left + width + padding-right
++ border-right + margin-right = width(父元素的)
+            在下面的例子里，
+                inner的水平布局等式为
+                    0+0+0+200+0+0+0 = 500
+                等式如不成立，则称为过渡约束。
+                    此时会进行调整，且7个值中无auto样式值，(有auto则会调整那个auto使等式成立)
+                    则浏览器自动添加剩余值到margin-right中，使得等式成立
+                -如果同时将宽度和外边距设置为auto，则会把宽度调整最大，外边距设置为0
+                -两个外边距为auto，则两个外边距值调整为相同
+        */
+        .outer{
+            width: 500px;
+            height: 200px;
+            border: 10px blue solid;
+        }
+        .inner{
+            width: 200px;
+            height: 200px;
+            margin:0 auto;
+            background-color: orange;
+            /* 实现一个元素在其父元素中水平居中 */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <!-- 实现一个元素在其父元素中水平居中 -->
+</body>
+</html>

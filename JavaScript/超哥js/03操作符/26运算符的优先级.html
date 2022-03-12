@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //使用,运算符可以分割多个语句，一般可以在声明多个变量时使用 
+        var a,b,c;
+        a = 1 ,b = 2,c = 3;
+        console.log(a,b,c);
+
+        //还可以这样子
+        var a = 3,b = 4,c = 5;
+        console.log(a,b,c);
+
+        /*
+            运算符也有优先级，有些优先级同数学一样
+            在JS中有一个运算符优先级的表，
+            在表中越靠上的运算符越优先计算
+            如果优先级相同则从左往右计算
+            遇到优先级不清楚的，可以查表或者通过括号()去调整优先级达到想要的效果
+        */ 
+        // 如果||优先级高，或两者优先级一样，则返回3；若&&优先级高则返回1
+        var result = 1 || 2 && 3;//结果是1，即&&优先级高
+        console.log(result==1 ? '&&优先级高' : '&&优先级可能与||相同');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

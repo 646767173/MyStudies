@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户名校验</title>
+</head>
+<script>
+    /*
+    需求：用户点击校验按钮后，获取输入框内容，并检验其是否合法
+    合法性严要求是：必须由字母、数字、下划线组成，长度为5-12位
+    */ 
+    function check(){
+        // 1.获取标签对象
+        var app = document.getElementById("username");//app是dom对象
+        var usernameText = app.value; //value是输入框里面的字符串
+
+        // 正则表达式定义合法性规则
+        var patt = /^\w{5,12}$/ ; //以字符串开头且结尾，长度为5-12位，这里的字符串是“字母、数字、下划线”
+
+        if(patt.test(usernameText)){ //如果usernameText匹配正则表达式要求，就会返回true，否则false
+            alert("此用户名合法");
+        }else{
+            alert("此用户名不合法");
+        }
+    }
+</script>
+<body>
+    用户名：<input type="text" id="username" value="我是默认值"> <!-- 这里的value是输入框默认值 -->
+    <button onclick="check();">合法性校验</button>
+</body>
+</html>
+

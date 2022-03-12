@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Location
+            -代表当前浏览器的地址栏信息，借此可以获取地址栏信息或操作浏览器跳转网页
+        */
+        window.onload = function(){
+            /* 
+                Location对象里面的属性
+                都是获取地址对应块的
+                地址都是由一块一块有意义的内容组成的
+            */
+            var btn = document.getElementById('btn');
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+            var btn3 = document.getElementById('btn3');
+            btn.onclick = function(){
+                console.log(location.href);
+            }
+            btn1.onclick = function(){
+                // 如果将location设置为一个完整的地址或相对地址，则会跳转至该页面，并自动生成相应的历史记录
+                // location = 'https://www.baidu.com';
+                // assign()方法，用来跳转一个新页面，参数为新页面地址字符串，效果同直接修改loaction
+                location.assign('https://www.baidu.com');
+            }
+            btn2.onclick = function(){
+                // reload()方法用于重新加载当前页面，作用同刷新，参数传true表示强制清空缓存刷新
+                location.reload();
+            }
+            btn3.onclick = function(){
+                // replace()方法可以用一个新页面替换当前页面，不会生成历史记录，无法后退
+                // 传一个字符串作为新页面的路径
+                location.replace('https://www.baidu.com');
+            }
+            
+
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Location</h1>
+    <button id="btn">点击获取地址栏地址</button>
+    <button id="btn1">点击跳转至Baidu</button>
+    <button id="btn2">点击我重新加载该页面</button>
+    <button id="btn3">点击我用Baidu替换当前页面</button>
+    <input type="text">
+</body>
+</html>

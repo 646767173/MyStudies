@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.2.js"></script>
+</head>
+<body>
+    <!-- 
+        1.作为一般函数调用：$(param)
+            1)参数为函数：当DOM加载完成后，执行该回调函数
+            2)参数为选择器字符串：查找所匹配的标签，并封装为jQuery对象
+            3)参数为DOM对象：将其封装为jQuery对象
+            4)参数为html标签字符串(用得较少)：创建标签对象并封装成jQuery对象
+        2.作为对象使用：$.xxx()
+            1)  $.each()：隐式遍历数组
+            2)  $.trim()：去除两端空格
+     -->
+    <div>
+        <button id="btn">测试</button><br>
+        <input type="text" name="msg1"><br>
+        <input type="text" name="msg2"><br>
+    </div>
+    
+    <script>
+        /* 
+            需求1：点击按钮，显示按钮的文本，显示一个新的输入框
+            需求2：遍历输出数组中的所有元素值
+            需求3：去掉"  hahaha   "两端的空格
+        */
+
+        // 需求1：点击按钮，显示按钮的文本，显示一个新的输入框
+
+        // 1.1参数为函数：当DOM加载完成后，执行该回调函数
+        $(function(){   //绑定文档加载完成的监听
+            console.log('文档加载完成......');
+            var $btn = $('#btn');// 1.2参数为选择器字符串：查找所匹配的标签，并封装为jQuery对象
+            console.log($btn);//封装之后是jQuery对象
+            $btn.click(function(){
+                // 事件回调函数的this，永远是发生事件的dom元素
+                console.log(this);
+                // 1.3参数为DOM对象：将其封装为jQuery对象
+                alert( $(this).html() );
+                // 1.4参数为html标签字符串(用得较少)：创建标签对象并封装成jQuery对象
+                $('<input type="text" name="msg3"><br>').appendTo('div');
+            })
+        })
+
+        // 需求2：遍历输出数组中的所有元素值
+        var arr = [2,4,6,7];
+        // jQuery.each();可以遍历输出对象和数组，参数二是每次遍历执行的函数
+        // 2.1 $.each()：隐式遍历数组
+        $.each(arr,function(i,n){//首参数i是数组下标，次参数n是该下标的值
+            console.log('Item#'+i+':'+n);
+        })
+        // 2.2 $.trim()：去除两端空格
+        var str = '   hhh   ';
+        var value = $.trim(str);//或者
+        console.log($.trim);
+        console.log('___'+value+'___');
+    </script>
+</body>
+</html>

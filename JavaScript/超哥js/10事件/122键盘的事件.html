@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            width: 200px;
+            height: 200px;
+            background-color: #Faf;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /* 
+                键盘事件通常绑定给可以获取焦点的对象(input)或者document
+                onkeydown
+                    -按键被按下     如果按钮一直不松开，事件会一直触发
+                        连续触发时，第一次触发和第二次之间间隔会稍长，其他会非常快
+                        这种设计是为了防止误操作的发生
+                onkeyup
+                    -按键被松开
+            */
+            document.onkeydown = function(event){
+                event = event||window.event;
+                /* 
+                    可以通过keyCode获取按键的编码
+                    通过按键编码去判断是按下了哪一个按键
+                    -通过altKey,ctrlKey,shiftKey去判断是否分别按下alt键、ctrl键、shift键
+                        按下了则返回true，否则false
+                */
+                // 判断是否按下回车键(13)和ctrl键
+                if(event.keyCode === 13&&event.ctrlKey == true)
+                    console.log('按下了ctrl和Enter键');
+            }
+            
+            var input = document.getElementById('input');
+            input.onkeydown = function(event){
+                event = event||window.event;
+                // 我想让数字无法输入在文本框中，数字键的编码是48-57，小键盘数字键是96-105
+                if( (event.keyCode>=48&&event.keyCode<=57) || (event.keyCode>=96&&event.keyCode<=105) ){
+                    /* 
+                        在文本框中，输入按键中的文字属于onkeydown的默认行为
+                        取消了则无法输入键盘上的内容
+                    */
+                    console.log('您输入了不允许输入的数字');
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+    <input type="text" id="input">
+</body>
+</html>

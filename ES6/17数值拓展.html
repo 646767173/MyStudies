@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 0. Number.EPSILON是JavaScript表示的最小精度，其值接近2.22的﹣16次方
+        console.log('0——Number.EPSILON是JavaScript表示的最小精度',Number.EPSILON);
+        equal = (a,b) => Math.abs(a-b) < Number.EPSILON;//箭头函数简写，
+        console.log(0.1+0.2);
+        console.log(0.1+0.2===0.3);//false 因为精度问题
+        console.log( equal(0.1+0.2,0.3) );//true
+
+        // 1.引入了0b和0o分别表示二进制和八进制
+        console.log('1——引入了0b和0o分别表示二进制和八进制');
+        let a = 0b1010;//2
+        let b = 0o777;//8
+        let c = 1000;//10
+        let d = 0xff;//16
+        console.log(a.toString(2),b.toString(8),c,d.toString(16));
+
+        // 2.Number.isFinite    检测一个数值是否为有限位数
+        console.log('2——Number.isFinite');
+        console.log(Number.isFinite(100));
+        console.log(Number.isFinite(100/0),100/0);
+        console.log(Number.isFinite(Infinity));
+
+        // 3.Number.isNaN
+        console.log('3——Number.isNaN');
+        console.log(Number.isNaN(123));
+
+        // 4.Number.parseInt Number.parseFloat 将字符串转换为整数、浮点数
+        console.log('4——Number.parseInt Number.parseFloat');
+        console.log(Number.parseInt('123abc'));
+        console.log(Number.parseFloat('123.321abc'));
+
+        // 5.Number.isInteger   判断一个数值是否为整数
+        console.log('5——Number.isInteger');
+        console.log(Number.isInteger(6));
+        console.log(Number.isInteger(6.6));
+
+        // 6.Math.trunc     抹除小数位
+        console.log('6——Math.trunc');
+        console.log(Math.trunc(3.55555));
+
+        // 7.Math.sign  判断一个数是正数(返回1)、负数(返回-1)、零(返回0)
+        console.log('7——Math.sign');
+        console.log(Math.sign(3.55555));
+        console.log(Math.sign(-3.55555));
+        console.log(Math.sign(0));
+    </script>
+</body>
+</html>

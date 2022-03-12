@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        ES6允许给函数的形参设置默认值
+    </h1>
+    <script>
+        // 1.通常设置初始值的形参，位置要在后边(潜规则)
+        function add(a,b,c=10){
+            return a+b+c;
+        }
+        console.log( add(1,2) );
+
+        // 2.与解构赋值结合
+        function connection( {host="127.0.0.1", username, password, port} ){
+            console.log(host);
+            console.log(username);
+            console.log(password);
+            console.log(port);
+        }
+        connection( {
+            host:'hahaha.com',
+            username:'root',
+            password:'root',
+            port:3306
+        } )
+
+    </script>
+</body>
+</html>

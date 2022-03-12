@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onblur</title>
+    <script>
+        // 静态注册
+        function outOfUsername(){
+            console.log("静态username输入框丢失焦点");
+        }
+        function outOfPwd(){
+            console.log("静态password输入框丢失焦点");
+        }
+        // 动态注册
+        window.onload = function(){
+            // 1.获取标签对象
+            var username = document.getElementById("username");
+            var password = document.getElementById("password");
+            // 2.通过标签对象.方法名 = function(){};
+            username.onblur = function(){
+                console.log("username输入框丢失焦点");
+            };
+            password.onblur = function(){
+                console.log("password输入框丢失焦点");
+            };
+        }
+    </script>
+</head>
+
+<!-- 静态注册 -->
+
+
+<body>
+    <p style="font-size: large;color: blue;">注意onblur的失去焦点是指鼠标点了作用区域外，而不是移出去就触发事件</p>
+    username静态: <input type="text" onblur="outOfUsername()"><br>
+    password静态: <input type="password" onblur="outOfPwd()"><br>
+
+    username动态: <input type="text" id="username"><br>
+    password动态: <input type="password" id="password"><br>
+
+</body>
+</html>

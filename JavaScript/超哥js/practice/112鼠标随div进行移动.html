@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #faf;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // 鼠标在页面上指到哪里，div就跟着去哪里
+            var box = document.getElementById('box');
+            document.onmousemove = function(e){
+                // 兼容性
+                e = e||window.event;
+                // 开始操作
+                box.style.position = 'absolute';// 开启绝对定位
+                /* 
+                    clientX和clientY是用于获取在当前可见窗口的坐标
+                    而元素的偏移量时相对于整个页面的，因此二者之间会存在误差
+                    因此使用能获取整个页面的坐标即可
+                    page在IE8及以下版本不支持
+                    如需兼容，需要将元素的坐标加上滚动条的距离
+                */
+                // 火狐认为scroll属性是body的，其他浏览器认为是html的，兼容处理
+                var st = document.body.scrollTop || document.documentElement.scrollTop;
+                var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+                box.style.left = e.clientX +sl +'px' ;// 设置元素水平偏移量 = 鼠标在屏幕中的水平坐标
+                box.style.top = e.clientY +st +'px';//  设置元素垂直偏移量 = 鼠标在屏幕中的垂直坐标
+            }
+        }
+    </script>
+</head>
+<body style="width:1000px;height:2000px">
+    <div id="box"></div>
+</body>
+</html>

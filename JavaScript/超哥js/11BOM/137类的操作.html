@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .b2{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            var btn1 = document.getElementById('btn1');
+            var box1 = document.getElementById('box1');
+            btn1.onclick = function(){
+                /* 
+                    通过style属性来修改元素的样式
+                    但是每修改一个样式，浏览器就要重新渲染一次页面
+                    这样执行的性能是比较差的
+                    而且我们要修改多个样式时也不太方便
+                */
+                // box1.style.width = '200px';
+                /* 
+                    我希望一行代码修改多个样式
+                    我们可以通过修改元素class属性名来间接修改样式
+                    这样我们只需修改一次就可以同时修改多个样式
+                    浏览器只需要重新渲染页面一次即可，性能比较好
+                    这样我们就让 行为(JS) 和 表现(CSS) 分离了
+                */
+                toggleClass(box1,'b2');
+            }
+
+            /* 
+                定义一个为元素添加类的函数
+                参数
+                    -obj    要添加的对象
+                    -cn     要添加的样式类
+            */
+            function addClass(obj,cn){
+                // 用之前先检查类中有没有cn
+                if( !hasClass(obj,cn) ){
+                    // 没有就添加，有则不用添加
+                    obj.className += ' '+cn;
+                }
+            }
+            
+            /* 
+                定义一个检查元素有无类的函数
+                参数
+                    -obj    要添加的对象
+                    -cn     要检查的样式类
+            */
+            function hasClass(obj,cn){
+                // 检查里面有没有cn，创建一个正则表达式，是否有独立的cn
+                var reg = new RegExp('\\b'+cn+'\\b');
+                return reg.test(obj.className);
+            }
+
+            /* 
+                定义一个删除元素中指定类的函数
+                参数
+                    -obj    要添加的对象
+                    -cn     要检查的样式类
+            */
+            function removeClass(obj,cn){
+                var reg = new RegExp('\\b'+cn+'\\b');
+                if(reg){
+                    // 如果有，则用空串去替代它
+                    obj.className = obj.className.replace(reg,'');
+                }
+            }
+
+            /* 
+                定义一个切换元素中指定类的函数(有则删除，无则添加)
+                参数
+                    -obj    目标元素对象
+                    -cn     要指定的样式类
+            */
+            function toggleClass(obj,cn){
+                if( hasClass(obj,cn) ){
+                    removeClass(obj,cn);
+                }else{
+                    addClass(obj,cn);
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <button id="btn1">点一下切换其样式b2</button>
+    <br>
+    <br>
+    <div id="box1" class="b1"></div>
+</body>
+</html>

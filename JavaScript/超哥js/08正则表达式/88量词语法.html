@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            量词，表示出现的次数
+            量词只对它前面的一个的个体起作用
+
+            xyz{n}      表示xy后紧跟着的z出现n次
+            x(yz){n,m}  表示x后紧跟着的yz出现n~m次(出现次数在n~m次都行)
+            {n,}        表示出现n次及以上即可
+
+            x+          表示x出现至少一次，相当于{1,}
+            x*          表示x有没有都行，相当于{0,}
+            x?          表示x出现0次或1次，相当于{0,1}
+
+            /^x/        没有[]的^,表示字符串必须以x开头
+            /x$/        表示字符串以x结尾
+            /^x$/       表示字符串 以x开头后且以x结尾，即字符串为'x'
+            /^xxx$/     表示字符串 以xxx开头且以xxx结尾，即字符串为'xxx'
+            /^xx|yy$/   表示字符串要 以xx开头 或者 以yy结尾，满足其一即可
+
+            /ab{3}/     出现连续的abbb
+            /(ab){3}/   出现连续的ababab
+        */
+        var reg = /^xx|yy$/;
+        // console.log(reg.test(''));
+
+        /*
+            检测合法手机号的正则表达式
+            1.必须是11位纯数字
+            2.开头第一位数字必须是1，第二位数字是[3-9]，其余数字随机
+        */ 
+        var cellphoneReg = /^1[3-9][0-9]{9}$/;
+        console.log(cellphoneReg.test('1450499204'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

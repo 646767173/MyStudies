@@ -1,0 +1,11 @@
+div {
+  width: 100px;
+  height: 200px;
+  border: 1px solid green;
+}
+span {
+  color: #004080;
+}
+body:hover {
+  background-color: #4444ff;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+/* 
+    background-image: radial-gradient()径向渐变
+    就是从中心向四周发散
+        默认情况下，径向渐变的形状根据元素的大小计算
+            正方形————正圆(circle)
+            常规矩形——椭圆(ellipse)
+        可以这样写(circle,color,color)/)(ellipse,color,color)
+
+        还可以手动指定径向渐变的大小(xxpx xxpx,color,color)
+        这样只有中心xx宽高的区域会渐变，其他为纯色
+            如果后面再补上(xxpx xxpx at 0 0)
+            则可以让圆心坐标定(0,0)
+            通过at 来指定位置，还可以形如at center right
+        radial-gradient(大小 at 位置,color 位置,color 位置,...)
+            大小：
+                -circle
+                -ellipse
+                closest-side        近边
+                farthest-side       远边
+                closest-corner      近角
+                farthest-corner     远角
+*/
+            background-image: radial-gradient(100px 100px at top right,red,yellow);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

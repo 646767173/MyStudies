@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if指令</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换显示状态" @click="changeShow">
+        <input type="button" value="温度加一" @click="addT">
+        <input type="button" value="温度减一" @click="subT">
+        <P>温度：{{temperature}}(临界数字30)</P>
+        <p v-if="isShow">未来战士锐雯v-if</p>
+        <p v-show="isShow">未来战士锐雯v-show</p>
+        <h2 v-if="temperature>=30">THE WEATHER IS SO HOT!!!</h2>
+    </div>
+    
+    <!-- 1.开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isShow:false,
+                temperature:28
+            },
+            methods:{
+                changeShow:function(){
+                    this.isShow=!this.isShow;
+                },
+                addT:function(){
+                    this.temperature++;
+                },
+                subT:function(){
+                    this.temperature--;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

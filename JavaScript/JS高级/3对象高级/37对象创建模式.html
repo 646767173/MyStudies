@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        对象创建模式
+            有多种方法，各有优缺点，如下所示：
+     -->
+    <script>
+        /* 
+            方式一：Object构造函数模式
+                套路：先创建空Object对象，再动态添加属性/方法
+                适用场景：起始时不确定对象内部数据
+                缺点：语句太多
+        */
+        // 创建一个人：name：'Tom'，age：12
+        var p1 = new Object();
+        p1.name = 'Tom'
+        p1.age = 12
+        p1.setName = function(name){
+            this.name = name
+        }
+        // 测试
+        console.log(p1.name,p1.age);
+        p1.setName('Jack');
+        console.log(p1.name,p1.age);
+
+        /* 
+            方式二：对象字面量模式
+                套路：使用{}创建对象，同时指定属性、方法
+                适用场景：起始时对象内部数据是确定的，且创建的对象数量少
+                问题：如果创建多个对象，会有重复代码
+        */
+        // 创建一个人：name：'Tom'，age：12
+        var p2 = {
+            name:'Tom',
+            age:12,
+            setName:function(name){
+                this.name = name;
+            }
+        }
+        // 测试
+        console.log(p2.name,p2.age);
+        p2.setName('Jack');
+        console.log(p2.name,p2.age);
+        // 如果要创建多个信息不同的对象，代码很重复
+
+        /* 
+            模式三：工厂模式
+                套路：通过工厂函数动态创建对象并返回
+                适用场景：需要创建多个对象
+                问题：对象没有一个具体的类型，都是Object类型，无法进行有效区分
+        */
+        function createPerson(name,age){//返回一个对象的函数 都可以称为工厂函数
+            var obj = {
+                name:name,
+                age:age,
+                setName:function(name){
+                    this.name = name;
+                }
+            }
+            return obj;
+        }
+        // 创建两个人
+        var p31 = createPerson('John',12)
+        var p32 = createPerson('Jasen',14)
+        console.log(p31,p32);
+        // 但是如果我用这种方法创建了一个宠物，返回的类型都是Object，无法有效的区分二者
+
+        /* 
+            模式四：自定义构造函数模式
+                套路：自定义构造函数，通过new创建对象
+                适用场景：需要创建多个类型确定的对象
+                问题：每个对象都有相同的数据，浪费内存
+        */
+        // 自定义了一个Person类
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.setName = function(name){
+                this.name = name;
+            }
+        }
+        var p41 = new Person('Johnny',20);
+        var p42 = new Person('Ben',21);
+        console.log(p41,p42);
+        // 但是p41和p42两个对象都有相同的数据(setName方法)，是完全一致的，但是又占用了两块不同的内存
+
+        /* 
+            模式五：构造函数+原型的组合模式(模式四的改进升级版)
+                套路：自定义构造函数，属性在函数中初始化，方法则添加到原型对象上
+                适用场景：需要创建多个类型确定的对象
+        */
+        // 创建一个Human类
+        function Human(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        // 方法定义写在函数外，添加到原型对象上
+        Human.prototype.setName = function(name){
+            this.name = name;
+        }
+        // 创建两个人
+        var p51 = new Human('Lucy',21)
+        var p52 = new Human('Fancy',22)
+        p51.setName('Rosy')
+        p52.setName('Ruby')
+        console.log(p51,p52);//这时，对象上不会有方法，方法只存在于其原型对象上，节省了内存
+    </script>
+</body>
+</html>

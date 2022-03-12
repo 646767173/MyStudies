@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预览图切换</title>
+    <style>
+        .active{
+            border:solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">预览图片</h2>
+
+            <!-- 左：上一张 -->
+            <a href="javascript:void(0)" v-show="index!=0" @click="prev" class="left">
+                <button>上一张</button>
+            </a>
+
+            <!-- 右：下一张 -->
+            <a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next" class="right">
+                <button>下一张</button>
+            </a>
+
+            <!-- 图片 -->
+            <img :src="imgArr[index]" alt="">
+            
+        </div>
+    </div>
+    
+    <!-- 1.开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+        var app = new Vue({
+            el:"#mask",
+            data:{
+                imgArr:[
+                    "E:/迅雷下载/黎明使者.jpg",
+                    "E:/迅雷下载/黑夜使者.jpg",
+                    "E:/迅雷下载/黎明与黑夜.jpg"
+                ],
+                index:0
+            },
+            methods:{
+                prev:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

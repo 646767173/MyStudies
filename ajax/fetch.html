@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch发送ajax请求</title>
+</head>
+<body>
+    <button>Ajax请求</button>
+    <script>
+        const btn = document.querySelector('button');
+
+        btn.onclick = function(){
+            fetch('http://127.0.0.1:8000/fetch?vip=36',{//url
+                //请求方法
+                method:'POST',
+                //请求头
+                headers:{
+                    name:'Hahaha'
+                },
+                //请求体
+                body:'username=admin&password=admin'
+            }).then(response => {//响应在此直接加then
+                //return response.text();//字符串
+                return response.json();//服务器结果如果为json
+            }).then(response => {
+                console.log(response);
+            })
+        }
+    </script>
+</body>
+</html>

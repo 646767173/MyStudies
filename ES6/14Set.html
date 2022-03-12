@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            ES6提供新数据结构Set集合，类似于数组，但成员的值唯一
+            集合实现了Iterator接口，可以使用 扩展运算符... 和 for...of 进行遍历
+        */
+        // 声明一个 set
+        let s = new Set();
+        console.log(s,typeof s);//它是一个对象类型
+
+        let s2 = new Set(['a','b','c','d','a','c']);
+        console.log(s2);//会自动去重
+        // 数组个数 .size
+        console.log(s2.size);
+        // 后面添加新元素 .add() 返回值添加后当前集合对象
+        s2.add('fff');
+        console.log(s2);
+        // 删除项 .delete() 返回值true/false
+        s2.delete('d');
+        console.log(s2);
+        // 检测项 .has() 返回值true/false
+        console.log(s2.has('fff'));
+        // 清空集合 .clear() 返回undefined
+        s2.clear();
+        console.log(s2);
+    </script>
+</body>
+</html>

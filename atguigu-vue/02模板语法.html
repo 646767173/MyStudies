@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板语法</title>
+</head>
+<body>
+    <div id="app">
+        <h2>1.双大括号表达式</h2>
+        <p>{{msg}}</p> <!--textContent-->
+        <p v-text="msg"></p><!-- 同上 textContent 即使是标签页也只作为文本出现-->
+        <p v-html="msg"></p><!-- 这里则是innerHTML 超链接-->
+        <br>
+        <h2>2.指令一：强制数据绑定</h2>
+        <img src="imgUrl"><!-- html语法 -->
+        <br>
+        <img v-bind:src="imgUrl"><!-- 通过vue强制转换为js语法 -->
+        <br>
+        <img :src="imgUrl"><!-- 简写方式  -->
+        <h2>3.指令二：绑定事件监听</h2>
+        <button @click="test">test</button>
+        <button @click="test2('this is test2')">test2</button>
+    </div>
+
+     <!-- 开发环境版本，包含了有帮助的命令行警告，必须要引入才可以用vue -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script>
+         const vm = new Vue({
+             el:'#app',
+             data:{
+                msg:'<a href="https://www.baidu.com">百度一下你就知道</a>',
+                imgUrl:'https://i0.hdslb.com/bfs/archive/538c08476c39a4dd5f8ccb1b580aa171db5e5d35.jpg@336w_190h.webp'
+            },
+            methods:{
+                test(){
+                    alert("haha");
+                },
+                test2(content){
+                    alert(content);
+                }
+            }
+         })
+
+     </script>
+</body>
+</html>

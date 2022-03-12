@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        迭代器(iterator)是一种接口，胃不痛数据结构提供统一的访问机制
+        任何数据结构只要部署了Iterator接口，就可以完成遍历操作
+    </h1>
+    <h2>
+        特性：
+        1.ES6创建了一种新遍历命令for...of循环，Iterator接口供for...of消费
+        2.原生具备Iterator接口的数据
+            -Array
+            -Arguments
+            -Set
+            -Map
+            -String
+            -TypedArray
+            -NodeList
+        3.工作原理
+            1)创建一个指针对象指向当前数据结构起始位置
+            2)第一次调用对象next方法，指针自动指向数据结构第一个成员
+            3)接下来不断调用next方法，指针一直往后移动直至指向最后一个成员
+            4)每次调用next方法，返回一个包含value和done属性的对象(value为当前成员值，done为是否已遍历完所有值)
+        -当需要自定义遍历数组时，要想到用迭代器
+    </h2>
+    <script>
+        // 声明一个数组
+        const four = ['a','b','c','d'];
+        for(let i of four){
+            console.log(i);
+        }
+        console.log(four);
+
+        let iterator = four[Symbol.iterator]();//把原生Iterator接口拿出来用
+        console.log(iterator.next());//调用next方法
+        console.log(iterator.next());//调用next方法
+        console.log(iterator.next());//调用next方法
+        console.log(iterator.next());//调用next方法
+        console.log(iterator.next());//此时已无值，done才会为true
+
+        // 重新初始化了一个对象后，指针又回到了初始最前面
+        let it1 = four[Symbol.iterator]();
+        console.log(it1);
+
+        // 自定义遍历数组
+        const obj = {
+            name,
+            stus:['11','22','33','44'],
+            [Symbol.iterator](){//自己重写里面的方法
+                // 索引变量
+                let index = 0;
+                // 要存储this
+                let that = this;
+                return{
+                    next:function(){
+                        if(index < that.stus.length){
+                            const result = {//先输出result，再索引自增
+                                value:that.stus[index],
+                                done:false
+                            };
+                            index++;
+                            return result;
+                        }else{//索引已是最大长度时，返回如下
+                            return{
+                                value:undefined,
+                                done:true
+                            };
+                        }
+                    }
+                };
+            }
+        }
+        // 遍历该对象
+        for(let v of obj){
+            console.log(v);
+        }
+    </script>
+</body>
+</html>

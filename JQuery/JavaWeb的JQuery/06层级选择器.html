@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层级选择器</title>
+</head>
+<script src="./jquery-1.7.2.js"></script>
+<script>
+    $(function () {//==onload页面加载完成后
+        $("*").css("background-color","#ffffff");
+        $("#btn1").click(function () {//1
+            $("form input").css("background-color", "#bbffaa");
+        });
+        $("#btn2").click(function () {//2
+            $("form > input").css("background-color", "#aabbcc");
+        });
+        $("#btn3").click(function () {//3
+            $("label + input").css("background-color", "#ffff12");
+        });
+        $("#btn4").click(function () {//4
+            $("form ~ input").css("background-color", "#654321");
+        });
+
+        $("#btn5").click(function () {//5
+            $("*").css("background-color","#ffffff");
+        });
+    })
+</script>
+<!-- 
+    常见转义字符：
+    字符        十进制      转义字符
+    "           &#34;        &quot;
+    &           &#38;        &amp;
+    <           &#60;        &lt;
+    >           &#62;        &gt;
+    空格        &#160;       &nbsp;
+ -->
+<body>
+    层级选择器<br>
+    1.在给定的标签里面匹配所有标签<br>
+    $("form input");//就是找form里面的input,不是form里面的input不会返回<button id="btn1">点击展示层级选择器1</button>
+    <hr>
+    2.在给定的标签里面匹配所有子标签<br>
+    $("form > input");//就是找form子标签里面的input,form孙标签里面的input不会返回<button id="btn2">点击展示层级选择器2</button>
+    <hr>
+    3.匹配所有当前标签跟着下一标签的结果<br>
+    $("label + input");//就是找所有label和紧跟后面同级的input,不是紧跟着的或非同级，都不会返回<button id="btn3">点击展示层级选择器3</button>
+    <hr>
+    4.在给定的标签里面在父标签里匹配子标签<br>
+    $("form ~ input");//就是找form后面所有的同级input,form前面的或不同级的input不会返回<button id="btn4">点击展示层级选择器4</button>
+    <hr>
+    <input type="text" value="input0,front"/>
+    <form style="border: solid 1px;">
+        <label>label1:</label>
+        <input type="text" value="input1子标签，在label后面"/>
+        <br>
+        <label>
+            label2:
+            <input type="text" value="input2孙标签，在label里面"/>
+        </label>
+    </form>
+    <label>label3:</label>
+    <input type="text" value="input3同级标签，在label后面">
+    <button id="btn5">颜色还原</button>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            对象的属性名用什么都可以，不做强制要求(使用关键字也不影响)
+            -但最好还是使用规范名字
+
+            如果要使用特殊的属性名，需要这样去定义
+            对象名["属性名"] = 属性值;
+            读取以及访问该属性时，也要用这样的方式才行
+
+            使用[]这种方式，还可以通过传递变量
+            -这样该变量值是什么，就会读取对应属性，展示其属性值
+            var n = '123',obj["123"]='321';
+            log(obj[n]);//'321'
+        */ 
+
+        var obj = new Object();
+        obj.var = 'name';
+        obj.new = 'string';
+
+        obj['123321'] = 123123;
+        console.log(obj);
+
+        var n;
+        n = '123321';
+        n = 'new';
+        console.log(obj[n]);//n的值是哪一个属性名，就传递该属性对应的属性值
+
+    // 对象里面的属性值可以是任何数据类型，undefined、null，还可以是另一个对象
+        var boj = new Object();
+        boj.name = 'boj';
+        obj.test = boj;
+        console.log(obj);
+        console.log(obj.test.name);//访问对象obj里的对象boj里的属性test
+
+        // in运算符可以用于检查对象中是否有某属性，有则true，否则false
+        console.log('test' in obj);
+        console.log('test' in boj);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

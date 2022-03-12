@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+</head>
+<body>
+    <!-- 
+        1.条件渲染指令
+        v-if
+        v-else
+
+        v-show
+        实现标签的显示和隐藏
+        2.对比v-if和v-show
+        频繁切换则v-show更好
+     -->
+
+     <div id="demo">
+         <p v-if="ok">success</p> <!-- v-if是让标签直接移除-->
+         <p v-else>fail</p> <!-- v-else后面不写=boolean 则默认 =true -->
+        <br>
+         <p v-show="ok">表白成功</p> <!-- v-show 只是控制标签中的style的display为none,即隐藏而已-->
+         <p v-show="!ok">表白失败</p>
+
+         <button @click="ok=!ok">切换</button>
+         
+     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#demo',
+            data:{
+                ok:false,
+
+            }
+        })
+    </script>
+</body>
+</html>

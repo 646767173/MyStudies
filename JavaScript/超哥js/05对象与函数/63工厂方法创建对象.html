@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            使用工厂方法创建对象(提取重复代码，增加代码复用性，只需要更改不同的地方)
+            定义一个函数，用于创建对象
+        */ 
+        function createPerson(name,age,gender){
+            // 创建新对象
+            var obj = new Object();
+            // 往对象里面添加属性
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            obj.sayName = function(){
+                console.log(this.name);
+            }
+            // 将对象返回
+            return obj;
+        }
+
+        var obj1 = createPerson('hhh',20,'male');
+        var obj2 = createPerson('hhg',21,'male');
+        var obj3 = createPerson('hll',20,'female');
+        var obj4 = createPerson('aaa',23,'female');
+
+        console.log(obj1);
+        console.log(obj2);
+        console.log(obj3);
+        console.log(obj4);
+        obj4.sayName();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByName</title>
+</head>
+<script>
+    function selectAll() {//全选
+        var hobbyDOM = document.getElementsByName("hobby");
+        //返回带有指定名称的有序对象集合，集合中每个元素都是dom对象
+        hobbyDOM[0].checked = true;
+        hobbyDOM[1].checked = true;
+        hobbyDOM[2].checked = true;
+    }
+
+    function deleteAll() {//全不选
+        var hobbyDOM = document.getElementsByName("hobby");
+        hobbyDOM[0].checked = false;
+        hobbyDOM[1].checked = false;
+        hobbyDOM[2].checked = false;
+    }
+
+    function reverse() {//反选
+        var hobbyDOM = document.getElementsByName("hobby");
+        for (var i = 0; i < hobbyDOM.length; i++) {
+            hobbyDOM[i].checked = !hobbyDOM[i].checked;
+        }
+    }
+</script>
+
+<body>
+    <p>getElementsByName</p>
+    兴趣爱好：
+    <input type="checkbox" name="hobby" value="c语言" checked="checked">c语言
+    <input type="checkbox" name="hobby" value="Java">Java
+    <input type="checkbox" name="hobby" value="JavaScript">JavaScript
+    <br>
+    <button onclick="selectAll()">全选</button>
+    <button onclick="deleteAll()">全不选</button>
+    <button onclick="reverse()">反选</button>
+</body>
+
+</html>

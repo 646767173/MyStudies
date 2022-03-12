@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            BOM(Browser Object Model)浏览器对象模型
+            -DOM使我们可以通过JS操作文档(document)
+            -BOM使我们可以通过JS操作浏览器
+            -BOM对象为我们提供了一组对象，用来完成对浏览器的操作
+                BOM对象
+                    Window
+                    -代表整个浏览器的窗口，同时window也是网页中的全局对象
+                    Navigator
+                    -代表当前浏览器的信息，通过该对象可以识别不同的浏览器
+                    Location
+                    -代表当前浏览器的地址栏信息，借此可以获取地址栏信息或操作浏览器跳转网页
+                    History
+                    -代表浏览器的历史记录
+                        由于隐私原因，该对象不能获取到具体历史记录，只能操作页面向前或者后退
+                        且只有当次有效，重新打开一次浏览器就没有记录了
+                    Screen(PC端用得不多)
+                    -代表用户的屏幕信息，可以获取用户的显示器相关信息
+
+                这些对象在浏览器中都是作为window对象的属性保存的
+                    作为全局对象，也可以直接使用
+        */
+        console.log(window);
+
+        /* 
+            Navigator
+            -代表当前浏览器的信息，通过该对象可以识别不同的浏览器
+            -由于历史原因，Navigator对象中大部分属性已经不能帮助我们识别浏览器了
+            appName
+                -该属性可以获取浏览器的名字，但现在多数主流浏览器结果都是Netscape
+            userAgent
+                -一般我们只会使用来判断浏览器信息
+                -userAgent是一个字符串，这个字符串中包含有用来描述浏览器信息的内容
+                不同的浏览器会有不同的userAgent
+
+            Edge浏览器
+            Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36 Edg/92.0.902.84
+        */
+        console.log(navigator.userAgent);
+        // 区分浏览器
+        if(/Edge/i.test(navigator.userAgent)){
+            alert('你是Edge浏览器');
+            // 进入Edge专属的页面布局
+        }//......
+
+        // 如果通过UserAgent都判断不出浏览器，还可以通过一些浏览器中特有的对象，来判断浏览器信息
+        // 比如ActiveXObject，这个属性只有IE有，可以借此来区分
+        //  然而微软又抓住了漏洞，对这个函数做了手脚，通过true/false已经无法判断了
+        if('ActiveXObject' in window){
+            alert('你是IE，我已经抓住你了');
+        }else{
+            alert('你不是IE');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

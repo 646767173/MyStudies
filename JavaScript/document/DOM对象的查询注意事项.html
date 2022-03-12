@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM对象的查询注意事项</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    document对象的三个查询方法:
+    getElementById
+    getElementsByName
+    getElementsByTagName/getElementByTagName
+    如果有id属性优先使用getElementById方法进行查询
+
+    必须要在页面加载完成之后再进行查询，否则为null;
+        因为浏览器在解析过程是自上而下有顺序的，script标签的语句解析时会马上执行，
+            而此时body标签里面的标签对象还未解析到还未生成，所以是查询结果是空的
+</body>
+</html>

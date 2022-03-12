@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 使用原生js的DOM
+        window.onload = function(){
+            var btn1 = document.getElementById('btn1')
+            var username = document.getElementById('username')
+            btn1.onclick = function(){
+                alert(username.value);
+            }
+        }
+    </script>
+    <script src="jquery-1.7.2.js"></script>
+    <script>
+        // 使用jQuery
+        /* 
+            jQuery三大功能：
+                -链式调用
+                -读写合一
+                -隐式遍历
+                
+            jQuery版本：
+            1.x版本 能够兼容老版本IE，但文件更大
+            2.x版本 部分IE8及以下不支持，文件小，执行效率更高
+            3.x版本 完全不再支持IE8以及以下版本，提供了一些新的API，提供不包含ajax/动画API的版本
+
+            一、使用jQuery核心函数：$/jQuery
+            二、使用jQuery核心对象：执行$()返回的对象
+        */
+        // 绑定文档加载完成的监听
+        $(function(){
+            var $btn2 = $('#btn2');//获取btn2元素的jQuery对象
+            $btn2.click(function(){//给btn2绑定单击事件
+                var $username = $('#username');//取到username表单的jQuery对象
+                var value = $username.val();// 获取其value值
+                alert(value);
+            })
+        })
+    </script>
+</head>
+<body>
+    <!--
+        需求: 点击"确定"按钮, 提示输入的值
+    -->
+    用户名: <input type="text" id="username">
+    <button id="btn1">确定(原生版)</button>
+    <button id="btn2">确定(jQuery版)</button>
+
+</body>
+</html>

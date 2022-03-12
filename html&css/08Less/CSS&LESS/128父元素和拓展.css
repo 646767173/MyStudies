@@ -1,0 +1,32 @@
+.box1 .box2 {
+  background-color: red;
+}
+.box1:hover {
+  background-color: green;
+}
+.box1 > .box3 {
+  color: black;
+}
+.box1 > .box3:hover {
+  background-color: greenyellow;
+}
+div .box1 {
+  background-color: grey;
+}
+.p1,
+.p2 {
+  width: 100px;
+  height: 250px;
+}
+.p2 {
+  color: blue;
+}
+.p3 {
+  width: 100px;
+  height: 250px;
+}
+.p5 {
+  width: 100px;
+  height: 100px;
+  background-color: #aaf;
+}

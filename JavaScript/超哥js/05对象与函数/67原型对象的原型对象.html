@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function MyClass(){};
+        MyClass.prototype.name = '我是MyClass原型对象里面的name';
+        var mc = new MyClass();
+        mc.age = 18;
+        // 我们去找实例有没有自己属性时，不能再用in，因为in找不到会去找其原型对象的
+        console.log('name' in mc);//虽然自己没有，但会原型中找到
+
+        // 要使用hasOwnProperty()方法，找自己有无这个属性,属性名一定要加引号
+        console.log(mc.hasOwnProperty('name'));//结果是false
+        console.log(mc.hasOwnProperty('age'));//结果是true
+        console.log(mc.hasOwnProperty('hasOwnProperty'));//结果是false 
+        console.log(mc.__proto__.hasOwnProperty('hasOwnProperty'));//结果是false 
+        console.log(mc.__proto__.__proto__.hasOwnProperty('hasOwnProperty'));//结果是true 
+        /*
+            这个hasOwnProperty()方法是由原型对象的原型对象提供的
+            原型对象自己也会有一个原型对象Object，但到Object就为止了
+            当我们找一个属性时，1先找自己 2找原型 3找原型的原型
+        */
+        console.log(mc.__proto__);//控制台可以看到，该原型对象里面确实有一个原型对象
+        console.log(mc.__proto__.__proto__);//该原型对象里没有原型对象了
+        console.log(mc.__proto__.__proto__.__proto__);//null 为空 不存在
+        console.log(Object.prototype == mc.__proto__.__proto__);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

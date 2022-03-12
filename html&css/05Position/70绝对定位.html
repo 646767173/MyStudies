@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: xx-large;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .box4{
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            position: relative;
+        }
+        .box5{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: relative;
+        }
+        
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: dodgerblue;
+            /* 未开启定位，偏移量不生效 */
+            top: 1000px;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            /* 必须要开启定位了，偏移量才会生效 */
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        /* 
+            当元素的position设置成absolute则开启绝对定位
+                绝对定位特点：
+                1.不设置偏移量则位置不会发生改变
+                2.元素会从文档流中脱离
+                3.元素性质也会发生变化，变成脱离文档流的性质(类似行内块)
+                4.绝对定位会使元素提升一个层级
+                5.绝对定位元素是相对于其包含块进行定位的
+
+                包含块(containing block)
+                    -正常情况下 
+                        包含块是指距离当前元素最近的祖先块元素(必须是块元素，行内元素不行)
+                    -绝对定位下
+                        包含块是距离它最近的开启了定位的祖先元素
+                        ，若都没有，则以页面根元素最左上角为原点进行定位
+                        html(根元素，初始包含块)
+        */
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box4">4
+        <div class="box5">5
+            <div class="box2">2</div>
+        </div>
+    </div>
+    <div class="box3">3</div>
+</body>
+</html>

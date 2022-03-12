@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>动态添加删除表记录</title>
+    <style>
+        #total {
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            border-style: solid;
+            border-width: 1px;
+            padding: 5px;
+            margin: 5px;
+            background-color: #99ff99;
+            float: left;
+        }
+
+        .inner {
+            width: 400px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 10px;
+            padding: 10px;
+            float: left;
+        }
+
+        #employeeTable {
+            border-spacing: 1px;
+            background-color: black;
+            margin: 80px auto 10px auto;
+        }
+
+        th,
+        td {
+            background-color: white;
+        }
+
+        #formDiv {
+            width: 250px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 50px auto 10px auto;
+            padding: 10px;
+        }
+
+        #formDiv input {
+            width: 100%;
+        }
+
+        .word {
+            width: 40px;
+        }
+
+        .inp {
+            width: 200px;
+        }
+    </style>
+    <script type="text/javascript" src="./jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 删除用的函数
+            var deleteFun = function(){
+                var $trOBJ = $(this).parent().parent();
+                var $tdOBJ = $trOBJ.find("td:first").text();
+                if (confirm("您确定要删除[" + $tdOBJ + "]的信息吗")) {
+                    $trOBJ.remove();//取到this对应的tr项，再移除
+                }
+                return false; // 阻止a标签的默认行为，使其不跳转
+            }
+
+            $("#addEmpButton").click(function () { //添加submit对应的单击事件
+                // 获取input输入
+                var $name = $("#empName").val();
+                var $email = $("#email").val();
+                var $money = $("#empMoney").val();
+                // 创建一个tr标签对象
+                var $trObj = $("<tr> <td>" + $name + "</td> <td>" + $email + "</td> <td>" + $money + "</td> <td> <a href=\"deleteEmp?id=001\">Delete</a> </td> </tr>")
+
+                // 添加到表格中
+                $trObj.appendTo($("#employeeTable"));
+
+                $trObj.find("a").click( deleteFun );
+            });
+
+            $("a").click( deleteFun );
+        });
+    </script>
+</head>
+
+<body>
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Money</th>
+            <th>function</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="deleteEmp?id=001">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a href="deleteEmp?id=002">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>bob@tom.com</td>
+            <td>10000</td>
+            <td><a href="deleteEmp?id=003">Delete</a></td>
+        </tr>
+    </table>
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="word">name: </td>
+                <td class="inp">
+                    <input type="text" name="empName" id="empName" />
+                </td>
+            </tr>
+            <tr>
+                <td class="word">email: </td>
+                <td class="inp">
+                    <input type="text" name="email" id="email" />
+                </td>
+            </tr>
+            <tr>
+                <td class="word">salary: </td>
+                <td class="inp">
+                    <input type="text" name="empMoney" id="empMoney" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton" value="abc">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

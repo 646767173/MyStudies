@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.如何证明js执行是单线程的
+            -setTimeout()的回调函数是在主线程执行的
+            -定时器回调函数只有在运行栈中的代码全部执行完后才有可能执行
+        2.为什么js要用单线程模式，而不用多线程模式？
+            -JavaScript的单线程与其用途有关
+            -作为浏览器脚本语言，JavaScript主要用途是与用户互动，以及操作DOM
+            -这决定了它只能是单线程，否则会带来很复杂的同步问题
+        3.代码的分类：
+            -初始化代码
+            -回调代码
+        4.js引擎执行代码的基本流程
+            -先执行初始化代码：包含一些特别的代码   回调函数(异步执行)
+                -设置定时器
+                -绑定事件监听
+                -发送ajax请求
+            -后面在某个时刻才会执行回调代码
+     -->
+    <script>
+        // 初始化代码
+        setTimeout(() => {
+            console.log('timeout 2000');//回调函数内的语句是回调代码
+        }, 2000);
+        setTimeout(() => {
+            console.log('timeout 1000');
+        }, 1000);
+        setTimeout(() => {
+            console.log('timeout 0000');
+        }, 0);//时间即使为0，也要等到初始化代码执行完了，它才会执行
+        function fn(){
+            console.log('fn()');
+        }
+        fn();
+
+        console.log('alert之前');
+        alert("------");//alert会暂停主线程的运转，同时暂停计时，点击确定后恢复
+        console.log('alert之后');
+
+        /* 
+            JS是单线程，原因在于多线程的话，
+            可能会出现同时操作同一对象的情况，会因为执行顺序的问题导致错误发生。
+            虽然JS也用其他方式实现多线程模式，
+            但是同样只允许一个线程去操作同一对象，就是为了避免这样的错误发生。
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        在JS调用函数时传参，是值传递还是引用传递？
+            理解1-都是值(基本值/地址值)传递，只是把值拷贝传递给你
+            理解2-可能是值传递，也可能是引用传递(地址值)
+                但是我选择用理解1，更好理解
+
+        JS引擎如何进行内存管理？
+            1.内存生命周期
+                1分配一块内存空间，得到使用权
+                2存储数据，可以反复进行操作
+                3释放这块内存空间(全局变量需要我们去释放)
+            2.释放内存
+                局部变量：函数执行完自动释放
+                对象：成为垃圾对象，一段时间后(时间可能极短)由垃圾回收器回收
+                全局变量：delete可以删除未使用var定义的全局变量
+     -->
+    <script>
+        var a = 3;
+        function fn(a){//得到的这是实参中的值
+            a = a + 1;
+            var b = {};//这一个b会在函数执行时创建，函数执行完后的某个时刻由垃圾回收器自动回收释放
+        }
+        fn(a);//我只是把a的值作为参数传给你，也就是只有读取的操作，没有改写的操作
+        console.log(a);//仍为3，说明是值传递
+
+        var obj = {name:'tom'};
+        function fn1(obj){//这里也只是把实参的值传给你，这个值刚好是地址值，使得两者指向同一对象
+            console.log(obj.name);//因此可以读取到对象的name属性
+        }
+        fn1(obj);//把obj在内存的值传过去，这个值恰好是地址值
+        delete a;
+        console.log(a);
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .s1{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            padding: 20px;
+            border: orange 10px solid;
+            margin: 15px;
+            /* 
+                行内元素的盒模型：
+                    -不支持设置宽高度，只由内容决定
+                    -可以设置padding，垂直方向会溢出但不影响页面布局(不挤压其他元素)
+                    -可以设置border，垂直方向会溢出但不影响页面布局(不挤压其他元素)
+                    -可以设置margin，垂直方向会溢出但不影响页面布局(不挤压其他元素)
+            
+                display值，可以用来设置元素显示的类型
+                    -inline         行内元素
+                    -block          块元素
+                    -inline-block   行内块元素-既可以设置宽高又不独占一行
+                    -table          设置成一个表格
+                    -none           让元素不在页面中显示，不占页面位置
+                    
+                visibility  用来设置元素的显示状态
+                    -visible        默认值，元素在页面中正常显示
+                    -hidden         元素在页面中隐藏、不显示但占页面的位置
+            */
+            /* display: block; 设置成block就会变成块元素 */
+            display: none;
+            visibility: hidden;
+        }
+        .d1{
+            width: 150px;
+            height: 150px;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <span class="s1">我是span，一个行内元素</span>
+    <span class="s1">我是span，一个行内元素</span>
+    <div class="d1">我是个div，被溢出的span盖住了</div>
+</body>
+</html>

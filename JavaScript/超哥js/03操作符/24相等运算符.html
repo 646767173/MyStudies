@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            == 相等运算符对 符号两边的值进行比较
+            若相等返回true，否则返回false
+
+            != 不相等运算符 对符号两边的值进行比较
+            若不相等返回true，否则返回false
+
+            无论是 相等运算符 还是 不相等运算符
+            当比较的两个值类型不相同时，会自动进行类型转换为同一类型再比较
+
+            !!!!!
+            === 恒等于运算符
+                判断符号两边的值是否全相等，全等(类型和内容)则返回true，否则返回false
+
+            !== 横不等运算符
+                判断符号两边的值是否全不等，全不等(类型和内容)则返回true，否则返回false
+
+        以上两个运算符都不会进行自动类型转换，一旦类型不同直接返回对应结果
+
+            console.log('123' == 123);//true
+            console.log('123' === 123);//false
+            console.log(null == undefined);//true
+            console.log((null === undefined);//false
+
+            console.log('123' != 123);//false
+            console.log('123' !== 123);//true
+        */ 
+        var a = 4;
+
+        console.log(a == 4);//true
+        console.log(a == '4');//true
+        console.log(a == '10');//false
+        console.log('10' == 10);//true
+
+        console.log('\n');
+
+        console.log(true == '1');//true
+        console.log('true' == '1');//false
+        console.log(true == 1);//true
+
+        console.log('\n');
+
+        console.log(null == 0);//false
+
+        // undefined 衍生自 null，所以两者比较会返回true
+        console.log(null == undefined);//true
+
+        //NaN   不与任何值相等，包括NaN(因为NaN算是一个非数字的集合)
+        console.log(NaN == NaN);//false
+        /* 
+            因此当需要判断一个值是否NaN时，提供一个isNaN()方法进行判断
+            是NaN则返回true，否则返回false
+        */ 
+        var nan = NaN;
+        console.log( isNaN(nan) );//isNaN(nan) -> true
+
+        console.log('\n'+'以下为不相等!='+'\n');        
+        console.log(15 != 10);//true
+        console.log(10 != 10);//false
+        console.log(NaN != NaN);//NaN 是不等于 NaN 的，返回true
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

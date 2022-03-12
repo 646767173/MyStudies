@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            自增(++)
+                -自增后，变量在自身基础上增加1,
+                -且自增后，原变量值会立即增加1
+                自增分为 前自增(++a)和后自增(a++)
+                    他们的不同点在于：
+                        ++a表示自增后的变量值
+                        a++表示自增前原变量值
+
+            自减(--)
+                -自减后，变量在自身基础上减少1,
+                -且自减后，原变量值会立即减少1
+                自减也分 前自减(--a)和后自减(a--)
+                    区别同前后自增
+        */ 
+        var a = 1;
+        a++;//后，a=2
+        a++;//后，a=3
+        console.log(a++);//a++表示自增前的值，为3，自增后a为4
+        console.log(++a);//++a表示自增后的值，为5
+        console.log(a);//5
+
+        var d = 20;
+        d = d++;//虽然d++后d的值为21，但这里是把d自增前的值20赋值给d，所以是20
+        // 等价于 var e = d++;  e = 20 ; d = 21 ;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

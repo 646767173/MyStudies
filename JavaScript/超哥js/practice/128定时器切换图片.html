@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img1{
+            border: black 1px solid;
+        }
+    </style>
+    <script>
+        // 实现点击按钮来控制图片自动切换
+        window.onload = function(){
+            var img1 = document.getElementById('img1');
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+            // 创建一个数组来保存图片路径
+            var imgArr = ['img/1.webp','img/2.webp','img/3.webp','img/4.webp']
+            // 定义当前图片索引
+            var index = 0;
+            // 定义一个变量保存定时器标识
+            var timer;
+
+            btn1.onclick = function(){
+                console.log('定时器开始');
+                /* 
+                    !!如果将定时器放在onclick中，每点击一次，
+                    就会开启一个定时器且赋值，速度会越来越快
+                    这样我们clean的时候只能关闭最新的那个定时器
+                因此在开启定时器之前，我们要把当前元素上的其他定时器关闭
+                */
+                clearInterval(timer);
+                // 点击按钮后开启定时器，自动切换图片
+                timer = setInterval(() => {
+                    // 索引自增
+                    index++;
+
+                    // 判断索引是否大于最大索引
+                    /* if(index>=imgArr.length){
+                        // 则将index归零
+                        index = 0;
+                    } */
+                    index %= imgArr.length;//效果同上
+
+                    img1.src = imgArr[index];
+                }, 500);//1s换一次
+            }
+            btn2.onclick = function(){
+                console.log('定时器关闭');
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body>
+    <img id="img1" src="img/1.webp">
+    <button id="btn1">开始</button>
+    <button id="btn2">停止</button>
+</body>
+</html>

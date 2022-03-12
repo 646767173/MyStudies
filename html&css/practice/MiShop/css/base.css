@@ -1,0 +1,24 @@
+/* 公共样式 */
+clearfix::after,
+clearfix::before{
+    content: '';
+    display: table;
+    clear: both;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,微软雅黑;
+    color: #333;
+    /* body最小宽度，使容器不会溢出 */
+    min-width: 1226px;
+}
+
+/* 中间容器的宽度 */
+.w{
+    width: 1226px;
+    /* 设置容器居中 */
+    margin: 0 auto;
+}

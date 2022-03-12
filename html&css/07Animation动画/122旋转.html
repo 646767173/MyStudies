@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            /* 设置网页的视距,600-1200比较合适 */
+            perspective: 800px;
+        }
+        body{
+            border: 1px solid red;
+            font-size: 30px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            margin: 200px auto;
+            transition: 1.5s;
+            /* 设置是否显示元素背面 hidden不可见 */
+            backface-visibility: hidden;
+        }
+
+        body:hover .box{
+            /* 
+                通过旋转可以使元素沿着x，y，z轴旋转指定角度(顺时针)
+                    transform:rotateX()     沿X轴旋转
+                    transform:rotateY()     沿Y轴旋转
+                    transform:rotateZ()     沿Z轴旋转
+                        turn表示圈，deg表示度数
+                    要设置了视距，才可以看出X轴、Y轴显著的效果
+            */
+            transform:rotateY(60deg) translateZ(-500px);
+            transform:translateZ(-500px) rotateY(60deg);
+            /* 两个旋转效果的先后顺序是有区别的，执行起来效果是不同的 */
+
+            /* 设置3d变形效果，设置了就可以看到旋转时其他面的立体效果 */
+            transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">i am coming</div>
+</body>
+</html>

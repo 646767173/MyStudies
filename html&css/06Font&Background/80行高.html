@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 30px;
+            border:1px solid black;
+            /* 
+                行高(line-height)
+                -行高是指文字实际占有的高度
+                -可以通过line-height设置行高
+                    行高也可以指定一个大小(px em)
+                    也可以直接设置整数，表示font-size的倍数
+                默认行高是大约font-size的1.33倍(非精准)
+                    -行高会在字体框的上下平均分配
+                    因此经常用来设置文字的行间距(行间距=lineheight-fontsize)
+
+            字体框-就是字体存在的格子，font-size实际就是设置字体框大小
+            字体里面的字，永远比font-size小
+            */
+
+            /* line-height: 1; */
+
+            /* 通过将行高设置得和元素高度一致使单行字体垂直居中
+               多行则每行都占一个line-height   */
+            height: 200px;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        今天天气真不错，The weather is nice today.
+    </div>
+</body>
+</html>

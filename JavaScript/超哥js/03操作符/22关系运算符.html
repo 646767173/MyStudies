@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            关系运算符
+                >       大于  
+                >=      大于或等于
+                <       小于
+                <=      小于或等于
+                成立返回true，不成立返回false
+
+                对于非数值，进行运算前会先转换为对应的数值，运算后返回true/false结果
+        */ 
+        var result;
+        result = 1 > '0';// true
+        result = 1 >= true;// true
+        result = 1 > true;// false
+
+        result = 11 > null;//true
+        result = 11 >= null;//true
+        result = 11 < null;//false
+        result = 11 <= null;//false
+
+        // 任何值与NaN作比较都是false
+        result = 99 >= 'hello';//'hello' NaN
+        result = 99 >= undefined;//undefined NaN
+
+        console.log(result);
+
+        /*
+            特殊情况，当符号两边比较的都是字符串，
+            就不会转换成数值进行比较，而是直接比较两个字符串的Unicode编码大小
+            因此想比较两个字符串中的数字时，要提前转型为Number再进行比较
+        */ 
+        var str = 'a' < 'b';//a的Unicode编码为97，b的Unicode编码为98
+        var str = 'abc' < 'b';//比较字符编码是一个一个进行的，只要第一位有结果就行了 true
+        var str = 'bbc' < 'b';//同上，两位同样就比较下一位，这时 bbc < b 就不成立了 false
+
+        console.log(str);//97 < 98 true
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

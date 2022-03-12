@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            转换为Number,
+                方法一
+                    使用Number()方法
+        */ 
+        var a;
+        a = '2323';//纯数字字符串会转换为对应数字
+        // a = '12as23';//含字母数字则为 NaN
+        // a = true;//true->1
+        // a = false;//false->0
+        // a = '     ';//全是空格转换为0
+        // a = '223   12';//含数字空格转换为 NaN
+        a = null;//null -> 0
+        a = undefined;//undefined -> NaN
+
+        a = Number(a);
+        console.log(typeof a);
+        console.log(a);
+
+        /* 方法二
+        专门用来处理字符串中的数字的，
+        -parseInt()   会从头扫描取出有效整数，一遇到非数字就会停止
+        -parseFloat() 会从头扫描取出有效小数，一遇到非数字或非第一个小数点就会停止
+        扫描无果就会返回NaN
+        */
+        var b;
+        b = '113.232.324px';//Int只能取到113，Float可以取到113.232
+        b = 'a113.232.324px';//开头就是字母，自动停止扫描
+
+        // b = parseInt(b);
+        b = parseFloat(b);
+        console.log(typeof b);
+        console.log(b);
+    </script>
+</head>
+<body>
+    
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1">扩展运算符(spread) 即 ... </div>
+    <div id="d2">就像是rest参数的逆运算，将数组转换为逗号分隔的参数序列，对数组进行解包</div>
+    <script>
+        // 声明一个数组
+        const arr = ['boys','girls','men','women'];
+        // 声明一个函数
+        function spread() {
+            console.log(arguments);
+        }
+        spread(...arr);// 传入的是数组，原本arguments应当是第一个元素为数组，如今是每个数组中的元素单独出现
+
+        // 应用1.快速合并数组
+        const arr1 = ['A','B','C'];
+        const arr2 = ['D','E','F'];
+        const arr1_2 = [...arr1,...arr2];//以往需要使用concat()方法才能实现
+        console.log(arr1_2);
+
+        // 应用2.实现数组克隆
+        const arrStr = ['我是一个字符串','我也是一个字符串'];
+        const arrStrCP = [...arrStr];//先...arrStr把元素全部取出来，然后[]又把他们放到数组中，本质是两个数组对象，非深拷贝
+        console.log(arrStrCP);
+
+        // 应用3.将伪数组转换为真数组
+        const divs = document.querySelectorAll('div');
+        const divArr = [...divs];
+        console.log(Array.isArray(divs),Array.isArray(divArr));
+        console.log(divs,divArr);
+    </script>
+</body>
+</html>

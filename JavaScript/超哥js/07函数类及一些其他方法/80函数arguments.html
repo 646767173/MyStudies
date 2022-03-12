@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            调用函数时，浏览器会自动生成两个隐含的参数
+            1.函数上下文对象this
+            2.封装实参的对象arguments
+                -arguments是一个类数组对象(不是数组)
+                -也可以通过索引来操作数据,也可以获取长度length(实参的长度)
+                -在调用函数时，我们传递的实参全部都会封装到该对象中
+            
+            arguments中有一个属性叫callee
+                它指向的是————当前正在执行的函数对象
+        */
+        function fun(){
+            console.log(arguments);
+            // 因为本质不是数组，所以没有forEach遍历方法
+            for(i=0;i<arguments.length;i++){
+                console.log(arguments[i]);
+            }
+        }
+        fun(1,true,'String',null,undefined);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

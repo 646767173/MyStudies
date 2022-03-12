@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: black;
+            /* 
+                background-image: ;
+                设置背景图片
+                背景图片可以与背景颜色重合，使其成为背景图片的背景颜色
+                当图片比元素小，则会重复铺满元素
+                当图片比元素大，则无法完全显示
+            */
+            background-image: url(https://img2.baidu.com/it/u=3681880960,455182084&fm=26&fmt=auto&gp=0.jpg);
+            /* 
+                background-repeat
+                用来设置背景的重复方式
+                    repeat      默认值，沿着xy双方向重复
+                    repeat-x    只沿着x方向重复
+                    repeat-y    只沿着y方向重复
+                    no-repeat    不重复
+            */
+            background-repeat: no-repeat;
+            /* 
+                background-position 设置背景图片的位置
+                    元素分为九宫格，通过top left right bottom center设置位置
+                    只写一个值就默认另一个值居中
+                    -也可以通过偏移量来调整位置
+                    background-position: 10px 10px;
+            */
+            background-position: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.闭包的产生：在嵌套内部的函数定义执行完毕时就产生了(是函数定义，不是函数调用)
+        2.闭包的死亡：在嵌套的内部函数对象成为垃圾对象时(即已经没有引用该函数对象了)
+     -->
+    <script>
+        function fn1(){
+            // 此时闭包已经产生了，因为函数提升，fn2函数对象已经创建
+            var a = 2;
+            function fn2(){//闭包
+                a++;
+                console.log(a);
+            }
+            return fn2;
+        }
+        var f = fn1();//这时的f引用了fn2对应的函数对象，所以闭包还存在
+        f();
+        f();
+        f = null;//这时闭包就死亡了(包含闭包的函数对象成为垃圾对象)
+    </script>
+</body>
+</html>

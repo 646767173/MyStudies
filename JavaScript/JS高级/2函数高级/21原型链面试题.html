@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('第一题：');
+        function A(){}
+        A.prototype.n = 1;
+
+        var b = new A();
+        A.prototype = {
+            n:2,
+            m:3
+        };
+
+        var c = new A();
+        console.log(b.n,b.m,c.n,c.m);//1,undefined,2,3
+
+
+        console.log('第二题：');
+        var F = function(){};
+        Object.prototype.a = function(){
+            console.log('a()');
+        }
+        Function.prototype.b = function(){
+            console.log('b()');
+        }
+        var f = new F();
+        /* 
+            f.__proto__.__proto__ == Object.prototype
+            f.__proto__ == F.prototype
+            F.__proto__.__proto__ == Object.prototype
+            F.__proto__ == Function.prototype
+            先找Function的prototype，Function没有就找Object.prototype
+        */
+        f.a(); //f.__proto__.__proto__.a;
+        f.b(); //undefined f.b没有是因为原型链上不会有Function的prototype
+        F.a(); //F.__proto__.__proto__.a;
+        F.b(); //F.__proto__.b
+        
+    </script>
+</body>
+</html>

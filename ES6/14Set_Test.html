@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3,4,5,4,3,2,1];
+        let arr2 = [4,5,6,5,6];
+        
+        // 1.数组去重
+        let r1 = [...new Set(arr)];//变成Set，将其用...遍历取出，再放入数组中
+        console.log('1.',r1);
+        
+        // 2.交集
+        let r2 = [...new Set(arr)].filter(item=>{//item是当前遍历的数组值
+            let s2 = new Set(arr2);//把arr2变成Set集合
+            if(s2.has(item)){//判断item项在不在s2中，在就是交集的一项
+                return true;//true时这一项item会被筛选入
+            }else{
+                return false;//false时这一项item会被过滤
+            }
+        });
+            // 优化后如下
+            r2 = [...new Set(arr)].filter(item=> new Set(arr2).has(item) );
+        console.log('2.',r2);
+        
+        // 3.并集
+        let r3 =[... new Set([...arr,...arr2]) ];//两个集合值取出放入Set，然后遍历取出放入数组
+        console.log('3.',r3);
+
+        // 4.差集（两种，a对b差集就是，我有你没有/b对a差集，则主体不同结果也不同）
+        let r4 = [...new Set(arr)].filter(item=> !(new Set(arr2).has(item)) );//交集取反
+        console.log('4.1',r4);
+        r4 = [...new Set(arr2)].filter(item=> !(new Set(arr).has(item)) )
+        console.log('4.2',r4);
+    </script>
+</body>
+</html>

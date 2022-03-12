@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            条件分支语句，switch语句
+            if else 嵌套使用太麻烦，因此使用switch更容易
+
+            switch(条件表达式){
+                case 表达式:
+                    语句1;
+                    break;
+                case 表达式:
+                    语句2;
+                    break;
+                ...
+                default:
+                    默认语句;
+                    break;
+            }
+
+            switch执行顺序，将条件表达式的结果与每个case做全等比较，
+                符合的case，则输出其对应语句，遇到break;结束条件分支语句
+                default是默认的内容(不是必写的)，表达式与case都不匹配才会输出默认语句内容
+        */ 
+        var a = 10;
+        switch(a){
+            case 1:
+                console.log('a的值是1');
+                break;
+            case 2:
+                console.log('a的值是2');
+                break;
+            case 3:
+                console.log('a的值是3');
+                break;
+            case 10:
+                console.log('a的值是:10');
+                break;
+            default:
+                console.log('a的值未知');
+                break;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

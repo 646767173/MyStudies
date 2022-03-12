@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin: 200px auto;
+            transition: 2s;
+
+            /* 
+                transform-origin——指定变形原点
+                默认是center，也可以自定义坐标
+            */
+            transform-origin: 20px 20px;
+        }
+        .box:hover{
+            /* 缩放
+                scale()     双方向放大倍数
+                scaleX()    X方向放大倍数
+                scaleY()    Y方向放大倍数
+                scaleZ()    Z方向放大倍数
+                    -Z轴的缩放需要元素有立体效果才看得出来
+
+                放大后可能会溢出父元素
+            */
+            transform: scale(3);
+        }
+        img{
+            width: 300px;
+            transition: 0.2s;
+        }
+        img:hover{
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <img src="../practice/clock.jpg">
+</body>
+</html>

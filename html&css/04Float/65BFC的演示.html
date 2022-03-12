@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* 开启BFC */
+            /* float: left; */
+            /* display: inline-block; */
+            overflow: hidden;
+            /* 父元素开启BFC后，子元素的外边距就不会影响父元素了 */
+        }
+        .box2{
+            width: 220px;
+            height: 220px;
+            background-color: orange;
+            overflow: hidden;
+            /* 开启BFC后，不会被浮动元素盖住 */
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            margin-top: 50px;
+            /* 明明是子元素设置的外边距，却是父元素往下移动
+                这时需要给父元素开启BFC
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box3"></div>
+    </div>
+    <!-- <div class="box2"></div> -->
+</body>
+</html>

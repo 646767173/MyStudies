@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model关联</title>
+</head>
+<body>
+    <div id="app"> <!-- view -->
+        <input type="text" v-model="message">
+        <p>hello vue:{{message}}</p>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告，必须要引入才可以用vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        //创建Vue实例对象
+        const vm = new Vue({//配置对象vm
+            el:"#app",
+            data:{//model
+               message:'sdfghj' 
+            }
+        })
+    </script>
+<!-- 
+    声明式开发
+    MVVM:
+    model:模型，数据对象data
+    view:视图，模板页面
+    viewModel:视图模型(Vue的实例)
+ -->
+</body>
+</html>
+
+<!--
+    1.引入Vue.js
+    2.创建Vue对象
+      el:指定根element(选择器)
+      data:初始化数据(页面可以访问)
+    3.双向数据绑定：v-model
+    4.显示数据：{{xxx}}
+    5.理解vue的mvvm实现  
+
+    管理层ViewModel{DOM Listeners、Data Bindings}
+-->

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 600px;
+            height: 800px;
+            border: 10px solid black;
+            /* 设置ul为弹性容器 */
+            display: flex;
+            /* flex-direction: column;默认row横向左到右排列 */
+
+            /* flex-wrap: ;
+                弹性元素是否在弹性容器中自动换行(宽或高溢出时)
+                    nowrap         不换行(默认值)
+                    wrap           沿着侧轴换行
+                    wrap-reverse   沿着侧轴反方向换行
+            */
+            /* flex-wrap: wrap-reverse; */
+
+            /* flex-flow: 是flex-direction和flex-wrap的简写属性 */
+            /* flex-flow:row wrap; */
+            /* 
+                justify-content:    如何分配主轴上的空白(justify是主轴的意思)
+                    -可选值：
+                        flex-start      元素沿着主轴始边排列(eg:1 2 3 空白)
+                        flex-end        元素沿着主轴终边排列(eg:空白 1 2 3)
+                        center          元素居中排列(eg：空白 1 2 3 空白)
+                        space-around    空白均分到每个元素两边(一个元素左50右50，两个元素之间则会叠加为100)
+                        sapce-between   空白均分到每个元素之间(只有相邻元素间会有)
+                        space-evenly    空白均分到元素单侧-兼容性较差(3个元素则均分为4块空白，每块都一样大)
+            */
+            /* justify-content: space-around; */
+
+
+            /* align是侧轴 */
+            /* 
+                align-items: 元素在侧轴上如何对齐-元素之间的关系
+                    可选值：
+                        stretch         默认值，会自动拉伸，每一行里的元素长度在同一行里都是相等的
+                        flex-start      元素不自动拉伸，沿着侧轴始边对齐
+                        flex-end        元素不自动拉伸，沿着侧轴终边对齐(并非reverse，顺序不变)
+                        center          元素居中对齐
+                        baseline        基线对齐
+            */
+            align-items: baseline;
+            /* align-content:   分配侧轴上的空白
+                同justify-content，只是justify是主轴，align是侧轴
+
+                    flex-start      元素沿着侧轴始边排列
+                    flex-end        元素沿着侧轴终边排列
+                    center          元素居中排列
+                    space-around    空白均分到每个元素两边(一个元素左50右50，两个元素之间则会叠加为100)
+                    sapce-between   空白均分到每个元素之间(只有相邻元素间会有)
+                    space-evenly    空白均分到元素单侧-兼容性较差(3个元素则均分为4块空白，每块都一样大)
+            */
+            /* align-content: ; */
+        }
+        li{
+            width: 150px;
+            line-height: 100px;
+            background-color: blueviolet;
+            font-size: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        li:nth-child(2){
+            /* align-self:  用于覆盖弹性容器的align-items
+                使用后该元素的侧轴排布会有所改变
+            */
+
+            background-color: orange;
+        }
+        li:nth-child(3){
+            background-color: #aaf;
+        }
+    </style>
+</head>
+<body>
+     <ul>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+     </ul>
+</body>
+</html>

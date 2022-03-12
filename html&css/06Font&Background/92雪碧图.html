@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            图片属于网页中的外部资源，需要浏览器单独发送请求加载，
+                浏览器加载是按需加载，只有要用到时才加载
+                怎么解决问题呢？
+
+            可以将多张小图片保存到一张大图片中，通过background-position来调整显示图片的区域
+            这样图片会同时加载到网页中
+            就可以有效避免出现临时加载出现闪烁问题
+
+            该技术称为CSS-Sprite，这种图也称为雪碧图
+                雪碧图的使用步骤
+                1.先确定要使用的图标
+                2.测量图标的大小
+                3.根据测量结果创建一个元素
+                4.将雪碧图设置为元素的背景图片
+                5.设置偏移量以显示正确的图片
+        */
+        .box1{
+            width: 200px;
+            height: 100px;
+            background-image: url();
+            background-position: 0 0;
+        }
+        .box2{
+            width: 42px;
+            height: 30px;
+            background-image: url();
+            background-position: -58px -338px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

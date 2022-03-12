@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14jquery中dom增删改</title>
+    <script type="text/javascript" src="./jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("<h2>appendTo——插入成为div1最后一个子元素<h2>").appendTo(".div1");
+            $("<h2>prependTo——插入成为div1首个子元素<h2>").prependTo(".div1");
+            $("<h1>insertBefore——插入成为div1前面的元素<h1>").insertBefore(".div1");
+            $("<h1>insertAfter——插入成为div1后面的元素<h1>").insertAfter(".div1");
+            $(".firstSpan").replaceWith("<h3>replaceWith————替换成为div的span的第一个子元素<br>全部匹配项变成一个项<h3>");
+            $("<h3>replaceAll————替换成为div的span的最后一个子元素<br>每一个匹配项都变成一个项<h3>").replaceAll(".lastSpan");
+            $(".div2 .span1").remove();
+            $(".div2 .span2").empty();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="div1">
+        我是div默认的第一个元素————文本元素（文本元素也是div的子元素）<br>
+        <hr>
+        <span class="firstSpan">我是div1里面的span的第一个子元素————文本元素</span><br>
+        <span class="lastSpan">我是div1里面的span的第二个子元素————文本元素</span>
+        <div class="div2">
+            我是div里的div的文本元素，有两个同级的span标签
+            <span class="span1">我是div1里的div2里的span1的文本</span>
+            <br>
+            <span class="span2">我是div1里的div2里的span2的文本</span>
+            <br>
+            <span>
+                .remove()是移除span1标签
+                .empty()是清楚span2标签里的所有内容
+            </span>
+        </div>
+    </div>
+</body>
+
+</html>

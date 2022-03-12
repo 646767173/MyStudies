@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #faf;
+            position: absolute;
+            left: 0;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: #aaf;
+            position: absolute;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+    <script src="./tools.js"></script>
+    <script>
+        window.onload = function(){
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+            var btn3 = document.getElementById('btn3');
+            var btn4 = document.getElementById('btn4');
+            var btn5 = document.getElementById('btn5');
+
+            var box1 = document.getElementById('box1');
+            var box2 = document.getElementById('box2');
+            
+            btn1.onclick = function(){//点击按钮后box1向右移动(left+)
+                move(box1,800,20,'left');
+            }
+            btn2.onclick = function(){//点击按钮后box1向左移动(left-)
+                move(box1,0,20,'left');
+            }
+            btn3.onclick = function(){//点击按钮后box2向右移动(left-)
+                move(box2,800,10,'left');
+            }
+            btn4.onclick = function(){//点击按钮后box2向左移动(left-)
+                move(box2,0,10,'left');
+            }
+            btn5.onclick = function(){//测试更多功能
+                // move(box2,800,30,'width');
+                // move(box2,800,30,'height');
+                // move(box2,800,30,'top');
+                move(box2,800,30,'width',function(){
+                    move(box2,800,30,'height',function(){
+                        alert('动画执行完毕了!');
+                    });
+
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">点击按钮以后box1往右移动</button>
+    <button id="btn2">点击按钮以后box1往左移动</button>
+    <br>
+    <button id="btn3">点击按钮以后box2往右移动</button>
+    <button id="btn4">点击按钮以后box2往左移动</button>
+    <br>
+    <button id="btn5">测试按钮</button>
+    <div id="box1">box1</div>
+    <div id="box2">box2</div>
+    <div style="width: 0;height: 1000px;border-left: black 1px solid;position: absolute;top: 0;left: 800px;"></div>
+</body>
+</html>

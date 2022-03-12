@@ -1,0 +1,170 @@
+// 导航条外部容器
+.top-bar-wrapper{
+    background-color: #000;
+
+}
+// 导航条容器
+.top-bar{
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 48px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    &:hover{
+        color: rgb(197, 196, 196);
+    }
+}
+
+// 设置左侧的导航图标
+.left-menu{
+    &:active{
+        // 显示隐藏的菜单
+        .nav{
+            display: block;
+        }
+    }
+    // 设置菜单
+    .nav{
+        // 默认不显示,hover时才显示
+        display: none;
+        position: absolute;
+        top: 48px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        // bcc
+        background-color: #000;
+        padding-top: 60px;
+        li{
+            width: 80%;
+            margin: 0 auto;
+            border-bottom: 1px solid #4e4e4e;
+
+            a{
+                display: block;
+                line-height: 44px;
+                font-size: 14px;
+            }
+
+            &:last-child a{
+                display: inline-block;
+                margin-right: 6px;
+            }
+
+            span{
+                color: #fff;
+                font-size: 14px;
+            }
+        }
+    }
+
+    // 图标
+    .menu-icon{
+        width: 18px;
+        height: 48px;
+        position: relative;
+        li{
+            width: 18px;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            // 修改变形的原点
+            transform-origin: left center;
+
+            // 设置过渡效果
+            transition: 0.5s;
+        }
+        li:nth-child(1){
+            top: 18px;
+        }
+        li:nth-child(2){
+            top: 24px;
+        }
+        li:nth-child(3){
+            top: 30px;
+        }
+
+        &:active{
+            li:nth-child(1){
+                top: 18px;
+                // 向下旋转
+                transform: rotateZ(40deg);
+            }
+            li:nth-child(2){
+                top: 23px;
+                // 隐藏
+                opacity: 0;
+            }
+            li:nth-child(3){
+                top: 30px;
+                transform: rotateZ(-40deg);
+            }
+        }
+    }
+}
+
+// 设置logo
+.logo{
+    a{
+        text-indent: -999px;
+        // 让字隐藏起来，不删除是为了让搜索引擎能够识别到他
+        
+        display: block;
+        width: 73px;
+        height: 20px;
+        background-image: url('https://img.app.meitudata.com/corp-new/image/logo-white.@f94af395.png');
+        background-size: 73px 20px;
+    }
+}
+
+// 设置媒体查询
+@media only screen{
+    // 断点768px
+    @media (min-width:768px){
+        .left-menu{
+            order: 2;
+            // 给他设置弹性
+            flex: auto;
+            // 显示菜单内容
+            .nav{
+                // width: 48px;
+                display: flex;
+                position: static;
+                padding:0;
+                justify-content: space-evenly;
+
+                li {
+                    width: auto;
+                    border-bottom: none;
+                    margin: 0;
+
+                    a{
+                        line-height: 47px;
+                    }
+                    // 隐藏span
+                    span{
+                        display: none;
+                    }
+                }
+            }
+            // 隐藏菜单图标
+            .menu-icon{
+                display: none;
+            }
+
+        }
+        .logo{
+            order: 1;
+        }
+        .user-info{
+            order: 3;
+        }
+    }
+}

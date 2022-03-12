@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* 
+                子元素也是后代元素之一，父元素也是祖先元素之一
+
+                1子代元素选择器
+                    作用：选中指定的子代元素（父 > 子）
+                    eg: div>p{
+                        ...
+                    }
+                    -div里的子元素p会受影响
+
+                2后代元素选择器：
+                    作用：选中指定的后代元素
+                    eg: div span{
+                        ...
+                    }
+                    -div里所有后代元素span都会受影响
+
+                3选择下一个兄弟元素
+                    作用：选择指定元素的下一个兄弟元素，只选一个
+                    eg:p+span{
+                        ...
+                    }
+                    -选择p后面的兄弟元素span
+
+                4选择后面指定的所有兄弟元素
+                    eg：
+                    span~div{
+                        ...
+                    }
+                    选中span后的所有兄弟元素div
+            */
+
+            div>p {
+                color: blue
+            }
+            div span{
+                color:red
+            }
+            p+span{
+                color:green;
+            }
+            span~div{
+                color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            我是一个div
+            <span>我是div里的span</span>
+            <p>
+                我是div里的p
+                <span>我是div里的p的span</span>
+            </p>
+        </div>
+        <p>我是div外的p</p>
+        <div>我是div外，span前面的兄弟元素div</div>
+        <span>我是div外的span</span>
+        <div>我是div外，span后面的兄弟元素div</div>
+        <div>我是div外，span后面的兄弟元素div</div>
+    </body>
+</html>

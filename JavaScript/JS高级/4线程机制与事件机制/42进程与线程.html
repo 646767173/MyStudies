@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size: 17px; 
+        }
+    </style>
+</head>
+<body>
+    
+        <h1>进程(process)</h1>
+        <div>
+            <p>&nbsp;-程序的一次执行，它占有一片独享的内存空间</p> 
+            <p>&nbsp;-可以通过windows任务管理器查看进程</p> 
+            <p>&nbsp;-一个应用可以有多个进程(比如一个浏览器打开多个页面就是多进程)</p> 
+        </div>
+        <h1>线程(thread)</h1>
+        <div>
+            <p>
+                &nbsp;-是进程内的一个独立执行单元
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;如果一个进程里只有一个线程，则成为单线程</p> 
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;应用程序分为单线程和多线程两类</p> 
+            </p> 
+            <p>&nbsp;-是程序执行的一个完整流程</p> 
+            <p>&nbsp;-是CPU的最小的调度单元</p> 
+        </div>
+        <h2>相关知识</h2>
+        <div>
+            <p>应用程序必须运行在某个进程的某个线程上</p>
+            <p>一个进程中至少有一个运行的线程：主线程，进程启动后自创建</p>
+            <p>一个进程中也可以同时运行多个线程，我们称之为多线程程序</p>
+            <p>一个进程内的数据可以供其中的多个线程直接共享</p>
+            <p>多个进程之间的数据不能直接共享</p>
+            <p>线程池(thread pool):保存多个线程对象的容器，实现线程对象的反复利用</p>
+        </div>
+        <h2>相关问题</h2>
+        <div>
+            <h3>何为多进程与多线程？</h3>
+            <div>
+                <p>多进程：一应用程序可以同时启动多个实例运行</p>
+                <p>多线程：在一个进程内，可以同时有多个线程运行</p>
+            </div>
+            
+            <h3>单线程与多线程比较？</h3>
+            <div>
+                <h4>单线程：同一时间只能做一件事情</h4>
+                <p>优点：顺序编程简单易懂</p>
+                <p>缺点：效率低</p>
+                <h4>多线程：同一时间可以做多件事情</h4>
+                <p>优点：能有效提升CPU使用率</p>
+                <p>缺点：1创建多线程开销2线程间切换开销3死锁与状态同步问题</p>
+            </div>
+            
+            <h3>JS是单线程还是多线程？</h3>
+            <div>
+                <p>JS是单线程的</p>
+                <p>但使用H5中的Web Workers可以多线程运行</p>
+            </div>
+
+            <h3>浏览器运行是单进程还是多进程？</h3>
+            <div>
+                <p>有单进程的：firefox、老版IE</p>
+                <p>有多进程的：chrome、新版IE</p>
+            </div>
+
+            <h3>浏览器运行是单线程还是多线程？</h3>
+            <div>
+                <p>都是多线程的</p>
+            </div>
+        </div>
+        
+
+</body>
+</html>

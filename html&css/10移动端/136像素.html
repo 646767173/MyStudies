@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <!-- 
+        像素:
+            -屏幕是由一个个发光小点组成的，这些小点就是像素
+            -像素分为 物理像素 和 CSS像素
+            -我们的屏幕分辨率，例如1920*1080就是说明
+                ————横向有1920个像素，纵向有1080个像素，这就是物理像素
+            -像我们写在css样式里面的像素px，就是CSS像素
+            -浏览器在解析网页时，就需要把CSS像素转为物理像素，然后呈现出来
+            -在pc端默认情况下，CSS像素与物理像素是1:1
+
+        视口(viewport)
+            -视口就是浏览器显示网页的窗口，大小会随着我们拉动窗口大小一起变
+            -因此可以通过查看视口大小，来观察CSS像素和物理像素的比值
+            -物理像素是不会变的，永远是屏幕分辨率这么多
+            -默认情况下：
+                当视口的宽度是1920px(css像素)且未放大铺满整个显示器屏幕时，
+                显示器屏幕宽度也是1920px(物理像素)，此时二者比值是1:1
+                
+            -视口(相当于html根标签)放大两倍
+                此时浏览器F12观察到视口铺满屏幕的宽度像素是960px(css像素)
+                铺满屏幕物理像素仍为1920px，此时css与物理像素比是1:2
+
+            所以，我们可以通过改变视口大小，来改变css像素与物理像素比值
+
+    
+    -->
+</body>
+</html>

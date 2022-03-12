@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(198, 206, 212);
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(199, 168, 127);
+            /* 用了clearfix后外边距就不会重叠了 */
+            margin-top: 100px;
+        }
+        /* 
+            利用clearfix可以同时解决 高度塌陷、外边距重叠 问题
+            添加一个空内容，然后显示为table表格
+            用table的好处是可以不占地方而又将外边距分隔开
+            结合前面的clear，还可以同时解决高度塌陷
+        */
+        .clearfix::before,
+        .clearfix::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+        <div class="box1 clearfix">
+            <div class="box2"></div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            对象属于一种符合的数据类型，在对象中可以保存多个不同数据类型的属性
+
+            对象分类：
+                1.内建对象
+                    -由ES标准中定义的对象，在任何ES实现中都可以使用
+                    -比如：Math、String、Number、Boolean、Function、Object...
+
+                2.宿主对象
+                    -由JS运行环境提供的对象，目前主要是浏览器提供对象
+                    -比如 BOM、DOM，其中的console对象和document对象
+
+                3.自定义对象
+                    -自定义的对象，对象内容和方法都是自定义的
+        */ 
+
+        // 创建对象，最原始的方法
+        //使用new关键字调用函数，是构造函数(constructor)即专门用来创建对象的函数
+        var obj = new Object();
+
+        // 给对象添加属性
+        obj.name = 'hahaha';
+        obj.age = 18;
+        obj.bool = true;
+
+        console.log(obj);
+
+        // 修改对象属性，对象名.属性名=新值
+        obj.name = '哈哈哈';
+
+        // 获取对象属性，通过 对象名.属性名，如果读取的属性不存在，会返回undefined
+        console.log(obj.name);
+
+        // 删除对象属性，delele 对象名.属性名
+        delete obj.bool;
+        console.log(obj);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

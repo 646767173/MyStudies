@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            数组(Array)
+            -数组也是对象
+            -它与普通对象功能类似，也是用于储存一些值
+            -不同的是普通对象通过属性名键值对进行存储
+                而数组是通过数字作为索引去操作元素
+                (以0开始的整数，作为索引)
+            -数组存储性能比普通对象好，因此我们经常使用数组来存储
+        */
+        var arr = new Array();//定义法创建数组
+        console.log(typeof arr);//返回值也是对象
+
+        arr[0] = 1;
+        arr[1] = 'abc';
+        arr[2] = false;
+        console.log(arr);
+        console.log(arr[3]);//不存在的索引，会返回undefined
+
+        var list = [true,123,'abc',{name:'obj'}];//快速定义数组且赋值
+        console.log(list);
+        
+        /* 
+            获取数组长度 使用 .length
+            数组可以不是连续的，可以跨数进行赋值(但尽量不要创建非连续数组，浪费内存)
+            length结果就是数组的最大长度
+        */
+        list[20] = 21;//中间未赋值的内容，还是undefined
+        console.log(list.length);
+        console.log(list);
+
+        /* 
+            还可以通过修改数组length，达成对数组的操作
+            修改后：
+            1.当length大于原长度，则会补空凑齐长度
+            2.当length小于原长度，则会删除超出部分
+        */
+        list.length = 30;
+        console.log(list.length);
+        console.log(list);
+
+        list.length = 1;
+        console.log(list.length);
+        console.log(list);
+
+        // 往数组最后一个位置快速添加内容，用arr[arr.length] = xxx;
+        arr[arr.length] = 3333;
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

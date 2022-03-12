@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="color:blue">我是第1个p标签</p>
+    <p style="color: green;">我是第2个p标签</p>
+    <script src="jquery-1.7.2.js"></script>
+    <script>
+        // 1.得到第一个p标签的颜色
+        console.log($('p:first').css('color'));
+
+        // 2.设置所有p标签的文本颜色为red
+        // $('p').css('color','red');
+
+        // 3.设置第2个p标签的字体颜色为(#ff0011)，背景色blue，宽300px，高30px
+        $('p:eq(1)').css({
+            color:'#ff0011'
+            ,background:'blue'
+            ,width:300
+            ,height:30
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米商城</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="../../CSSTools/reset.css">
+    <!-- 引入公共样式表 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- 引入当前页面样式表 -->
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- 
+        设置网站的图标(标题、收藏栏)
+        -网站图标 一般都存在网站的根目录下，名字一般都叫做favicon.ico
+    -->
+    <link rel="icon" href="./favicon.ico">
+</head>
+<body>
+    <!-- 最外部的总容器 -->
+    <div class="whole">
+        <!-- 顶部导航条外部容器 -->
+        <div class="topbar-wrapper">
+            <!-- 顶部导航条内部容器 -->
+            <div class="topbar w clearfix">
+                <!-- 左边的服务 -->
+                <ul class="service">
+                    <li><a href="javascript:;">小米商城</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">MIUI</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">loT</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">云服务</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">天星数科</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">有品</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">小爱开放平台</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">企业团购</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">资质证照</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">协议规则</a></li>
+                    <li class="line">|</li>
+                    <li class="appli">
+                        <a class="app" href="javascript:;">下载app
+                            <div class="qrcode">
+                                <img src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="小米商城app">
+                                <span>小米商城app</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">Select Location</a></li>
+                </ul>
+
+                <!-- 最右购物车 -->
+                <ul class="shop-cart">
+                    <li><a href="javascript:;">购物车 (0)</a></li>
+                </ul>
+
+                <!-- 右边的登录注册等 -->
+                <ul class="user-info">
+                    <li><a href="javascript:;">登录</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">注册</a></li>
+                    <li class="line">|</li>
+                    <li><a href="javascript:;">消息通知</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- 创建一个头部的外部容器 -->
+        <div class="header-wrapper">
+            <!-- 头部导航条的内部容器 -->
+            <div class="header w">
+                <h1 class="logo">
+                    <a href="#" title="小米官方"></a>
+                </h1>
+
+                <!-- 创建一个中间导航条的容器 -->
+                <div class="nav-wrapper">
+                    <!-- 创建导航条  -->
+                    <ul class="nav clearfix">
+                        <li class="all-goods-wrapper">
+                            <a href="javascript:;" class="allgoods">全部商品分类</a>
+
+                            <!-- 创建左侧导航菜单 -->
+                            <ul class="left-menu">
+                                <li><a href="javascript:;">手机 电话卡<i>></i></a></li>
+                                <li><a href="javascript:;">电视 盒子<i>></i></a></li>
+                                <li><a href="javascript:;">笔记本 显示器<i>></i></a></li>
+                                <li><a href="javascript:;">家电 插线板<i>></i></a></li>
+                                <li><a href="javascript:;">出行 穿戴<i>></i></a></li>
+                                <li><a href="javascript:;">智能 路由器<i>></i></a></li>
+                                <li><a href="javascript:;">电源 配件<i>></i></a></li>
+                                <li><a href="javascript:;">健康 儿童<i>></i></a></li>
+                                <li><a href="javascript:;">耳机 音箱<i>></i></a></li>
+                                <li><a href="javascript:;">生活 箱包<i>></i></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:;">小米手机</a></li>
+                        <li><a href="javascript:;">Redmi红米</a></li>
+                        <li><a href="javascript:;">电视</a></li>
+                        <li><a href="javascript:;">笔记本</a></li>
+                        <li><a href="javascript:;">家电</a></li>
+                        <li><a href="javascript:;">路由器</a></li>
+                        <li><a href="javascript:;">智能硬件</a></li>
+                        <li><a href="javascript:;">服务</a></li>
+                        <li><a href="javascript:;">社区</a></li>
+
+                        <!-- 商品详情弹出层 -->
+                        <div class="goods-info"></div>
+                    </ul>
+
+                    
+                </div>
+
+                <!-- 右侧搜索栏的容器 -->
+                <div class="search-wrapper">
+                    <form action="#" class="search">
+                        <input type="text" class="search-inp" >
+                        <button class="search-btn">搜索</button>
+                    </form>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- 中间的banner容器 -->
+        <div class="banner-wrapper">
+            <div class="banner w">
+                <!-- 轮播图 -->
+                <ul class="img-list">
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4b59d2e454866906384b427a5ed92082.jpeg?w=2452&h=920"></a></li>
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/527f28ff20aa102b0463704b244db01f.jpg?thumb=1&w=1839&h=690&f=webp&q=90"></a></li>
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/793eebbee1dd569fe56a8aaf58f62452.jpg?thumb=1&w=1839&h=690&f=webp&q=90"></a></li>
+                </ul>
+                <!-- 轮播图的小点 -->
+                <div class="pointer">
+                    <a class="active" href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </div>
+
+                <!-- 上/下一张的小箭头 -->
+                <div class="prev-next">
+                    <a class="prev" href="javascript:;">〈</a>
+                    <a class="next" href="javascript:;">〉</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 固定的小工具栏 -->
+        <div class="back-top">
+        </div>
+
+        <!-- 广告容器 -->
+        <div class="ad w">
+            <ul class="shortcut">
+                <li><a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82abdba456e8caaea5848a0cddce03db.png?w=48&h=48">
+                    保障服务
+                    </a>
+                </li>
+                <li><a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/806f2dfb2d27978e33fe3815d3851fa3.png?w=48&h=48">
+                    企业团购
+                    </a>
+                </li>
+                <li><a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/eded6fa3b897a058163e2485532c4f10.png?w=48&h=48">
+                    F码通道</a>
+                </li>
+                <li><a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/43a3195efa6a3cc7662efed8e7abe8bf.png?w=48&h=48">
+                    米粉卡</a>
+                </li>
+                <li><a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f4846bca6010a0deb9f85464409862af.png?w=48&h=48">
+                    以旧换新</a>
+                </li>
+                <li><a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9a76d7636b08e0988efb4fc384ae497b.png?w=48&h=48">
+                    话费充值</a>
+                </li>
+            </ul>
+
+            <ul class="ad-img">
+                <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d4298059889417157e8492750328492.jpg?w=632&h=340"></a></li>
+                <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b30177d629bfbe2fb42251c1b8538f7b.jpg?w=632&h=340"></a></li>
+                <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9f18ac756fa2cedb16ea429b9c0001af.png?w=632&h=340"></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

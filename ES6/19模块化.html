@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        /* 
+            模块化是指将一个大的程序文件拆分成多个小文件，再将其组合起来
+                !!需要给Script标签的type属性设置为module 否则会报错！！！
+            模块化的优势：
+                1、防止命名冲突
+                2、代码复用性高
+                3、高维护性
+            语法：
+                export命令用于规定模块的对外接口(将模块导出)
+                import命令用于引入其他模块的功能(导入它模块)
+        */
+        import * as module from './19模块化.js';//as表示重命名为module，导入默认暴露通常都要重命名
+        // import module from '...';//简便引入，仅支持默认暴露的模块
+        console.log(module);
+        console.log(module.school);
+        module.teach();
+    </script>
+</body>
+</html>

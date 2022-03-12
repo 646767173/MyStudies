@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            质数练习
+            -只能被1和它本身整除的数是质数，
+                1既不是质数也不是合数，所以从大于1的自然数开始
+
+        */ 
+        while(1){//循环执行程序
+            var flag = true;//定义一个变量去保存当前数的状态，默认是质数
+            var num = prompt('判断一个大于1的自然数是否为质数，请输入：');
+
+            //num合法性判断
+            if(num%1 != 0 || num < 2){
+                alert('您输入的数字不合法！请刷新重试');
+                break;
+            }else{
+                for(var i = 2;i < num;i++){
+                    if(num % i == 0){
+                        //取余为零说明能被整除，即为合数
+                        flag = false;
+                    }
+                }
+            }
+
+            if(flag){
+                alert(num+'是质数！');
+            }else{
+                alert(num+'不是质数！');
+            }
+        }
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

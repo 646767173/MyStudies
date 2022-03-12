@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>图片跟随的练习</title>
+<style type="text/css">
+	body {
+		text-align: center;
+	}
+	#small {
+		margin-top: 150px;
+	}
+	#showBig {
+		position: absolute;
+		display: none;
+	}
+</style>
+<script type="text/javascript" src="./jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+        // 实现一个对图片的放大功能，且会跟着图片
+		$("#small").bind("mouseover mouseout mousemove",function(a){
+            if(a.type == "mouseover"){
+                $("#showBig").show();
+            }else if(a.type == "mouseout"){
+                $("#showBig").hide();
+            }else if(a.type == "mousemove"){
+                $("#showBig").offset({ 
+                    //后面加数字是为了以防往右下滑的时候被判定为离开区域
+                    left: a.pageX + 10,
+                    top: a.pageY + 10
+                });
+            }
+        });
+	});
+</script>
+</head>
+<body>
+
+	<img id="small" src="img/small.jpg" />
+	
+	<div id="showBig">
+		<img src="img/big.jpg">
+	</div>
+
+</body>
+</html>

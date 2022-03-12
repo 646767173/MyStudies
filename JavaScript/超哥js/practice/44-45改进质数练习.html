@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 可以开启一个计时器去测试我们的性能
+        console.time('test');//开启一个名为test的计时器
+
+        // 测试质数练习的性能
+        // 可以通过一个Math.sqrt()对数字进行开方
+        for(var m=2;m<=10000;m++){
+            var flag = true;//默认是质数
+            for(var n=2;n<Math.sqrt(m);n++){//不能n<=m，否则下面的if判断必成立，不会有数字输出
+                //2.这里把m换成m的开方，从数学的角度上减少运算量，提高性能
+                if(m%n == 0){//外层大的数字m除以内层循环的小数n，能整除则不是质数
+                    // 一旦进入判断就证明m已经不可能是质数了
+                    flag = false;
+                    // 1.这时使用break结束本次循环
+                    break;
+                }
+            }
+            if(flag)
+                console.log(m);
+        }
+
+        console.timeEnd('test');// 终止计时器
+        /*
+            1.测试，列出2-10000之间的所有质数
+            没用break结束循环，用时test: 114.179931640625 ms
+            使用break结束循环，用时test: 33.470947265625 ms
+            可见使用break确实提高了测试性能
+
+            2.从数学上，把m换成Math.sqrt(m)，减少了运算量
+            使用break，换前速度，test: 39.163818359375 ms
+            使用break，换后速度，test: 24.611083984375 ms
+        */ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

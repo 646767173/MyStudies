@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Date对象
+            - 在JS中使用Date对象来表示一个时间
+        */
+        // 创建一个Date对象，若直接以构造函数形式创建，会封装为当前代码执行的时间
+        var d = new Date();
+        console.log(d);
+
+        /* 
+            创建一个指定的时间对象
+            需要在构造函数中传入一个表示时间的字符串作为参数
+            日期的格式(默认要求是，但高级浏览器可以灵活变换)：月/日/年 时:分:秒
+        */
+        var d2 = new Date('10/01/2021 10:00:00')//自己指定日期时间
+        console.log(d2);
+
+        // Date对象的方法：
+        var day = d2.getDay();//获取 周几 返回0-6 0表示周日
+        var date = d2.getDate();//获取 日期几号 返回1-31
+        var mouth = d2.getMonth();//获取 月份   返回0-11 0表示一月
+        var year = d2.getFullYear();//获取 年份 返回四位数年份
+        var hours = d2.getHours();//获取 小时 0-23
+        var minutes = d2.getMinutes();//获取 分钟 0-59
+        var seconds = d2.getSeconds();//获取 秒数 0-59
+
+        /* 
+            getTime() 获取当前日期对象的时间戳
+            时间戳是指，从格林尼治标准时间 1970年1月1日 0时0分0秒
+                到当前日期花费的毫秒数(1s = 1000ms)
+            -计算机底层保存时间都是使用时间戳的
+        */
+        var time = d2.getTime();
+
+        // 获取当前的时间戳
+        time = Date.now();
+        console.log(time);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

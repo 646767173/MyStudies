@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>箭头函数</h1>
+    var a = () => {<br>
+        函数体...<br>
+    }<br>
+
+    <h2>
+        箭头函数的特点：
+        1.形参只有一个则可以用形参替换小括号()
+        2.函数体只有一条语句可以省略大括号{}，语句执行结果为函数返回值
+        3.箭头函数this永远指向声明时作用域的this，无论如何调用永不变
+        4.无法作为构造函数
+        5.无法使用arguments，无该属性
+    </h2>
+    <h3>
+        箭头函数
+            适合与this无关的回调，如 定时器、数组的方法回调
+            不适合与this有关的回调，如 事件回调，对象的方法
+    </h3>
+    <script>
+        var a = () => {
+            console.log("I am a, 是一个箭头函数");
+            console.log(`我的this是${this}`);
+        }
+        a();
+        //1. 一个参数时。
+        var B = name =>{
+            this.name = name;
+        }
+        B('hahaha');
+        // 多个参数
+        var c = (i,j,l)=>i+j+l;
+        console.log(c(1,3,5));//2.省略大括号
+
+        //3. 无论如何调用 this都是声明时当前作用域的this，即这里的window
+        console.log(a());
+        console.log(a.call(c));
+        
+        //4. 实例化无效，因为无法成为构造函数，会报错is not constructor
+        let b_b = new B();
+        console.log(b_b);
+
+        // 5.无arguments，会报错cant find
+        var d = (a,b,c)=>{
+            console.log(arguments)
+        }
+        d(3,6,9);
+    </script>
+</body>
+</html>

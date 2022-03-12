@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Object也是一个构造函数，所以是Function的实例对象
+    <!-- 
+        1.instanceof是如何判断的？
+            表达式：A instanceof B (判断A是不是B的实例)
+            如果B函数的显式原型对象在A对象的原型链上，返回true，否则false
+            即判断(B.prototype===A.__proto__||B.prototype===A.__proto__.__proto__)
+        2.Function是通过new自己产生的实例
+            所有引用类型都可以是一个构造函数，同时也是Function的实例对象
+     -->
+    <script>
+        // 案例1
+        function Foo(){}
+        var f1 = new Foo();
+        console.log(f1 instanceof Foo); // true
+        console.log(f1 instanceof Object); // true
+        console.log(f1.__proto__.__proto__);//无论对象是谁，原型链最长只出现两个点
+       
+        // 案例2
+        console.log(Object instanceof Function);//true Object.__proto__===Function.prototype
+        console.log(Object instanceof Object);//true Object.__proto__.__proto__===Object.prototype
+        console.log(Function instanceof Function);//true Function.__proto__===Function.prototype
+        console.log(Function instanceof Object);//true Function.__proto__.__proto__===Object.prototype
+        console.log(Object instanceof Foo);//false
+        console.log(Object);//Object也是一个构造函数，所以是Function的实例对象
+    </script>
+</body>
+</html>

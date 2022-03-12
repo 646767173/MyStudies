@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        方法2：借用构造函数继承(其实没有继承，只是借用)
+            套路：
+                1.定义父类型构造函数
+                2.定义子类型构造函数
+                3.在子类型构造函数中调用父类型构造函数
+            关键：
+                1.在子类型构造函数中通用call()调用父类型构造函数
+        
+        方法3：组合继承，利用 原型链+借用构造函数的组合继承
+            1.利用原型链实现对父类型对象的方法继承
+            2.用call()借用父类型构造函数初始化相同属性
+     -->
+    <script>
+        // 方法二：
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        function Student(name,age,price){
+            Person.call(this,name,age);
+            this.price = price;
+        }
+        var s = new Student('tom',22,20000);
+        console.log(s.name,s.age,s.price);
+
+        // 方法三：
+        function Supper(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Supper.prototype.setName = function(name){
+            this.name = name;
+        }
+
+        function Sub(name,age,gender){
+            Supper.call(this,name,age);//为了得到属性
+            this.gender = gender;
+        }
+        // 子类型的原型为父类型的实例(为了能看到父类型的方法)
+        Sub.prototype = new Supper();
+        // 子类型的原型的构造指向子类型
+        Sub.prototype.constructor = Sub;
+        Sub.prototype.setGender = function(gender){
+            this.gender = gender;
+        }
+
+        var sub = new Sub('haha',22,'female');
+        
+        sub.setName('hhh');
+        sub.setGender('male');
+        console.log(sub);
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #to_top {
+          width: 30px;
+          height: 40px;
+          font: 14px/20px arial;
+          text-align: center;
+          background: #faf;
+          position: fixed;
+          cursor: pointer;
+          color: #fff;
+          left: 1250px;
+          top: 500px;
+        }
+      </style>
+</head>
+<body style="height: 2000px;">
+    <div>
+        <p>wuhu~</p>
+        <p>起飞！</p>
+    </div>
+    <div id="to_top">返回顶部</div>
+    <script src="../jquery-1.7.2.js"></script>
+    <script>
+        $('#to_top').click(function(){
+            // 瞬间回到顶部，设置页面ScrollTop为0
+            // $(document.documentElement,document.body).scrollTop(0);
+
+            // 平滑地回到顶部
+            var $page = $('html,body');
+                // 需要滚动的总距离
+            var distance = $('html').scrollTop() + $('body').scrollTop();
+                // 需要滚动的总时间
+            var time = 500;//ms
+                // 需要滚动的间隔时间
+            var intervalTime = 50;//ms
+                // 单元间隔距离
+            var itemDistance = distance/(time/intervalTime);
+                // 使用循环定时器不断滚动
+            var i1 = setInterval(function(){
+                distance -= itemDistance;
+                // 到达顶部，关闭定时器
+                if(distance<=0){
+                    // 修正距离
+                    distance = 0;
+                    clearInterval(i1);
+                }
+                $page.scrollTop(distance);
+            },intervalTime)
+                
+        })
+    </script>
+</body>
+</html>

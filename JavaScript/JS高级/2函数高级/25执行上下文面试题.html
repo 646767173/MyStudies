@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.依次输出什么？
+            global begin:undefined
+            foo() begin:1
+            foo() begin:2
+            foo() begin:3
+            foo() end:3
+            foo() end:2
+            foo() end:1
+            global end:1
+        2.整个过程中产生了几个执行上下文？
+            4+1
+     -->
+    <script>
+        console.log('global begin:'+i);//undefined
+        var i = 1;
+        foo(1);
+        function foo(i){
+            // foo(4)也创建了上下文对象，但是它什么都没输出就return了
+            if(i==4){//终止递归的条件
+                return;
+            }
+            console.log('foo() begin:'+i);
+            foo(i+1);//递归调用，在自己的函数里调用自己
+            console.log('foo() end:'+i);
+        }
+        console.log('global end:'+i);
+
+        // test1
+        console.log('test1:');
+        
+        function a(){}
+        var a;
+        console.log(typeof a);
+
+        // test2
+        console.log('test2:');
+
+        if( !(b in window) ){
+            var b = 1;
+        }
+        console.log(b);
+
+        // test3
+        console.log('test3:');
+        
+        var c = 1;
+        function c(c){
+            console.log(c);
+            var c = 3;
+        }
+        c(2);//2
+
+
+        /* 
+        test1:
+            var a;
+            a = function(){}
+            console.log(a);//a是一个函数
+
+        test2:
+            var b;
+            if( !(b in window) ){ //这一个语句根本不会执行
+                b = 1;
+            }
+            console.log(b);//undefined
+
+        test3:
+            var c;//先变量声明提前
+            c = function(c){//再函数声明提前
+                console.log(c);
+                var c = 3;
+            };
+            c = 1;//然后给c赋值，变成一个数字
+            所以c不是一个函数，无法执行c，报错
+        */
+    </script>
+</body>
+</html>

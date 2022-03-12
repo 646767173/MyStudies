@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el挂载点</title>
+</head>
+
+<body>
+    <div id="app" class="app"><!--只支持双标签的，但是vue不支持html和body标签-->
+        {{ message }}
+        <span>
+            {{message}}
+        </span>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app =new Vue({
+            //必须要在el命中的元素内部
+            el:"#app",//#是id选择器的关键字
+            //el:".app",//.是class选择器的关键字
+            // el:"div",
+            data:{
+                message:"el挂载点!"
+            }
+        })
+    </script>
+</body>
+
+</html>

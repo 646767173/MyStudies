@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 900px;
+            height: 200px;
+            background-color: #aaf;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        在不同的屏幕，单位像素的大小是不同的，像素越小屏幕越清晰
+            电脑屏幕            24寸        1920*1080
+            iPhone6            4.7寸        750*1334
+            
+            智能手机像素点 远远小于 计算机屏幕像素点
+
+            问：当一个宽度为900px(css像素)的网页在iphone6中如何显示呢?
+            实践后发现，
+                默认情况下移动端网页都会将视口铺满设置为980px(css像素)
+                以确保pc端的网页可以在移动端正常访问，
+                但是如果网页宽度超980，则浏览器会对其进行缩放使网页的全景能完整显示在视口中
+            
+            虽然大部分pc网页基本都能在手机正常浏览，但浏览体验往往不算好
+                i6的视口与物理像素的比值是 980:750 -> 1:0.765，根本无法看清楚每一个点
+            为了解决这些问题，部分网站会去额外适配移动端设计一个适合访问的网页
+    -->
+    <div class="box1"></div>
+
+</body>
+</html>

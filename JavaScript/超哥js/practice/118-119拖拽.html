@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 150px;
+            height: 150px;
+            background-color: #faf;
+        }
+        #brother{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /* 
+                拖拽(一)
+                1.当鼠标在被拖拽元素上按下时，开始拖拽          onmousedown当鼠标按下
+                2.当鼠标移动时，被拖拽元素随着鼠标移动          onmousemove当鼠标移动
+                3.当鼠标松开时，被拖拽元素固定在当前位置        onmouseup当鼠标松开
+                拖拽(二)    点哪里就从哪里拖，div不会“瞬移”
+                4.计算元素的偏移量，鼠标clientX/Y - 元素位置offsetLeft/Top
+                5.然后开始移动之前就完成位置设定
+                
+                拖拽(三)
+            */
+            // 获取box
+            var box = document.getElementById('box');
+            
+            // 1.为box绑定鼠标按下事件
+            box.onmousedown = function(event){
+                event = event || window.event;
+                // 4.计算偏移量
+                var X = event.clientX - box.offsetLeft;
+                var Y = event.clientY - box.offsetTop;
+
+                // 2.为document绑定一个onmousemove事件(在页面中移动)
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    // 给box设置位置样式
+                    box.style.position = 'absolute';
+                    // 5.减去偏移量，完成位置设定
+                    box.style.left = event.clientX - X + 'px';//记得加单位
+                    box.style.top = event.clientY - Y + 'px';//记得加单位
+                }
+                // 3.为document绑定鼠标松开事件，否则当鼠标指着其他元素时，松开鼠标也没有用
+                document.onmouseup = function(){
+                    // 取消onmousemove事件
+                    document.onmousemove = null;
+                    // 用完后要把本事件函数也给取消了
+                    document.onmouseup = null;
+                    alert('鼠标松开了');
+                }
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="brother"></div>
+</body>
+</html>

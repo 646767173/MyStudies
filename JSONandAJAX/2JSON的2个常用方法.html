@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2JSON的2个常用方法</title>
+</head>
+<script>
+    window.onload = function(){
+        var jsonOBJ = {
+            "key1":123,
+            "key2":"string",
+            "key3":["arr1",2,true]
+        } //定义json的对象格式
+        var jsonString = '{"key":"I am a jsonString"}';//定义json的字符串格式
+
+        var jsonOBJtoString = JSON.stringify(jsonOBJ);
+        var jsonStringtoOBJ = JSON.parse(jsonString);
+
+        console.log(jsonOBJtoString);
+        console.log(jsonStringtoOBJ);
+    }
+</script>
+<body>
+    <h1>
+        JSON的存在也有两种形式。<br>
+        一种是：对象的形式存在，称为json对象，<br>
+        另一种：字符串形式存在，称为json字符串。<br>
+        ——————一般我们要操作json中的数据时，我们需要json对象；<br>
+        ——————当我们要在客户端和服务器之间进行数据交换的时候，使用json字符串。
+    </h1><hr>
+    <h2>
+        对应的转换方式是：<br>
+        ————JSON.stringify()：把json对象转换成json字符串，<br>
+        ————JSON.parse()：把json字符串转换成json对象。<br>
+
+    </h2>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //函数返回值可以是任何数据类型
+        function fun(){
+            return 10;//返回基本数据类型
+        }
+        var result = fun();
+        console.log(result);
+
+        // 返回对象
+        function fun1(){
+            var obj = {name:'hahaha'};
+            return obj;
+        }
+        console.log(fun1());
+
+        // 返回函数
+        function fun2(){
+            function fun3(){
+                console.log('我是函数fun3');
+            }
+            fun3();
+            return fun3;//返回值是函数对象
+        }
+        console.log(fun2);
+        console.log(fun2());
+
+        var a = fun2();//a = 调用函数fun2，即a = fun3
+        a();//相当于调用函数fun3
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

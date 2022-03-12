@@ -1,0 +1,39 @@
+/*
+    css的注释，就会同步到css文件中
+*/
+div {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 30px;
+}
+.box1 {
+  background-color: blue;
+}
+.box1 .box2 {
+  background-color: darkviolet;
+  width: 100px;
+  height: 100px;
+}
+.box1 .box2 .box3 {
+  background-color: cadetblue;
+  width: 50px;
+  height: 50px;
+}
+.box1 .box4 {
+  background-color: cornflowerblue;
+  width: 50px;
+  height: 50px;
+}
+.box5 {
+  width: 50px;
+  height: 100px;
+  background-color: #bfa;
+}
+.box6 {
+  width: 50px;
+  height: 50px;
+  background-color: #bfa;
+  border: 1px solid black;
+  background-image: url("box6/1.png");
+}

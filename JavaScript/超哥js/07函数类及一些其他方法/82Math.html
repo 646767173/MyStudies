@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Math
+            - Math是数学对象，里面存储了与数学相关的属性和方法
+                它属于一个工具类而非构造类函数对象
+        */
+        console.log(Math);
+        /* 
+            常量:
+            Math.PI——圆周率
+            Math.E——算术常量e，自然对数的底数
+            Math.LN2——2的自然对数
+            Math.LOG2E——以2为底e的对数
+            Math.SORT2——2的平方根
+            ...
+
+            方法:
+            abs()计算一个数的绝对值
+            ceil()对一个数(主要是小数)进行向上取整，小数位有值自动取整进一
+            floor()对一个数向下取整，舍去小数位
+            round()对一个数进行四舍五入
+            random()生成0~1之间的随机数
+                -生成0~x之间的随机整数 Math.round( Math.random()*x );
+                -生成x-y之间的随机整数 Math.round( [Math.random()*(y-x)]+x )
+            max() 返回多个数中的最大值
+            min() 返回多个数中的最小值
+            pow(x,y) 返回x的y次方
+            sqrt(x) 返回x的平方根
+
+        */
+        console.log( Math.abs(-3.2) ); 
+        console.log( Math.ceil(1.1) ); 
+        console.log( Math.random() );
+        console.log( Math.max(-1,32,44,22,0,99));
+        console.log( Math.min(-1,32,44,22,0,99));
+        console.log( Math.pow(3,4));//3^4=81
+        console.log( Math.sqrt(36));//36开平方=6
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

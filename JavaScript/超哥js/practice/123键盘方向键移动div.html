@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #div{
+            width: 200px;
+            height: 200px;
+            background-color: #Faf;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // 获取div对象
+            var div = document.getElementById('div');
+            // 方向键↑ ↓ ← →分别操控div往上 下 左 右移动
+            document.onkeydown = function(event){
+                event = event||window.event;
+                // console.log(event.keyCode);
+                div.style.position = 'absolute';//开启绝对定位
+                // 定义每次移动的距离
+                var distance = 20;
+                // 按ctrl键后速度翻倍
+                if(event.ctrlKey)
+                    distance = 2*distance;
+                // 38为上、40为下、37为左、39为右
+                switch (event.keyCode) {
+                    case 38:
+                        div.style.top = div.offsetTop - 15 +'px';//向上移动
+                        break;
+                    case 40:
+                        div.style.top = div.offsetTop + 15 +'px';//向下移动
+                        break;
+                    case 37:
+                        div.style.left = div.offsetLeft - distance +'px';//向左移动
+                        break;
+                    case 39:
+                        div.style.left = div.offsetLeft + distance +'px';//向右移动
+                        break;
+                    default:
+                        console.log('请按方向键');
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+</html>

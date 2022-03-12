@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 800px;
+            border: 10px solid black;
+            display: flex;
+            /* 弹性容器的属性
+                flex-direction:设置子元素的排列方向
+                    -row            横向(默认值)
+                    -column         纵向
+                    后缀-reverse    反向
+                        主轴：弹性元素排列方向称为主轴(向右为正，-reverse是向左为正)
+                        侧轴：与弹性元素排列方向垂直称为侧轴(向下为正，-reverse是向上为正)
+
+            */
+            flex-direction: columrn;
+        }
+        li{
+            width: 50px;
+            height: 40px;
+            background-color: blueviolet;
+            font-size: 20px;
+            text-align: center;
+            /* 弹性元素属性：
+                flex-grow   设置弹性元素的伸展系数(可以为每一个弹性元素分别设置)
+                    -用于决定当父元素空间多余时，子元素如何进行伸展
+                    -父元素的剩余空间会按照各弹性元素之间比例进行分配
+                flex-shrink 设置弹性元素的收缩属性
+                    -当父元素空间不足以容纳所有子元素时，会对子元素进行收缩
+                    -同样是等比收缩
+            */
+        }
+        li:nth-child(2){
+            background-color: orange;
+            flex-grow: 2;/*他占比2*/
+        }
+        li:nth-child(3){
+            background-color: gainsboro;
+            flex-grow: 3;/*它占比3*/
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        flex(弹性盒、伸缩盒)
+            -是css3中的又一种布局手段，它主要用来代替浮动来完成页面布局
+            -flex可以使得元素具有弹性，让元素随着页面大小改变而改变
+
+        ————弹性容器
+            -要使用弹性盒，必须先将一个元素设置为弹性容器
+                ，这样它里面的元素就可以横向排布
+            -通过display设置，
+                display:flex        块级弹性容器
+                display:inline-flex 行内弹性容器
+
+        ————弹性元素
+            -弹性容器的直接子元素(非子元素的后代元素不算)是弹性元素(或弹性项)
+            -一个元素可以既是弹性容器，又是弹性元素
+
+     -->
+     <ul>
+         <li>a</li>
+         <li>a</li>
+         <li>a</li>
+     </ul>
+</body>
+</html>

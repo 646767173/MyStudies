@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for指令</title>
+</head>
+<body>
+    <!-- 2.html结构-->
+    <div id="app">
+        <ul>
+            <li v-for="(city,index) in arr">
+                一线城市:{{ index+1 }}{{ city }}
+            </li>
+        </ul>
+        <br>
+        <input type="button" value="添加种类" @click="add">
+        <br>
+        <input type="button" value="移出种类" @click="remove">
+        
+        <h2 v-for="item in category" v-bind:title="item.name">
+            {{ item.name }}
+        </h2>
+    </div>
+    <!-- 1.开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //3.创建Vue对象
+        var app = new Vue({
+            el:"#app",
+            data:{
+                arr:["北京","上海","广州","深圳",],
+                category:[
+                    {name:"麻辣烫"},
+                    {name:"麻辣香锅"},
+                    {name:"无敌炸串"}
+                ]
+            },
+            methods:{
+                add:function(){
+                    this.category.push({name:"麻辣火锅"});
+                },
+                remove:function(){
+                    this.category.shift();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

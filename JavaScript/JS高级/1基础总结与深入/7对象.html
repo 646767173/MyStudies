@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1什么是对象？
+            多个数据的封装体 或 用来保存多个数据的容器
+            一个对象代表现实中的一个事物
+        2为什么要用对象？
+            统一管理多个数据
+        3对象的组成？
+            -属性：属性名(字符串，通常我们会省略引号) 和 属性值 组成
+            -方法：一种特别的属性(属性值是函数)
+        4任何访问对象内部数据？
+            两种形式访问内部数据
+                ①对象.属性名
+                    编码简单，有时不能用
+                ②['属性名'] 
+                    编码麻烦，能通用
+        5什么情况下必须使用 ['属性名'] 的方式访问对象？
+            1包含特殊字符，如 - 空格
+            2属性名不确定，也是一个变量
+    -->
+    <script>
+        var person1 = {//这个对象就表示现实中的一个人
+            name:'Hahaha',
+            age:21,
+            gender:'male',
+            setName:function(name){
+                this.name = name;
+            },
+            setAge:function(age){
+                this.age = age;
+            },
+            setGender:function(gender){
+                this.gender = gender;
+            }
+        }
+
+        // 情况1:给person1添加一个属性 content-type:'javascript'
+        // person1.content-type = 'javascript';//这种简单形式不能用
+        person1['content-type'] = 'javascript';//这种形式添加就行
+        console.log( person1['content-type'] );
+
+        // 情况2:属性名不确定
+        var propname = 'truename';//我想把propname里的值truename作为属性名
+        //person1.propname = 'he';//如果这样写，添加的属性名就是propname了
+        person1[propname] = 'he';//这样写就行，[]里面可以是变量
+        console.log(person1.truename);
+    </script>
+</body>
+</html>

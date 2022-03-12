@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.原型链
+            访问一个对象的属性时,
+            先会在自身属性中查找，找到就返回
+            如果没有，再沿着__proto__这条链向上寻找，找到返回
+            最终仍未找到，则返回undefined
+            原型链的尽头，就是Object的原型对象
+        别名：隐式原型链
+        作用：查找对象的属性(方法)，而不是用来查找对象的
+
+        所有自定义函数的原型对象，都是指向一个空Object实例对象
+        空Object对象的隐式原型对象相当于其构造函数的显式原型对象，
+        所以空Object对象的__proto__指向Object的原型对象
+            fn.__proto === Fn.prototype => {}
+            {}.__proto === Object.prototype ;
+        (实际上Object空对象里面还是会有一些原型对象共有的属性，比如constructor)
+        2.构造函数/原型/实体对象的关系(图解)
+        3.构造函数/原型/实体对象的关系2
+
+        原型对象里的constructor是指向原来的函数对象
+        比如 Fn.prototype.constructor == Fn;
+    -->
+    <script>
+        function Fn(){
+            this.test1 = function(){
+                console.log('test1()');
+            }
+        };
+        var fn = new Fn();
+
+        Fn.prototype.test2 = function(){
+            console.log('test2()');
+        }
+        fn.test1();//先在自己的属性中找，找不到就顺着__proto__去原型对象找
+        fn.test2();//先在自己的属性中找，找不到就顺着__proto__去原型对象找
+        // fn.test3();//test3没有，会返回undefined，这里有test3()则会说test3不是一个function
+        
+        console.log(Fn.prototype.__proto__);//其实就是Object对象的原型对象
+        
+        /* 
+            Fn函数对象有一个prototype显式原型对象
+            里面又有一个隐式原型对象__proto__(指向的是Object对象的原型对象)
+            然后就没有了
+        */
+        //null，因为Object原型对象没有任何原型对象了
+        console.log(Fn.prototype.__proto__.prototype||Fn.prototype.__proto__.__proto__);
+        console.log(Object.prototype);//Object的原型对象
+        console.log(Fn.prototype.__proto__===Object.prototype);//true，说明原型链最后一个原型对象就是Object的显式原型对象
+        console.log(Object.prototype.__proto__===null);//null，Object的显式原型对象的原型对象为空
+    </script>
+</body>
+</html>

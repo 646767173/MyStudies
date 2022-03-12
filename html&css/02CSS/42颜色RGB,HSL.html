@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            颜色单位：
+                CSS中可以用颜色名来设置颜色
+                但这样子记不住的话就不方便
+            因此有RGB值：
+                -R表示red,G表示green,B表示blue
+                -每个颜色取值0~255(0~100%)
+                -语法：RGB(红色，绿色，蓝色)
+            RGBA:
+                -就是比RGB多了一个A表示透明度
+                -1表示不透明 0表示透明 0.5表示半透明
+
+            十六进制的RGB:
+                -语法#红色绿色蓝色
+                -每个颜色通过00-ff
+                -如果每两位都重复，则可以缩写
+                    #00ffaa -> #0fa      
+
+
+            HSL值   HSLA值
+                H   色相(0-360)
+                S   饱和度，颜色的浓度  0%~100%
+                L   亮度，颜色的亮度    0%~100%
+        */
+        p{
+            background-color: red;
+            background-color: rgb(255,0,0);
+            background-color: rgb(0,255,0);
+            background-color: rgb(0,0,255);
+            background-color: rgb(255,255,255);
+            background-color: rgba(25,25,25,0.2);
+            background-color: #00ffff;
+            background-color: hsl(11, 5%, 10%);
+            background-color: hsla(11, 5%, 10%,0.1);
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

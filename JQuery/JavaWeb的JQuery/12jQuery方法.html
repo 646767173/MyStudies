@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+</head>
+<script type="text/javascript" src="./jquery-1.7.2.js"></script>
+<script>
+    $(function () { //相当于window.onload事件，表示页面加载完成后
+        $("#btn0").click(function () {
+            $("*").css("background", "white");
+        });
+        $("#btn1").click(function () {
+            alert($("div").html()); //获取html
+        });
+        $("#btn1-2").click(function () {
+            $("div").html("<div>我是$里自定义的html()</div> <input type='text' value='我是html中设置的inputtextvalue'/>"); //设置html
+        });
+        $("#btn2").click(function () {
+            alert($("div").text());
+        });
+        $("#btn2-2").click(function () {
+            $("div").text("<div>我是$里自定义的text()</div>");
+        });
+        $("#btn3").click(function () {
+            alert($("input").val());
+        });
+        $("#btn3-3").click(function () {
+            $("input").val("我是$自定义的value值");
+        });
+
+        $(":radio,:checkbox,#multiple,#single").val( ["radio1","checkbox2","checkbox3","mul1","mul4","sin2"] );
+    
+        alert( $(":checkbox.cbox:first").attr("name") ); //获取属性
+        $(":checkbox.cbox:first").attr("name","abcd"); //设置属性
+        alert( $(":checkbox.cbox:first").attr("checked") ); //获取特殊属性的值，若无会返回undefined可能导致浏览器崩溃
+        alert( $(":checkbox.cbox:first").prop("checked") ); //获取特殊属性的值，若无会返回false，若有也只会返回true
+
+    });
+</script>
+<!-- 
+    Jquery对象中的方法：————
+    .html() - 获取或设置起始标签和结束标签中的内容      —— 同dom属性中的innerHTML
+    .text() - 获取或设置起始标签和结束标签中的文本      —— 同dom属性中的innerText
+    .val() - 获取或设置表单项中的value属性值           —— 同dom属性中的.value()
+    .attr()方法，可以获取或设置属性的值,但不推荐用于操作checked、disabled、readOnly,不存在会返回undefined
+    .prop()方法，可以获取或设置属性的值,但只推荐用于操作checked、disabled、readOnly,这四个属性只会返回true or false
+
+ -->
+
+<body>
+    <div style="border: solid 1px cadetblue;">
+        <div>
+            我是一个初始的div标签
+            <span>我是div中的span标签</span>
+            <input type="text" value="我是input:text里面的value值">
+        </div>
+        <button id="btn0">还原</button>
+        <button id="btn1">html()方法，获取</button>
+        <button id="btn1-2">html()方法，设置</button>
+        <button id="btn2">text()方法，获取</button>
+        <button id="btn2-2">text()方法，设置</button>
+        <button id="btn3">val()方法，获取</button>
+        <button id="btn3-3">val()方法，设置</button>
+    </div>
+    <div>
+        单选：
+        <input name="radio" type="radio" value="radio1" />radio1
+        <input name="radio" type="radio" value="radio2" />radio2
+        <br />
+        多选：
+        <input name="checkbox" type="checkbox" value="checkbox1" />checkbox1
+        <input name="checkbox" type="checkbox" value="checkbox2" />checkbox2
+        <input name="checkbox" type="checkbox" value="checkbox3" />checkbox3
+        <br />
+        下拉多选 ：
+        <select id="multiple" multiple="multiple" size="4">
+            <option value="mul1">mul1</option>
+            <option value="mul2">mul2</option>
+            <option value="mul3">mul3</option>
+            <option value="mul4">mul4</option>
+        </select> <br />
+        下拉单选 ：
+        <select id="single">
+            <option value="sin1">sin1</option>
+            <option value="sin2">sin2</option>
+            <option value="sin3">sin3</option>
+        </select>
+    </div>
+    <hr>
+    <div>
+        多选：
+        <input name="cbox" class="cbox" type="checkbox" checked="checked" value="cbox1" />cbox1(checked)
+        <input name="cbox" class="cbox" type="checkbox" value="cbox2" />cbox2
+        <input name="cbox" class="cbox" type="checkbox" value="cbox3" />cbox3
+        <br>
+    </div>
+
+</body>
+
+</html>

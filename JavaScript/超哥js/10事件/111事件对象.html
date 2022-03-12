@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #areaDiv{
+            border: 1px solid black;
+            width: 300px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        #showMsg{
+            border: 1px solid black;
+            width: 300px;
+            height: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // 鼠标在areaDiv中移动时，在showMsg中显示鼠标的坐标
+            // 获取两个Div   
+            var areaDiv = document.getElementById('areaDiv');
+            var showMsg = document.getElementById('showMsg');
+            /* 
+                当鼠标在其中移动时触发
+                给div绑定一个单击事件,参数表示事件对象(与形参名字无关)
+
+                事件对象
+                    -当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数
+                        事件对象封装了当前事件相关的一切信息
+                        比如：鼠标的坐标，键盘的哪个按键，鼠标滚轮滚动的方向
+            */
+            areaDiv.onmousemove = function(e){
+                /* 
+                    在IE8及以下浏览器中，响应函数被触发时，浏览器不会传递事件对象
+                        因为是将事件对象event作为window对象的属性保存的
+                    但是火狐中，无法识别window.e
+                    因此需要做一个分支判断
+                */
+                // 解决时间对象的兼容性问题
+                e = e||window.event ;
+                // console.log(arguments);//arguments里面的第一个值就是事件对象
+                // console.log(e);//当前的事件对象叫做MouseEvent，鼠标事件
+                /* 
+                    clientX 可以获取鼠标指针的水平坐标
+                    clientY 可以获取鼠标指针的垂直坐标
+                */
+                var x = e.clientX;
+                var y = e.clientY;
+                showMsg.innerHTML = 'x='+x+' y='+y;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="areaDiv"></div>
+    <div id="showMsg"></div>
+</body>
+</html>

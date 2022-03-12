@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$的知识</title>
+    <script src="./jquery-1.7.2.js"></script>
+    <script>
+        /*
+            $是jQuery中的核心函数,传入参数不同时,所代表的的意思不同
+        */
+        // 1.传入参数是(函数)
+            // 表示页面加载完成后,即window.onload
+        $(function () {
+            alert("页面加载完成后，自动调用");
+
+            // 2.传入参数是(HTML字符串)
+                // 根据这个字符串创建元素节点对象
+            $("    <div>" +
+                "<span>div-span1</span>" +
+                "<span>div-span2</span>" +
+                "</div>").appendTo("body"); //会直接把对应节点生成在body中
+
+            // 3.传入参数是(选择器字符串),返回的结果是jQuery对象 [Object object]
+                // 如 $("#id属性值"); id选择器，表示根据id查询对应id选择器的标签对象
+                // 如 $("标签名"); 标签名选择器TagName，表示根据指定标签名查找标签对象
+                // 如 $(".class属性值"); 类型选择器，可以根据class属性查找标签对象
+            var ddd = $("div");
+            alert(ddd.length);//应为2个
+
+            // 4.传入参数是(DOM对象)
+                // 会把该DOM对象转化为JQuery对象
+            var dddDOM = document.getElementsByName("ddd");
+            alert(dddDOM);
+            alert( $(dddDOM) );
+        });
+    </script>
+</head>
+<body>
+    <div name="ddd">asd</div>
+</body>
+
+</html>

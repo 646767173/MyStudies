@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            定时调用 和 延时调用 一般是相互代替的
+            在开发中可以根据自己的需求去使用
+        */
+        var num = 1;
+        // 开启一个定时器，开始那一刻就开始执行
+        /* setInterval(() => {
+            console.log(num++);
+        }, 600); */
+        // 延时定时器，也会在设定的延时后才开始执行，且只执行一次
+        var timer = setTimeout(()=>{
+            console.log(num++);
+        },300);//不传第二个参数，则会立即执行
+        // 使用一个clearTimeout去关闭一个延时调用，同样传标识作为参数
+        clearTimeout(timer);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

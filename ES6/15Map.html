@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            ES6提供Map数据结构，类似于对象，也是键值对的集合。
+            这里的"键"不仅限于字符串，任何数据类型都可以作为键
+            Map也实现了Iterator接口，可以使用 ... 和 for...of 遍历
+        */
+        let m = new Map();
+        let m2 = new Map([
+            ['name','哈哈哈'],
+            ['age',18]
+        ]);
+
+        // 1. size 返回Map元素个数
+        console.log(m2.size);
+        // 2. set(a,b) 增加一个新元素，返回增加后的Map对象
+        m.set('芜湖','起飞');
+        let obj = {name:'obj'};
+        m.set(obj,['value1','value2']);
+        console.log(m);
+        // 3. get() 返回对应键名的值
+        console.log(m.get('芜湖'));
+        // 4.has() 判断Map是否包含某个键，返回布尔值
+        console.log(m.has(obj));
+        // 5.clear() 清空集合，返回undefined
+        // m.clear();
+        console.log(m);
+    </script>
+</body>
+</html>

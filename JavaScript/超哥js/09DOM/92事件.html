@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            /* 
+                事件，在JS中就是指用户与文档或浏览器窗口发生一些特定的交互瞬间
+                比如：点击按钮，鼠标移入特定区域，这些都可以称为事件
+
+                我们可以对一些事件对应的属性上设置JS代码
+                    当这个时间被触发时，这些代码就会执行
+            */
+            var btn = document.getElementById('btn');
+            btn.onclick = function(){
+                alert('JavaScript');
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">a button</button>
+</body>
+</html>

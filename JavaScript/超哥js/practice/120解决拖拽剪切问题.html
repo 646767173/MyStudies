@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 150px;
+            height: 150px;
+            background-color: #faf;
+        }
+        #brother{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /* 
+                拖拽(三)
+                当我们去拖拽内容时，浏览器会默认去搜索引擎中搜索拖拽的内容
+                这时会导致拖拽功能出现异常，这个是浏览器的默认行为
+                在函数下输入return false可以取消这个默认行为
+
+                但在IE8及以下浏览器使用如下方法
+                    使用setCapture()
+                    ——该方法可以使对象捕获所有其当前触发的事件
+                    比如：
+                    按钮1单击触发该方法后，该方法会帮按钮1捕获所有单击事件，
+                    无论单击事件原先的对象是谁，只要触发单击事件都相当于触发按钮1本身
+                因此，我们可以使用它去给拖拽元素捕获全部的事件，
+                使得浏览器不会去搜索文字，因为拖拽的是拖拽元素而不是文字
+            */
+            // 获取box
+            var box = document.getElementById('box');
+            // 使用拖拽函数
+            drag(box);
+            var brother = document.getElementById('brother');
+            drag(brother);
+        }
+
+        /* 
+            提高代码复用率
+            提取为一个专门拖拽的函数
+            drag(obj)
+                -obj    需要开启拖拽的元素对象
+        */
+        function drag(obj){
+            // 1.为obj绑定鼠标按下事件
+            obj.onmousedown = function(event){
+                // 设置捕获，鼠标松开时要取消捕获，只有IE或火狐可用
+                obj.setCapture&&obj.setCapture();
+                event = event || window.event;
+                // 4.计算偏移量
+                var X = event.clientX - obj.offsetLeft;
+                var Y = event.clientY - obj.offsetTop;
+
+                // 2.为document绑定一个onmousemove事件(在页面中移动)
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    // 给obj设置位置样式
+                    obj.style.position = 'absolute';
+                    // 5.减去偏移量，完成位置设定
+                    obj.style.left = event.clientX - X + 'px';//记得加单位
+                    obj.style.top = event.clientY - Y + 'px';//记得加单位
+                }
+                // 3.为document绑定鼠标松开事件，否则当鼠标指着其他元素时，松开鼠标也没有用
+                document.onmouseup = function(){
+                    // 取消捕获
+                    obj.releaseCapture&&obj.releaseCapture();
+                    // 取消onmousemove事件
+                    document.onmousemove = null;
+                    // 用完后要把本事件函数也给取消了
+                    document.onmouseup = null;
+                    // alert('鼠标松开了');
+                }
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    我是一段文字，连同我一起拖拽时会出现问题。<br>
+    当我们去拖拽内容时，浏览器会默认去搜索引擎中搜索拖拽的内容。<br>
+    这时会导致拖拽功能出现异常，这个是浏览器的默认行为。<br>
+    不希望发生，则通过return false取消默认行为。<br>
+    <div id="box"></div>
+    <div id="brother"></div>
+</body>
+</html>

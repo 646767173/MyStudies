@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            toString方法是由原型的原型Object提供的
+
+        */
+        function Person(name,age){
+            this.name = name ;
+            this.age = age ;
+        };
+        var p = new Person('haha',20);
+
+        /*
+            当我们希望页面打印对象时，实际上是返回该对象默认toString方法返回值
+            我们希望输出的不是 [Object Object]
+            所以我们要为自己的需求，去定义一个toString方法
+        */ 
+        console.log(p);
+        console.log(p.toString());
+
+        Person.prototype.toString = function(){
+            return "Person[name = "+this.name+",age = "+this.age+"]";
+        }
+        console.log(p.toString());
+        var p2 = new Person('niu',32);
+        console.log(p2.toString());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

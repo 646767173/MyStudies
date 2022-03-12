@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建Promise对象
+        const p = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('用户数据');
+                // reject('出错了');
+            },1000);
+        });
+        /* 
+            调用then方法，then方法的返回结果是promise对象
+            对象的PromiseStatus、PromiseValue属性均由回调函数执行结果决定
+        */
+        const result = p.then(value=>{
+            console.log(value);
+            // 1.当回调函数return非Promise类型的数据，Status为fulfilled(成功)，Value值是return的内容值
+            // return 123;
+            // 2.return是promise对象，则对应里面promise对象的状态(fulfilled/rejected)和值
+            /* return new Promise((resolve,reject)=>{
+                reject('ok');
+            }) */
+            // 3.抛出错误，状态rejected，value对应抛出来的错误值
+            throw 'error!!!';
+        },reason=>{
+            console.warn(reason);
+            return 321;
+        });
+        console.log(result);
+
+        // 因为then方法可以返回promise对象，因此它可以链式调用，可以改变回调地狱的写法
+        // p.then(value=>{},reason=>{}).then(value=>{},reason=>{}).then(value=>{});
+    </script>
+</body>
+</html>

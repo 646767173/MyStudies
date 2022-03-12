@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            在Js中，在字符串中输入转义字符 \u 加四位Unicode编码
+            即可输出对应的Unicode字符
+        */ 
+        console.log('\u0031');// 1
+        console.log('\u2620');// 骷髅
+    </script>
+    <style>
+        h1{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        在网页中 使用&#编码; 
+        来输出一个Unicode字符
+        但是输入的编码必须是十进制，而不是十六进制
+    -->
+    <h1>
+        &#0049;<!-- 十六进制 0031 -> 十进制 0049 -->
+    </h1>
+    <h1>
+        &#9760;<!-- 十六进制 2620 -> 十进制 9760 -->
+    </h1>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #faf;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById('box1');
+            var btn1 = document.getElementById('btn1');
+            // 定义一个存储定时器标识的变量
+            var timer;
+            btn1.onclick = function(){//点击按钮后box1向右移动(left+)
+                // 开启之前关闭当前元素上一个定时器(防止叠加效应)
+                clearInterval(timer);
+                // 开启一个定时器用来执行动画效果
+                timer = setInterval(() => {
+                    // 获取box1原来的left值
+                    var oldValue = parseInt(getStyle(box1,'left'));
+                    // 在旧值的基础上加距离
+                    var newValue = oldValue + 23;
+                    // 判断值是否大于800，最大只能是800
+                    if(newValue >= 800){
+                        newValue = 800;
+                    }
+                    // 将新值设置给box1
+                    box1.style.left = newValue+'px';
+                    // 当元素移动到800px时，使其停止执行动画
+                    if(newValue === 800){
+                        // 达到目的，关闭定时器
+                        clearInterval(timer);
+                    }
+                }, 30);//每30ms调用一次
+            }
+        }
+        function getStyle(obj,name){
+            if(window.getComputedStyle)//不加window会找不到方法而报错
+                // 其他高于IE8的浏览器
+                return getComputedStyle(obj,null)[name];    
+            else
+                // IE8及以下版本浏览器
+                return obj.currentStyle[name];
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">点击按钮以后box1往右移动</button>
+    <div id="box1">box1</div>
+    <div style="width: 0;height: 1000px;border-left: black 1px solid;position: absolute;top: 0;left: 800px;"></div>
+</body>
+</html>

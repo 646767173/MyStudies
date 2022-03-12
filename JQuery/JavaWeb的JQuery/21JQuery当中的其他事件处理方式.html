@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JQuery当中的其他事件处理方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 13px;
+            line-height: 130%;
+            padding: 60px;
+        }
+
+        #panel {
+            width: 300px;
+            border: 1px solid #0050D0;
+        }
+
+        .head {
+            padding: 5px;
+            background: #96E555;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 10px;
+            text-indent: 2em;
+            border-top: 1px solid #0050D0;
+            display: block;
+            display: none;
+        }
+
+        .highlight {
+            background: #FF3300
+        }
+    </style>
+    <script type="text/javascript" src="./jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // $("h5").click(function () { //这里是给h5绑定单击事件
+            //     alert("给h5绑定单击事件");
+            // });
+
+            // $("button").click(function(){ 
+            //     alert("这里是触发h5的click事件");
+            //     $("h5").click(); // 这里是触发h5的click事件
+            // });
+
+            // $("h5").mouseover(function(){ //这种形式都是绑定上事件
+            //     console.log("鼠标移入了");
+            // });
+
+            // $("h5").mouseout(function(){
+            //     console.log("鼠标移出");
+            // });
+
+            // $("h5").bind("click mouseover", function () { //bind可以给元素一次绑定一个或多个事件，function是同一个
+            //     console.log("这是通过bind绑定的click、mouseover事件");
+            // });
+
+            // $("h5").unbind("click");// unbind解绑，如果不传参指明是哪一个事件失效，则全部都失效
+
+            // $("h5").one("click",function(){ // one用法和bind一样，但是绑定的事件只会响应一次
+            //     console.log("one->click,only once");
+            // });
+
+            $("h5").live("click",function(){
+                console.log("h5都绑上click事件，即使你是动态添加进来的");
+            });
+
+            // 动态添加一个h5标签
+            $('<h5 class="head">我是动态新添加的</h5>').appendTo( $("#panel") );
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="panel">
+        <h5 class="head">什么是jQuery?</h5>
+        <div class="content">
+            jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig
+            创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+        </div>
+        <button>按钮</button>
+    </div>
+</body>
+</html>

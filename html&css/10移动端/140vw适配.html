@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            /* 
+                在网页中fontsize最小是12px，无法设置一个比12px还小的字体
+                    如果我们设置了字体小于12px，字体会自动改回12px
+                在750px设计图中的视口宽度下
+                1px = 0.1333333vw
+                5.333vw = 40px > 12px
+                这时可以利用rem来进行操作
+            */
+            font-size: 5.333vw;
+        }
+        .box1{
+            /* 
+                利用rem，
+                    - 1 rem = 1 html fontsize
+                    - 1 rem = 40px (设计图)
+                因此当要设计一个80px*95px的盒子box1
+                就可以  width=80/40 height=95/40 算得对应的rem值
+
+                铺满全屏的width = 750/40=18.75rem
+
+                此时无论切换至哪一个移动设备下，该box1的实际占比都是不变的
+            */
+            width: 18.75rem;
+            height: 2.375rem;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        48px*35px
+
+     -->
+    <div class="box1"></div>
+</body>
+</html>

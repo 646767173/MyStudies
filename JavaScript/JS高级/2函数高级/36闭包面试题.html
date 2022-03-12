@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+
+     -->
+    <script>
+        // 代码一
+        var name = 'The Window';
+        var object = {
+            name:'My Object',
+            getNameFunc:function(){
+                return function(){
+                    return this.name;
+                };
+            }
+        };
+        alert( object.getNameFunc()() );//The Window
+        
+        // 代码二
+        var name2 = 'The Window';
+        var object2 = {
+            name:'My Object',
+            getNameFunc:function(){
+                var that = this;//将this此时此刻的值赋给了that
+                return function(){
+                    return that.name;
+                };
+            }
+        };
+        alert( object2.getNameFunc()() );//My Object
+
+        // 代码三
+        function fun(n,o){
+            console.log(o);
+            return{
+                fun:function(m){
+                    return fun(m,n);
+                }
+            };
+        }
+
+        var a = fun(0);
+        a.fun(1);
+        a.fun(2);
+        a.fun(3);
+
+        // var b = fun(0).fun(1).fun(2).fun(3);
+
+        // var c = fun(0).fun(1);
+        // c.fun(2);
+        // c.fun(3);
+
+
+
+    </script>
+
+
+
+
+
+
+
+    <!-- 
+        a返回一个对象{fun:function(m){
+            return fun(m,n);//n为0
+        }}
+        a.fun(1);输出0，在内部函数执行了外部函数fun(1,0)，
+        此时又创建了一个新的闭包，但没有用变量去接收，马上又消失了
+        所以往后的两个都是使用a原先的闭包，所以都是0
+        a.fun(2);输出0
+        a.fun(3);输出0
+
+        undefined,0,1,2;
+
+        undefined,0,1,1;
+     -->
+</body>
+</html>

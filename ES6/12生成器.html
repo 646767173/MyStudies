@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>生成器函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同</h1>
+    <script>
+        /* 
+            生成器是一种特殊函数吗，需要在函数声明中间加*号
+            异步编程    纯回调函数  如node fs ajax mongodb
+            yield：函数代码的分隔符，
+                它会作为一个对象，其中有value和done，done表示当前是否遍历完yield，否则返回false
+                遍历完yield才会返回true（且最后一个yield也为false），同迭代器
+        */
+        function * generate(){
+            console.log(111);
+            yield 'abc';//可以分隔函数体代码
+            console.log(222);
+            console.log(333);
+            console.log(444);
+        }
+
+        let iterator = generate();
+        // 函数直接调用不会执行，要调用其next方法才会执行
+        // iterator();
+        console.log(iterator.next()); 
+        console.log(iterator.next()); 
+        console.log(iterator.next()); 
+        console.log(iterator.next()); 
+        console.log('————————');
+        function * gen(args) {
+            console.log(args);
+            let one = yield 1111;
+            console.log(one);
+            let two = yield 2222;
+            console.log(two);
+            let three = yield 3333;
+            console.log(three);
+        }
+        let it1 = gen('AAA');
+        console.log(it1.next());//执行到aaa就停止，因为函数体被yield分成部分了,yield是下一部分的起点
+        console.log(it1.next('BBB'));//next()方法可以传参，参数会作为上一条(第一条)yield语句的返回结果
+        console.log(it1.next('CCC'));//222→CCC
+        console.log(it1.next('DDD'));//333→DDD 这个时候输出的其实是上一条的yield 现在没有yield了，done为true
+    
+    </script>
+
+</body>
+</html>

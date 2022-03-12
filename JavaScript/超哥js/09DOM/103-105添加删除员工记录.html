@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 删除一行数据的响应函数
+        function del() {
+            // 获取tr
+            var tr = this.parentNode.parentNode;
+            // 获取删除员工的名字
+            var name = tr.getElementsByTagName('td')[0].innerHTML;
+            // 删除前的提示框/confirm提示框，需要字符串作为参数表示提示内容，点击确定返回true，取消返回false
+            if (confirm('确认删除' + name + '吗？'))
+                // 删除tr
+                tr.parentNode.removeChild(tr);
+            // 需要在响应函数内添加一个return false 来取消超链接跳转地址的默认行为
+            return false;
+        }
+
+        window.onload = function () {
+            // 1.点击超链接的删除后，删除该行员工数据
+            // 获取所有超链接
+            var all_a = document.getElementsByTagName('a');
+            // 为每一个超链接绑定单击事件
+            for (i = 0; i < all_a.length; i++) {
+                all_a[i].onclick = del;//删除函数对象
+            }
+
+            // 2.点击提交按钮后，将表单的员工信息添加到表格中
+            // 为提交按钮绑定一个单击事件
+            var addEmpBtn = document.getElementById('addEmpBtn');
+            addEmpBtn.onclick = function () {
+                // 获取表单上的值
+                var name = document.getElementById('name').value;
+                var email = document.getElementById('email').value;
+                var salary = document.getElementById('salary').value;
+
+                // 将表单对象的内容添加到表格中
+                // 获取表格中的的tbody对象(由浏览器自动创建的，tr都在tbody里)
+                var tbody = document.getElementsByTagName('tbody')[0];
+                // 创建一个tr对象，将要添加的内容存到tr中
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + name + '</td><td>'
+                                + email + '</td><td>' + salary +
+                                '</td><td><a href="javascript:;">删除</a></td>';
+                // 把tr对象加到tbody中
+                tbody.appendChild(tr);
+
+                // 为其中的a标签重新绑定一次单击删除事件
+                var a = tr.getElementsByTagName('a')[0];
+                a.onclick = del;//删除函数
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table id="table" style="border: 1px solid black;">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="deleteEmp?id=001">删除</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a href="deleteEmp?id=002">删除</a></td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>Bob@tom.com</td>
+            <td>10000</td>
+            <td><a href="deleteEmp?id=003">删除</a></td>
+        </tr>
+    </table>
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="word">name:</td>
+                <td class="inp">
+                    <input type="text" name="name" id="name" value="hhh">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">email:</td>
+                <td class="inp">
+                    <input type="text" name="email" id="email" value="hhh@163.com">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">salary:</td>
+                <td class="inp">
+                    <input type="text" name="salary" id="salary" value="15000">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpBtn" value="abc">
+                        提交
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

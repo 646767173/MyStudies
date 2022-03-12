@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: xx-large;
+        }
+        .box1{
+            width: 500px;
+            height: 200px;
+            background-color: orange;
+            position: relative;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            /* 
+                水平布局等式
+                    7个值 = 其包含块width
+                当开启绝对定位后，
+                    该等式多添加了 left和right两个值
+                    left + 7个值 + right = 其包含块width
+                    规则仍与之间一样,
+                        当发生过度约束时，且9个值内无auto，
+                        则自动调整right的值使得等式成立(以前是调margin-right)
+                因为left和right默认是auto，所以要想它们为0必须写出来，
+                否则等式会最优先调整这两个值
+                
+                垂直布局也有如上的等式，必须要满足
+                    规则也和上面大体相同
+                        我们可以利用这一点来实现让一个元素垂直居中
+                        同时也可以实现元素水平垂直居中
+            */
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

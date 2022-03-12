@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 300px;
+            height: 400px;
+            border: 10px solid black;
+            /* 设置ul为弹性容器 */
+            display: flex;
+        }
+        li{
+            width: 150px;
+            height: 100px;
+            line-height: 100px;
+            background-color: blueviolet;
+            font-size: 20px;
+            text-align: center;
+            
+            /* 设置弹性元素的伸展系数为1，默认为0，不伸展 */
+            /* flex-grow: 1; */
+
+        /* 最终效果都是跟 系数 和 元素本身大小 共同决定的 */
+
+            /* 设置弹性元素的收缩系数为0，默认为1，会收缩 */
+            /* flex-shrink: 0; */
+
+            /* 元素的基础长度，相当于弹簧形变前的原始长度
+                当主轴是横向时，该值指定的就是元素的宽度
+                当主轴是纵向时，该值指定的就是元素的高度
+                -默认auto，参照元素自身的宽高
+            */
+            /* flex-basis: 100px; */
+
+            /* flex简写属性，可以设置元素的伸、缩系数、基础长度
+                flex 伸展系数 收缩系数 基础长度
+                -initial            就是 0 1 auto(全默认)
+                -auto               就是 1 1 auto
+                -none               就是 0 0 auto(元素没有弹性)
+                -一个非0数字         就是 x 1 auto
+                -只有一个0           就是 0 1 0% (元素大小由内容撑开)
+            */
+            /* flex:none; */
+            
+        }
+        li:nth-child(2){
+            /* align-self:  用于覆盖弹性容器的align-items
+                使用后该元素的侧轴排布会有所改变
+            */
+            /* order 决定弹性元素的排列顺序，order之间比较，越小则排越前 */
+            order: 1;
+            background-color: orange;
+        }
+        li:nth-child(3){
+            background-color: #aaf;
+            order: 0;
+        }
+    </style>
+</head>
+<body>
+     <ul>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+     </ul>
+</body>
+</html>

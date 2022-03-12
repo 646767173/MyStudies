@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style/css.css" />
+    <script>
+        window.onload = function(){
+            // 获取所有按钮对象
+            var btn01 = document.getElementById('btn01');
+            var btn02 = document.getElementById('btn02');
+            var btn03 = document.getElementById('btn03');
+            var btn04 = document.getElementById('btn04');
+            var btn05 = document.getElementById('btn05');
+            var btn06 = document.getElementById('btn06');
+            var btn07 = document.getElementById('btn07');
+
+            // 获取#city、#bj、#sh、#sz的对象
+            var city = document.getElementById('city');
+            var bj = document.getElementById('bj');
+            var sh = document.getElementById('sh');
+            var sz = document.getElementById('sz');
+
+            // 创建一个li元素节点，其下创建一个 长沙 文本节点
+            var li_cs = document.createElement('li');//新建一个元素
+            li_cs.innerHTML = '长沙';//设置元素文本
+
+            // 1.创建一个'长沙'节点，添加到#city下
+            btn01.onclick = function(){
+                /* 
+                    document.createElement()    用于创建一个元素节点对象
+                    需要一个标签名作为参数，根据该标签名创建元素节点对象
+                    将创建好的对象作为返回值返回
+                    父节点.appendChild(子节点)   用于往父节点添加一个子节点的方法
+                    需要一个子节点对象作为参数，根据它去创建子节点对象
+                    返回值就是添加的子节点对象内容
+                */
+                var li_cs = document.createElement('li');//新建一个元素
+                li_cs.innerHTML = '长沙';//设置元素文本
+                city.appendChild(li_cs);//添加到#city下
+            }
+            
+            // 2.将'长沙'节点插入到#bj前面
+            btn02.onclick = function(){
+                /* 
+                    父节点.insertBefore(新子节点,旧子节点)
+                    用于将新子节点插入到旧子节点之前
+                */
+                city.insertBefore(li_cs,bj);
+            }
+
+            // 3.使用'长沙'节点替换#sh节点
+            btn03.onclick = function(){
+                /* 
+                    父节点.replaceChild(新子节点，旧子节点)
+                    用新子节点替换旧子节点
+                */
+                var li_cs = document.createElement('li');//新建一个元素
+                li_cs.innerHTML = '长沙';//设置元素文本
+                city.replaceChild(li_cs,sh);
+            }
+            // 4.删除#sz节点
+            btn04.onclick = function(){
+                /* 
+                    父节点.removeChild(子节点)
+                    删除子节点
+                    子节点.parentNode
+                    子节点的父节点
+                */
+                bj.parentNode.removeChild(sz);//这样写就不用去单独获取要删除的节点的父节点了
+            }
+
+            // 5.读取#city的innerHTML
+            btn05.onclick = function(){
+                alert(city.innerHTML);
+            }
+
+            // 6.设置#bj的innerHTML
+            btn06.onclick = function(){
+                bj.innerHTML = 'BeiJing';
+            }
+
+            // 7.快速创建一个'成都'节点，添加到#city下
+            btn07.onclick = function(){
+                city.innerHTML +='<li>成都</li>';
+                /* 
+                    这个方法虽然可以快速实现，无需创建太多对象节点
+                    但是它是通过修改全部city下的内容来实现创建的
+                    动作太多，一旦内容多会容易出现问题，尽量减少使用
+                    btn01的创建方法仍是最推荐使用的
+                */
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="total">
+        <div class="inner">
+            <p>你喜欢哪个城市？</p>
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li id="sh">上海</li>
+                <li id="gz">广州</li>
+                <li id="sz">深圳</li>
+            </ul>
+        </div>
+        <div id="btnList">
+            <div><button id="btn01">创建一个'长沙'节点，添加到#city下</button></div>
+            <div><button id="btn02">将'长沙'节点插入到#bj前面</button></div>
+            <div><button id="btn03">使用'长沙'节点替换#sh节点</button></div>
+            <div><button id="btn04">删除#sz节点</button></div>
+            <div><button id="btn05">读取#city的innerHTML</button></div>
+            <div><button id="btn06">设置#bj的innerHTML</button></div>
+            <div><button id="btn07">快速创建一个'成都'节点，添加到#city下</button></div>
+        </div>
+    </div>
+</body>
+</html>

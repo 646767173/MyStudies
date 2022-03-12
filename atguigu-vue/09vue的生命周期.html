@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命周期</title>
+</head>
+
+<!-- 
+    1.vue对象的生命周期
+        1)初始化显示
+            *beforeCreate()
+            *created()
+            *beforeMount()
+            *mounted()
+
+        2)更新显示:this.xxx = value
+            *beforeUpdate()
+            *updated()
+
+        3)销毁vue实例：vm.$destroy()
+            *beforeDestroy()
+            *destroyed()
+    生命周期回调函数的另一种叫法：钩子函数
+
+    2.常见的生命周期方法
+    created()/mounted():发送ajax请求，启动定时器等异步任务
+    beforeDestroy():做收尾工作，如：清除定时器
+ -->
+<body>
+    <div id="demo">
+        <button @click="destroyVM">destroy vm</button>
+        <p v-show="isShow" style="color: blue;">何汉光真的好帅</p>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#demo',
+            data:{
+                isShow:true,
+            },
+
+            //1.初始阶段 执行一次
+            beforeCreate(){
+                console.log('beforeCreate()');
+            },
+
+            created(){
+                console.log('created()');
+            },
+
+            beforeMount(){
+                console.log('beforeMount()');
+            },
+
+            mounted(){//初始化显示后立即调用，也是一次
+                console.log('mounted()');
+                this.intervalId = setInterval(() => {
+                    console.log('看看这个定时器还有没有执行');//会发生内存泄漏，定时器还在执行
+                    this.isShow = !this.isShow;//更新数据
+                }, 1000)
+            },
+
+            //2.更新阶段 执行n次
+            beforeUpdate(){
+                console.log('beforeUpdated()');
+            },
+
+            updated(){
+                console.log('updated()');
+            },
+
+            //3.死亡阶段 执行一次
+            beforeDestroy(){//也是生命周期的回调函数,死亡之前调用一次
+                console.log('beforeDestroy()');
+                //清除定时器 
+                clearInterval(this.intervalId);//销毁vm时定时器不会自动消除，需要这行代码来解决
+            },
+
+            destroyed(){
+                console.log('destroyed()');
+            },
+
+            methods:{
+                destroyVM(){
+                    //干掉vm
+                    this.$destroy();
+                }
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

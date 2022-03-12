@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS基本</title>
+    <!-- link标签是专门用来引导css外文件的 -->
+    <link rel="stylesheet" href="1-1.css">
+    <style>
+        /* 
+            很重要!!
+            浏览器有calc() 比如 calc(100px + 200px) 这个会提交给浏览器去计算
+            但是兼容性很差，因此我们需要一个less去优化我们的样式，最后再将less编译为css去使用
+            css中可以这样定义变量
+                html{
+                    --color:#ff0;
+                }
+            接下来要使用这个颜色变量
+                .box1{
+                    background-color: var(--color);
+                }
+                .box2{
+                    color: var(--color);
+                }
+            用var去使用这个变量，因此修改颜色时就不用去每一个都修改
+        */
+
+        /* 
+        样式标签必须写在head里面
+            div这种是标签名选择器，直接让全部该标签应用此css
+        */
+        div {
+            border: 1px solid green;
+            color: blue;
+            font-size: 30px;
+        }
+
+        /* 
+            去除无序列表前的修饰
+            list-style:none;
+         */
+
+        /* 
+        id选择器 
+        必须要有#，id是唯一的所以一个样式只能对应一个标签
+        */
+        #span1 {
+            color: red;
+            font-size: 15px;
+            border: skyblue solid 1px;
+        }
+
+        #span2 {
+            color: blue;
+            font-size: 8px;
+            border: tomato dashed 3px;
+        }
+
+        /* 
+        class类型选择器
+        必须要有 . 
+        可以用class="" 来让需要使用该类型的标签使用
+        */
+        .abc {
+            border: 2px dashed gray;
+            color: hotpink;
+            font-size: 12px;
+        }
+
+        /* 
+        组合选择器
+        可以让不同的选择器共用一个css样式代码
+        */
+        #span3,
+        .class,
+        font {
+            color: indigo;
+            font-size: 20px;
+            border: lavender solid 2px;
+        }
+
+        /* 
+        div居中
+        margin-left:atuo            左外边距 自动
+        margin-right:atuo           右外边距 自动
+
+        文本居中
+        text-align:center
+         */
+        /* 
+         表格的样式
+         */
+        table {
+            border: black solid 1px;
+            border-collapse: collapse;/*将表格边框合并*/
+        }
+
+        td {
+            border: black solid 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="abc">div.abc</div>
+    <div>div2</div>
+
+    <span id="span1">span1</span>
+    <span id="span2">span2</span>
+
+    <p class="abc">p.abc</p>
+    <p>p2</p>
+
+    <div class="class">div3</div>
+    <span id="span3">span3</span>
+    <font>font</font>
+
+    <tr />
+    <p>
+    <table>
+        <td>1.1</td>
+        <td>1.2</td>
+    </table>
+    </p>
+
+
+</body>
+
+</html>

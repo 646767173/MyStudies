@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单输入绑定</title>
+</head>
+
+<!-- 
+    使用v-model（双向数据绑定）自动收集数据
+    text/textarea
+    checkbox
+    radio
+    select
+ -->
+
+<body>
+    <div id="demo">
+        <form action="/xxx" @submit.prevent="handleSubmit">
+            <span>用户名：</span>
+            <input type="text" v-model="username">
+            <br>
+
+            <span>密码：</span>
+            <input type="password" v-model="password">
+            <br>
+
+            <span>性别：</span>
+            <input type="radio" id="female" value="女" v-model="sex">
+            <label for="female">女</label>
+            <input type="radio" id="male" value="男" v-model="sex">
+            <label for="male">男</label>
+            <br>
+
+            <span>爱好：</span>
+            <input type="checkbox" id="basket" value="basket" v-model="hobbies">
+            <label for="basket">篮球</label>
+            <input type="checkbox" id="foot" value="foot" v-model="hobbies">
+            <label for="foot">足球</label>
+            <input type="checkbox" id="badminton" value="badminton" v-model="hobbies">
+            <label for="badminton">羽毛球</label>
+            <input type="checkbox" id="ttn"  value="ttn" v-model="hobbies">
+            <label for="ttennis">乒乓球</label>
+            <br>
+
+            <span>城市：</span>
+            <select v-model="cityName">
+                <option>未选择</option>
+                <option :value="city.name" v-for="(city,index) in cities" :key="index">{{city.name}}</option>
+            </select>
+            <br>
+            <span>介绍：</span>
+            <br>
+            <textarea cols="30" rows="10" v-model="desc"></textarea>
+            <br><br>
+
+            <input type="submit" value="注册" >
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#demo',
+            data:{
+                username:"",
+                password:"",
+                sex:"女",
+                hobbies:['basket'],
+                cityName:"广州",
+                cities:[
+                    {id:1,name:'北京'},{id:2,name:'上海'},
+                    {id:3,name:'广州'},{id:4,name:'深圳'}],
+                desc:""
+            },
+            methods:{
+                handleSubmit(){
+                    console.log(this.username, this.password, this.sex,
+                    this.hobbies, this.cityName, this.desc)
+                }
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

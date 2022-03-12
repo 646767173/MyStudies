@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            内容区(content)
+            元素中的所有子元素和文本内容都在内容区中排列
+                内容区的大小由 width宽度 和 height高度 设置
+        */
+        .box1{
+            width: 150px;
+            height: 150px;
+            background-color: blueviolet;
+        }
+        /* 
+            一般说的盒子大小(即盒子可见框大小)，由
+                内容区、内边距、边框 3个区域共同决定
+            因此计算盒子大小时，需要将这三个区域加在一起计算
+        */
+    </style>
+</head>
+<body>
+    <!-- 
+        盒模型、盒子模型、框模型(box model)
+            -CSS把页面中的所有元素都设置为了一个矩形盒子
+            -因此页面布局就变成了将不同的矩形盒子摆放到不同的位置
+            -每一个盒子都由以下几个部分组成：
+                内容区(content)
+                内边距(padding)__内容区和边框的距离
+                边框(border)
+                外边距(margin)__盒子与盒子之间的距离
+    -->
+    
+    <div class="box1"></div>
+</body>
+</html>

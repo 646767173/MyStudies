@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.2.js"></script>
+    
+</head>
+<body>
+    <button>测试</button>
+    <!-- 
+        两把利器
+            一、使用jQuery核心函数：$/jQuery
+                jQuery库向外直接暴露的就是$/jQuery
+                引入jQuery库后直接使用$即可
+                    当函数使用：$(xxx)
+                    当对象使用：$.xxx()
+
+            二、使用jQuery核心对象：执行$()返回的对象
+                jQuery对象
+                得到jQuery对象：执行jQuery函数返回的就是jQuery对象
+                使用jQuery对象：$obj.xxx()
+     -->
+    <script>
+        // 1.jQuery函数(对外暴露，直接可用)
+        console.log($);
+        console.log(jQuery===$);
+        // 2.jQuery对象(未对外暴露，执行jQuery函数能得到)
+        console.log( $() );
+        console.log( $() instanceof Object);
+        
+        /* 
+            jQuery库内部的整体结构
+            (function(window){
+                var jQuery = function(){
+                    return new xxx();
+                }
+
+                window.$ = window.jQuery = jQuery;
+            })(window)
+        */
+    </script>
+</body>
+</html>

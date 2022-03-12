@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: xx-large;
+            height: 2000px;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .box4{
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            position: relative;
+        }
+        .box5{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: relative;
+        }
+        
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: dodgerblue;
+            /* 未开启定位，偏移量不生效 */
+            top: 1000px;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            /* 必须要开启定位了，偏移量才会生效 */
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+        /* 
+            position设置为fixed则开启固定定位
+            固定定位也是一种绝对定位，其大部分特点与绝对定位相同
+                不同点
+                    -固定定位永远参照于浏览器视口进行定位
+                    (视口相当于浏览器可视窗口)在页面最左上角
+                    根据偏移量进行定位，元素则会移动到对应可视窗口的位置上
+                        这时即使有滚动条将页面上下滑动，(但可视窗口是固定不变的)
+                        它也会一直出现在网页可视窗口中所设定的位置
+        */
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box4">4
+        <div class="box5">5
+            <div class="box2">2</div>
+        </div>
+    </div>
+    <div class="box3">3</div>
+</body>
+</html>

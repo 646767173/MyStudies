@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            强制类型转换是指把其他类型转化为
+            number string boolean   三种
+
+            转换为string，
+            方法一
+                -调用被转换值的toString方法( 调用xxx的yyy方法，即xxx.yyy(); )
+                -不会改变原值，只是会返回一个数值，要我们主动去接收
+                -！但是null和undefined没有toString方法！调用他们会报错
+            方法二
+                -调用String方法，要转换的值作为参数传入，String(xxx)
+                -不会改变原值，会返回一个数值需要接收
+                -使用该方法，对number和boolean类来说，就是调用其toString方法
+                    对于null和undefined，就是帮它们加上引号使其变为字符串
+        */ 
+        var a;
+        a = 982138;
+        a = false;
+        a = null;
+        a = undefined;
+
+        // a = a.toString();//null和undefined会报错
+        a = String(a);
+        console.log(typeof a);
+        console.log(a);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        作用域链：
+            多个作用域嵌套下形成的链，方向是由内到外
+            查找变量时就是沿着作用域链来查找的
+            从内部作用域一直到最外层的全局作用域
+        查找变量的查找规则
+            在当前作用域下的执行上下文查找对应的属性，有则返回，无则向上找
+            在上一级作用域的执行上下文查找对应的属性，有则返回，无则向上找
+            直到全局作用域，如果还找不到就抛出异常，is not defined
+     -->
+    <script>
+        var a = 2;
+        function fn1(){
+            var b = 3;
+            function fn2(){
+                var c = 4;
+                console.log(c);//找c，fn2内部找到了
+                console.log(b);//找b，顺着作用域链去fn1找到了
+                console.log(a);//找a，顺着作用域链去全局作用域找到了
+                console.log(d);//找d，顺着作用域链全都没找到，返回is not defined
+            }
+            fn2();
+        }
+        fn1();
+    </script>
+</body>
+</html>

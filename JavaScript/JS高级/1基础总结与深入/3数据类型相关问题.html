@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.undefined与null区别？
+            undefined代表定义了，但未赋值
+            null代表赋值了，值为null
+        2.什么时候会给变量赋值为null？
+            初始赋值，表明将要赋值成对象
+            结束前，让其变为垃圾对象被回收清除
+        3.严格区别变量类型与数据类型？
+            数据的类型
+            -基本类型
+            -对象类型
+
+            变量的类型(根据变量内存值的类型去判断)
+            -基本类型：保存的就是基本类型的数据
+            -引用类型：保存的是地址值
+     -->
+    <script>
+        /* 
+            实例：实例对象
+            类型：类型对象
+        */ 
+        function Person(name,age){//构造函数 类型
+            this.name = name;
+            this.age = age;
+        }
+        var p =new Person();//根据类型创建的实例对象 实例
+
+        var a ;
+        console.log(a);
+        a = null;
+        console.log(a);
+        /* 
+            为什么null明明是基本数据类型，typeof却是Object
+            因为我们默认赋值为null时，都是将要给它赋值成一个对象
+            只是现在还没有赋值，所以用null表示将给其赋值成一个对象
+            简而言之————初始赋值为null，表明将要赋值为对象
+        */
+        var obj = null;
+        // 确定对象就赋值
+        obj = {name:'hhh',age:18};
+        // 最后赋值为null，是使用完了，要将其作为垃圾对象清除掉
+        obj = null;
+    </script>
+</body>
+</html>

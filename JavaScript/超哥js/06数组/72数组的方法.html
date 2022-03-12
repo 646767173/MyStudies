@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数组也有方法，通过方法可以对数组进行一系列操作
+        var arr =[];//定义一个数组
+        var result;//定义一个结果
+        console.log('原数组是一个空数组：'+arr);
+        console.log('返回值result：');
+        // push()-往数组末尾快速添加一个或多个元素，并将新长度作为方法返回值
+        result = arr.push('a321','abc',123,'最后一个');//接收该数组返回值
+        console.log('push后:'+arr);
+        console.log('返回值result：'+result);
+
+        // pop()-删除数组最后一个元素，并将被删除的元素作为方法返回值
+        result = arr.pop();
+        console.log('pop后:'+arr);
+        console.log('返回值result：'+result);
+
+
+        //shift()-删除数组的第一个元素，并将删除的元素作为返回值
+        result = arr.shift();
+        console.log('shift后:'+arr);
+        console.log('返回值result：'+result);
+
+
+        // unshift()-向数组的开头添加一个或多个元素，并返回新长度
+        result = arr.unshift('我是第一个',false);
+        console.log('unshift后:'+arr);
+        console.log('返回值result：'+result);
+        
+        console.log(Object.prototype.toString.call(arr).indexOf('Array')!==-1);
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

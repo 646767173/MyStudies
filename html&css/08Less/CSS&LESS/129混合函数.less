@@ -1,0 +1,26 @@
+// 混合函数 在混合函数中可以直接设置变量/参数
+.test(@w,@h,@color){
+    width: @w;
+    height: @h;
+    border: 1px solid @color;
+}
+
+// .test(@w:200px,@h:100px,@color:blue){ //使用的时候不传参就会使用默认值
+//     width: @w;
+//     height: @h;
+//     border: 1px solid @color;
+// }
+
+div{
+    //.test(200px,100px,red);   //在这里写你要传入的参数,这样写的话顺序不能错
+    .test(@color:green,@h:200px,@w:100px)   //还可以像这样键值对的写法
+}
+@test:average(green,blue); //average可以取两种颜色的中间值
+span{
+    color: @test;
+}
+
+body:hover{
+    // darken(color,%)  加深颜色多少百分比 100%就是变黑了
+    background-color: darken(#aaf,20%);
+}

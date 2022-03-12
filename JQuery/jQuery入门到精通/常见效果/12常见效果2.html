@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12多Tab点击切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #tab li {
+            float: left;
+            list-style: none;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #container {
+            position: relative;
+        }
+
+        #content1,
+        #content2,
+        #content3 {
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+            position: absolute;
+            top: 40px;
+            left: 0;
+        }
+
+        #tab1,
+        #content1 {
+            background-color: #ffcc00;
+        }
+
+        #tab2,
+        #content2 {
+            background-color: #ff00cc;
+        }
+
+        #tab3,
+        #content3 {
+            background-color: #00ccff;
+        }
+    </style>
+</head>
+<body>
+    <h2>多Tab点击切换</h2>
+    <ul id="tab">
+        <li id="tab1" value="1">10元套餐</li>
+        <li id="tab2" value="2">30元套餐</li>
+        <li id="tab3" value="3">50元包月</li>
+    </ul>
+    <div id="container">
+        <div id="content1">
+            10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分0.2元/分钟
+        </div>
+        <div id="content2" style="display: none">
+            30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分0.15元/分钟
+        </div>
+        <div id="content3" style="display: none">
+            50元包月详情：<br />&nbsp;每月无限量随心打
+        </div>
+    </div>
+    <script src="../jquery-1.7.2.js"></script>
+    <script>
+        /* 
+            jQuery三大功能：
+                -链式调用
+                -读写合一
+                -隐式遍历
+        */
+        var $contents = $('#container>div');
+        // 定义一个当前页下标
+        var curr = 0;
+        // 添加监听
+        $('#tab>li').click(function(){  // 隐式遍历
+            // 获取点击页面的下标
+            var index = $(this).index();
+            if(curr != index){  // 完全相同时，则不需要进行切换
+                // 隐藏当前的页面
+                $contents[curr].style.display = 'none';
+                // 显示单击页面的div
+                    // 找到它的页面并显示
+                $contents[index].style.display = 'block';
+                // 更新当前页下标
+                curr = index;
+            }
+        })
+    </script>
+</body>
+</html>

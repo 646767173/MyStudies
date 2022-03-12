@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    这个是xml文件的声明 
+    version是版本号
+    encoding是编码格式
+-->
+<books>     <!-- books表示多个图书信息 -->
+    <book SN="No1">     <!-- book表示一个图书信息 SN表示书籍号 -->
+        <name>说话的艺术</name>     <!-- name表示书籍名称 -->
+        <author>HHG</author>        <!-- author表示书籍作者名 -->
+        <price>20</price>       <!-- books表示书籍价格 -->
+    </book>    
+
+    <book SN="No2">
+        <name>前端学习</name>
+        <author>HHG</author>
+        <price>30</price>
+    </book>   
+
+    <book SN="No3">
+        <name>JavaWeb</name>
+        <author>HHG</author>
+        <price>50</price>
+    </book>    
+    <![CDATA[我可以在这里写任何东西，都不会被解析为xml，即使是<<>> 这些特殊符号]]>
+    <!-- 这是一个CDATA区域，在第二个[]里面的内容不会被解析为xml元素，它告诉xml这里面只是纯文本内容，不需要xml语法解析 -->
+    <book SN="No4" name="Idea" author="abc" price="60" />
+</books>

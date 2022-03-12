@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            当使用工厂方法去创建不同实体对象时，
+            无法判断出两种实体的区别，因为都是用Object的构造函数
+            
+            因此需要自定义一个构造函数
+            构造函数与普通函数的区别就是调用方式不同
+            普通函数是直接调用，构造函数需要使用new关键字来调用
+            
+            构造函数执行顺序:
+                1.立刻创建一个新的对象
+                2.将新建对象设置为函数中的this，否则是去找其执行上下文对象的属性
+                3.逐行执行函数中的代码
+                4.将新对象作为返回值返回
+        */
+        function Person(name,age,gender){//定义一个名为Person的构造函数(首字母通常大写)
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        var wang = new Person('wang',20,'male');//这样就是调用Person构造函数
+
+        //而这样就是调用Person普通函数，需要自己去设置return，否则函数调用完结果就是undefined
+        var wang1 = Person('wang',20,'male');
+
+        var li = new Person('li',21,'female');
+        /*
+            使用同一个构造函数创建的对象，是同一类对象，也将构造函数称为一个类
+            由构造函数创造的对象，就是该类的实例
+                wang、li是Person类的实例
+                huang、wangchai是Dog类的实例
+        */ 
+        function Dog(name,gender){
+            this.name = name;
+            this.gender = gender;
+            this.sayHello = function(){
+                console.log(name+'：wangwang');
+            }
+        }
+        var huang = new Dog('huang','female');
+        var wangchai = new Dog('wangchai','male');
+
+        console.log(wang);
+        console.log('typeof wang1:'+typeof wang1+'\nwang1:'+wang1);//wang1 是 undefined
+        console.log(li);
+
+        console.log(huang);
+        console.log(wangchai);
+
+        // 使用instanceof 可以检测一个对象是否是一个类的实例
+        console.log(wang1 instanceof Person);//是则返回true，否则false
+        console.log(huang instanceof Dog);//是则返回true，否则false
+        // 所有对象都是Object的后代实例，所以无论是任何对象和Object做instanceof检查结果都是true
+        console.log(wang1 instanceof Object);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

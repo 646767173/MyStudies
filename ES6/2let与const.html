@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    let的特点：
+        1. 不允许重复声明；
+        2. 块级作用域（局部变量）；
+        3. 不存在变量提升；
+        4. 不影响作用域链；
+
+    cosnt的特点：
+        1. 声明必须赋初始值；
+        2. 标识符一般为大写（习惯）；
+        3. 不允许重复声明；
+        4. 值不允许修改；
+        5. 块级作用域（局部变量）；
+            当const赋值的是对象时，其对象内部的内容是可变的。
+    <script>
+        const obj = {a:'abc'};
+        obj.b=1;
+        console.log(obj);
+    </script>
+</body>
+</html>

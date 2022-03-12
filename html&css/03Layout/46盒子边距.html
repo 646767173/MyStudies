@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            盒子边距--盒子内容区和边框的距离
+        */
+
+        .box1{
+            width: 150px;
+            height: 150px;
+            background-color: blueviolet;
+
+            /* 
+                边框，属于盒子边缘，边框里边属于盒子内部，外边都是盒子外部
+                    边框的大小会影响到整个盒子大小
+                要设置边框至少需要设置三个样式
+                    边框宽度 border-width
+                    边框颜色 border-color
+                    边框样式 border-style
+                
+                border-width宽度默认是3px
+                    同时它可以用来指定四个方向的边框宽度
+                    border-width:
+                    4个值-上 右 下 左
+                    3个值-上 左右 下 
+                    2个值-上下 左右
+                    1个值-上下左右
+                也还可以用border-top-width来指定上边框宽度
+                下左右边框宽度同理
+
+                同样也可以用border-color也可以指定四个边的颜色
+
+                border-style 指定边框样式
+                    solid       实线
+                    dotted      圆点状虚线
+                    dashed      虚线
+                    double      双线
+
+            还可以border简写属性，同时设置边框所有相关样式，无顺序要求
+                border-top border-right border-bottom border-left
+            */
+            border: solid 1px red;
+
+            border-width: 10px 20px 10px 20px;
+            border-color: cadetblue green blue orange;
+            border-style: solid dotted dashed double;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

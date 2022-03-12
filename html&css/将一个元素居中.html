@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>将一个元素居中</title>
+    <style>
+        /* .outer{
+            width: 400px;
+            height: 400px;
+            background-color: green;
+            position: relative;
+        } */
+        /*  方法1
+            水平垂直居中，借助position
+            开启绝对定位后，水平垂直方向都有布局等式必须要满足，
+            借助此点可以实现(宽高已确定的)元素水平垂直居中
+        */
+        /* .inner{
+            width: 100px;
+            height: 100px;
+            background-color: #fff000;
+            margin:auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        } */
+
+        /* 
+            方法2
+            未确定宽高的元素设置水平垂直居中
+            组合利用position绝对定位和transform的平移
+            利用4个50%使未定大小的元素在包含块中是水平垂直居中的
+        */
+        /* .box{
+            background-color: orange;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        } */
+
+        /* 
+            方法3
+            将该元素的父元素设置为弹性容器，
+            然后使用    justify-content:center  align-items:center  实现水平垂直居中
+        */
+        .outer{
+            /* 设置为弹性容器 */
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #aaf;
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <div class="box">未确定宽高的元素</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+// less可以像java那样引入其他less，引入less相当于是复制了其中的代码
+// 引入代码可以分工明确，实现模块化操作，出现问题就修改对应模块的内容就行了
+@import "129混合函数.less";
+
+.box1{
+    // less中的所有数值都可以直接运算
+    // 加减乘除
+    width: 100px+200px;
+    height: 200px*2;
+    background-color: #00000b+#aaaaaa;
+}
+
+// 生成的css.map 是less与css的映射文件，因此在浏览器的F12里可以看到less的样式了
+// 但是样式文件最好不要有中文

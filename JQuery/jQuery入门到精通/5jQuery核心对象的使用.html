@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.7.2.js"></script>
+</head>
+<body>
+    <!-- 
+        1.jQuery对象是一个包含所有匹配的任意多个DOM元素的伪数组对象
+        2.基本行为
+            -size()/length：包含DOM元素个数
+            -[index]/get(index)：得到对应位置的DOM元素
+            -each()：遍历包含的所有DOM元素
+            -index()：得到在所有兄弟元素中的下标
+     -->
+    <button>Test1</button>
+    <button>Test2</button>
+    <button id="btn3">Test3</button>
+    <button>Test4</button>
+    <script>
+        /* 
+            需求1：统计一共有多少个按钮
+            需求2：取出第2个button的文本
+            需求3：输出所有button标签的文本
+            需求4：输出'test3'按钮是所有按钮中的第几个
+        */
+        // 1
+        var $btns = $('button');
+        console.log('按钮个数：'+$btns.length,$btns.size());
+        // 2
+        var value = $btns[1].innerHTML;
+        console.log('第2个button的文本:'+value);
+        // 3
+        console.log('输出所有button标签的文本：');
+        $.each($btns,function(i,n){//这里遍历jQuery对象，值是对应下标的dom对象
+            console.log(i,n.innerHTML,this);//this就是当前事件发生的dom对象
+        });
+        // 4
+        console.log('test3是所有按钮中的下标是 '+$('#btn3').index());
+        /* $.each($btns,function(i,n){
+            var $btn3 = $('#btn3');
+            if($btns[i].innerHTML == $btn3[0].innerHTML)
+                console.log('test3是所有按钮中的下标是'+i);
+        }) */
+
+        /* 
+            伪数组：
+            -是Object对象
+            -有length属性
+            -有数值下标属性
+            -没有数组特别的方法和属性(如forEach(),push(),pop(),splice())
+        */
+        // 自定义一个伪数组
+        var weiArr = {};
+        weiArr.length = 0;
+        weiArr[0] = 'abc';
+        weiArr.length = 1;
+        weiArr[1] = 123;
+        weiArr.length = 2;
+        weiArr[2] = true;
+        weiArr.length = 3;
+
+        for (let index = 0; index < weiArr.length; index++) {
+            const element = weiArr[index];
+            console.log('伪数组weiArr下标 '+index+' 的值是',element);
+        }
+        console.log(weiArr.forEach,$btns.forEach);//undefined undefined，没有数组的方法
+    </script>
+</body>
+</html>

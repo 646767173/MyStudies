@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            媒体特性：
+                width       视口的宽度
+                height      视口的高度
+            设置时一般只设置宽度，不设置高度
+                min-width   视口的最小宽度(视口≥指定宽度就生效)
+                max-width   视口的最大宽度(视口≤指定宽度就生效)
+        */
+        /*(width:500px)*//* 表示当视口宽度为500px时生效 */
+        /* @media (max-width:500px) { 
+            body{
+                background-color: #faf;
+            }
+        } */
+
+        /* 样式切换的分界点，我们称其为断点，即网页样式会在这个点发生变化 */
+        /* 
+            ≤768px      超小屏幕    max-width=768px
+            ≥768px      小型屏幕    min-width=768px
+            ≥992px      中型屏幕    min-width=992px
+            ≥1200px     大型屏幕    min-width=1200px
+
+            这个(min-width:600px) , (max-width:400px)
+                表示>600px 或 <400px 时生效
+
+            (min-width:600px) and (max-width:700px)
+                表示 600px 与 700px之间生效
+
+            not screen and (min-width:600px) and (max-width:700px)
+                表示除了 （上述所有条件之和） ，其他的都生效
+        */
+        
+        @media (min-width:600px) and (max-width:700px) {
+            body{
+                background-color: #ffa;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

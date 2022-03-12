@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @font-face可以将服务器的字体传给用户 */
+        @font-face {
+            /* 给字体命名 */
+            font-family: 'myfont';
+            /* 写字体路径 */
+            src: url('');
+        }
+        p{
+            /* 
+                字体相关样式
+                    color设置前景色(包括字体颜色)
+                    font-size设置字体大小
+                        font-size相关单位
+                        em相当于当前元素一个font-size
+                        rem相当于根元素一个font-size
+                    font-family字体族(字体的格式)
+                        可选值(以下是字体的分类)
+                            serif       衬线字体(就是每个字都会多一些衬线横杠)
+                            sans-serif  非衬线字体
+                            monospace   等宽字体
+                    -font-family还可以指定多个字体，多个字体间使用逗号隔开
+                        字体生效时优先使用第一个，第一个无法使用则使用第二个，以此类推
+            */
+            color: violet;
+            font-size: 40px;
+            /* font-family: serif; */
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        今天天气真不错，The weather is nice today.
+    </p>
+</body>
+</html>

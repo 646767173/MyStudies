@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            样式冲突
+            -通过不同的选择器选中相同元素，并且为相同的样式设置了不同的值，此时就发生了样式的冲突。
+
+            选择器的权重 (优先级)
+                内联样式               1,0,0,0
+                id选择器               0,1,0,0
+                类和伪类选择器          0,0,1,0
+                元素选择器              0,0,0,1
+                通配选择器              0,0,0,0
+                继承的样式              没有优先级(几乎为最低)
+
+            在进行优先级计算时，会将所有选择器进行相加计算
+                比如：
+                div#id1{}   //权重100+1
+            
+                分组选择器则分别计算
+
+                p,div#id,span{} //分别计算每一个的权重
+
+            --但是无论怎么累加，都无法超过其数量级，比如类选择器再累加也不会超过id选择器
+                
+            如果样式优先级计算后相同，则使用最后写的样式值
+
+            可以在某一个样式后边添加!important，则该样式会获取到最高优先级，包括超过内联样式！
+            （要慎用！）
+        */
+        
+        div{
+            color: blue !important;
+        }
+
+        .red{
+            color: red;
+        }
+        #no1{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="no1" class="red">hahahahahahahah</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            构造函数作用域中定义的方法，构造函数每执行一次就会创建一个一模一样的新方法
+            这样的话重复执行就会造成资源浪费
+            因此我们可以把方法作为函数定义在全局作用域中，然后将该函数赋值给方法
+            这样就不用每次都去创建一个相同的新方法了
+        */ 
+
+        // 将其定义在全局作用域
+        function sayHello(){
+            console.log('Hello,I am '+this.name);
+        }
+
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            // this.sayHello = function(){//这样的话每执行一次构造函数就会创建一个新的方法
+            //     console.log('Hello,I am '+this.name);
+            // }
+            this.sayHello = sayHello;
+        }
+
+        var wang = new Person('wang',20);
+        var wang1 = new Person('wang1',20);
+        wang.sayHello();
+        wang1.sayHello();
+        /* 
+            当sayHello方法未提出时，是内容相同但相互独立两个方法，因此两个实例之间方法肯定不相等
+            将方法提出到全局作用域，构造函数作用域内方法采用赋值而非定义后，两个实例之间的方法相等
+        */
+        console.log(wang.sayHello == wang1.sayHello);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            函数，也是一个对象
+            函数里封装的是方法(用于完成一些功能)，在需要用到时调用
+            用typeof去检查一个函数对象，返回是function
+        */ 
+        // 创建一个函数
+        var fun = new Function();
+        console.log(fun);
+        console.log(typeof fun);
+        // 同时，函数对象具有普通对象的所有功能
+        fun.name = "你好";
+        console.log('name' in fun);
+
+        //可以在构造函数内以字符串形式封装JS代码
+        var fun1 = new Function('console.log("我是第一个函数")');//封装时不会执行代码
+        // 当调用函数时，才会执行代码
+        fun1();//调用函数fun1
+
+        /*
+            但是我们更常使用如下方式创建一个函数
+            function 函数名([形参1,形参2,形参3...]){
+                代码...
+            }
+        */
+        function fun2(){
+            console.log('这是一个函数2');
+        }
+        fun2();
+
+        /*
+            使用函数表达式来创建一个函数
+            var 函数名 = function([形参...]){
+                代码...
+            }
+        */ 
+        var fun3 = function(){
+            console.log('这是一个函数3');
+        }
+        fun3();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

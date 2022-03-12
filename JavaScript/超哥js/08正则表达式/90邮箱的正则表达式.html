@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            邮箱的格式
+                123abc.def@xyz.com.cn
+                格式分为三部分
+                    1.开头任意单词字符 后面可能有.和单词字符
+                    2.接@符号
+                    3.@后是 字母数字(至少一个) 且以.任意字母.任意字母 结尾
+                1-  ^\w{3,}(\.\w+)*
+                2-  @
+                3-  [A-z0-9]+(\.[A-z]{2,5}){1,2}$
+            正则表达式
+            var reg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+        */
+        var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+        var email = '646767173@.com';
+        console.log(emailReg.test(email));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单过滤器</title>
+</head>
+<script type="text/javascript" src="./jquery-1.7.2.js"></script>
+<script>
+    $(function () { //相当于window.onload事件，表示页面加载完成后
+        $("#btn0").click(function () {
+            $("*").css("background", "white");
+        });
+        $("#btn1").click(function () {
+            $(":input").css("background", "green");
+
+        });
+        $("#btn2").click(function () {
+            $(":text").css("background", "green");
+
+        });
+        $("#btn3").click(function () {
+            $(":password").css("background", "green");
+
+        });
+        $("#btn4").click(function () {
+            $(":hidden").css("background", "green");
+
+        });
+        $("#btn5").click(function () {
+            $(":enabled").css("background", "green");
+
+        });
+        $("#btn6").click(function () {
+            $(":disabled").css("background", "green");
+
+        });
+        $("#btn7").click(function () {
+            $(":checked").css("background", "green");
+
+        });
+        $("#btn8").click(function () {
+            $("select option:selected").css("background", "yellow");
+
+        });
+        $("#btn9").click(function () {
+            // jq对象的val()可以操作表单项的value属性值，它可以设置和获取
+            $(":text:enabled").val("wa ha li");
+
+        });
+        $("#btn10").click(function () {
+            var $checkboxies = $(":checkbox:checked");
+            // each提供jq元素的遍历方法，在其中的function函数中的this就是当前正在遍历的dom对象
+            $checkboxies.each(function(){
+                alert(this.value);
+            })
+        });
+    });
+</script>
+
+<body>
+    <div>
+        <input type="text" value="text1">
+        <br>
+        <input type="text" disabled='disabled' value="text2dis">
+        <br>
+        <input type="text" disabled='disabled' value="text3dis">
+        <br>
+        <input type="text" value="text4">
+        <br>
+        <input type="button" value="button">
+        <br>
+        <input type="checkbox" checked="checked" value="邓紫棋">邓紫棋</input>
+        <input type="checkbox" checked="checked" value="陈奕迅">陈奕迅</input>
+        <input type="checkbox" value="周杰伦">周杰伦</input>
+        <input type="checkbox" checked="checked" value="邓园长">邓园长</input>
+        <br>
+        <input type="password">
+        <select>
+            <option>Guangzhou</option>
+            <option>Beijing</option>
+            <option>Shanghai</option>
+        </select>
+        <div style="border: cadetblue solid 1px;">
+            :input会使所有input的都会被选中，甚至连button标签都会<br>
+            button、checkbox file hidden image password radio reset 
+            <br> submit text select标签 option标签 textarea标签 button标签
+        </div>
+
+    </div>
+    <br>
+    <button id="btn0">还原</button>
+    <button id="btn1">1 $(":input")/匹配所有的input元素 </button>
+    <button id="btn2">2 $(":text")/ 匹配inputtype=text元素</button>
+    <button id="btn3">3 $(":password")/ 匹配inputtype=password</button>
+    <button id="btn4">4 $(":hidden")/ 匹配所有不可见元素或者inputtype=hidden</button>
+    <button id="btn5">5 $(":enabled")/ 匹配所有可用元素</button>
+    <button id="btn6">6 $(":disabled")/ 匹配所有不可用或disabled的元素</button>
+    <button id="btn7">7 $(":checked")/ 匹配所有选中的被选中元素（单选框和复选框，不包括select中的option）</button>
+    <button id="btn8">8 $("select option:selected")  / 匹配所有选中的option元素</button>
+    <button id="btn9">9 $(":text:enabled") / 对表单内 可用的inputtext赋值操作</button>
+    <button id="btn10">10 $(":checkbox:checked")/ 获取选中的复选框的value值</button>
+</body>
+
+</html>

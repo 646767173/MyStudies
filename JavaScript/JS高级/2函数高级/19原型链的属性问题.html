@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.读取对象的属性值时：会自动到原型链中去查找
+        2.设置对象的属性值时：不会查找原型链，如果当前对象中没有此属性，则直接添加属性并设置值
+        3.方法一般定义在原型中，属性一般通过构造方法定义在对象本身上
+     -->
+    <script>
+        function Fn(){}
+        Fn.prototype.a = 'aaa';
+        
+        var fn1 = new Fn();
+        var fn2 = new Fn();
+        // 1.虽然没有name属性，但是会去原型链找
+        console.log(fn1.a,fn1);
+        console.log(fn2.a,fn2);
+
+        // 2.设置属性只会设置到当前对象中
+        fn2.a = 'aba';
+        console.log(fn1.a,fn2.a,fn2);
+
+        // 3.属性定义在构造函数里
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        // 3.方法定义在原型中
+        Person.prototype.setName = function(name){
+            this.name = name;
+        }
+
+        var p1 = new Person('Tom',22);
+        console.log(p1);
+        p1.setName('Tommy');
+        console.log(p1);
+        // 每个实例对象的属性是不同的，但是原型对象里的方法是相同的
+        var p2 = new Person('Jer',19);
+        console.log(p2);
+        p2.setName('Jerry');
+        console.log(p2);
+        console.log('p1===p2->'+(p1===p2),'\tp1.__proto__===p2.__proto__->'+(p1.__proto__===p2.__proto__));
+        // 实例对象会继承其构造函数的原型对象
+    </script>
+</body>
+</html>

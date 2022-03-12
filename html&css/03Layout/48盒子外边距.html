@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            border: 10px red solid;
+
+            /* 
+                外边距(margin)
+                    -外边距不会影响盒子可见框大小
+                    -外边距影响盒子的位置
+                    -共有四个方向 top right bottom left
+                    当上或左设置了正值，元素就会往相反方向移动，移动元素自身
+                    !但是当设置下和右外边距，则移动其他元素
+                    -margin可以设置负值，则效果与正值刚刚好相反，可能会溢出页面
+                    -margin也有简写属性，用法同padding
+                margin虽然不影响盒子可见框大小，但是会影响盒子实际占用空间
+                块元素的话margin-right是默认最大，因此实现独占一行
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

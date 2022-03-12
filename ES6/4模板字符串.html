@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    模板字符串(template string)是增强版的字符串
+    使用反引号` `标识
+    特点：  1.字符串中允许出现换行符
+            2.可以通过${xxx}引用变量
+    <h1>应用场景：当遇到字符串与变量拼接时，使用模板字符串</h1>
+    <script>
+        var a = "芜湖"
+        let templateString = `我可以引用———>${a}`
+        console.log(a);
+        console.log(templateString);
+
+        /* 
+            let str = 'abc
+            def'//换行会报错
+        */
+
+        let tStr = `abc
+        def`
+
+        console.log(tStr);
+    </script>
+</body>
+</html>

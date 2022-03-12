@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!--
+        1. 分类
+            基本数据类型
+            -String——任意字符串
+            -Number——任意数字
+            -Boolean——true/false
+            -Undefined——undefined
+            -Null——null
+
+            引用数据类型
+            -Object——任意对象
+            -Function——一种可以执行的特别对象
+            -Array——一种拥有数值下标，内部数据有序的特别对象
+
+        2. 判断
+            typeof
+                可以判断 undefined/数值/字符串/布尔值/function
+                不能判断出 null与object object与array (因为返回的类型显示都是object，分不清)
+            instanceof
+                判断对象的具体类型
+            ===
+                可以判断 undefined/null
+    -->
+    <script>
+        // 1.基本数据类型
+        var a;
+        console.log(a,typeof a,typeof a==='undefined');
+        console.log(undefined==='undefined');
+        a = 4;
+        console.log(typeof a === 'number');
+        a = 'hhg';
+        console.log(typeof a == 'string');
+        a = true;
+        console.log(typeof a === 'boolean');
+        a = null;
+        console.log(typeof null,a === null);//null是一个object类型
+        console.log('\n');
+
+        // 2.引用数据类型
+        var b1 = {
+            b2:[1,'abc',console.log],
+            b3:function(){
+                console.log('b3');
+                return function(){
+                    return 'hahaha';
+                }
+            }
+        }
+        
+        console.log(b1 instanceof Object,b1 instanceof Array);//表示判断 b1是不是Object构造函数的实例
+        console.log(b1.b2 instanceof Array,b1.b2 instanceof Object);
+        console.log(b1.b3 instanceof Function,b1.b3 instanceof Object);
+
+        console.log(typeof b1.b3 === 'function');//还可以这样去判断
+        console.log(typeof b1.b2[2]);//看看console.log是不是函数
+        b1.b2[2](4);//其实就是调用函数而已 在控制台输出一个数字4
+        console.log( b1.b3()() );//得到一个hahaha,输出到控制台上
+        var arr = [];
+        console.log(typeof arr);
+    </script>
+</body>
+</html>

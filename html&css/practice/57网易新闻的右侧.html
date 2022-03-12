@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSSTools/reset.css">
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        a{
+            /* 去除下划线 */
+            text-decoration: none;
+        }
+        .news{
+            width: 300px;
+            height: 357px;
+            /* 设置居中 */
+            margin: 50px auto;
+            background-color: #fff;
+            /* 设置上边框 */
+            border-top: #ddd 1px solid;
+            
+        }
+        .news-title{
+            display: inline-block;
+            border-top: red 1px solid;
+            /* 设置居中 */
+            padding-top:10px;
+            /* 设置高度 */
+            height: 30px;
+            /* 通过margin把border往上移，与上边框重叠 */
+            margin-top: -1px;
+        }
+        /* 设置标题超链接样式 */
+        .news-title a{
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            /* 文字加粗 */
+            font-weight: bold;
+        }
+        /* 设置图片的样式 */
+        .news-img{
+            height: 150px;
+        }
+        /* 设置图片中文字的样式 */
+        h3{
+            /* 设置字体颜色 */
+            color: white;
+            /* 往上移 */
+            margin-top: -25px;
+            margin-left: 80px;
+            font-weight: bold;
+        }
+        /* 设置新闻列表样式 */
+        .news-list{
+            margin-top: 20px;
+        }
+        .news-list li{
+            margin-bottom: 17px;
+        }
+        /* 在超链接前加内容方块 */
+        .news-list li::before{
+            content: "□";
+            color: rgb(218, 218, 218);
+            font-size: 12px;
+            margin-right: 6px;
+        }
+        /* 设置新闻列表里超链接的样式 */
+        .news-list li a{
+            font-size: 14px;
+            color: #666;
+        }
+        /* 设置新闻列表选中超链接的样式 */
+        .news-list li a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="news">
+        <h2 class="news-title">
+            <a href="#">体育</a>
+        </h2>
+
+        <div class="news-img">
+            <a href="javascript:;">
+                <img src="https://cms-bucket.ws.126.net/2021/0801/1307eadcp00qx5g610039c0008c005kc.png?imageView&thumbnail=300y150&type=webp" >
+                <!-- 图片标题 -->
+                <h3>杨倩晒解放军军服</h3>
+            </a>
+        </div>
+
+        <ul class="news-list">
+            <li><a href="javascript:;">奥运曾是噩梦！巩立姣为提成绩拼命吃饭增</a></li>
+            <li><a href="javascript:;">国乒"工具人"？30岁刘诗雯一句话看哭网友</a></li>
+            <li><a href="javascript:;">还记得拿亡妻照片领金牌的他吗</a></li>
+            <li><a href="javascript:;">牙买加统治百米跑道？美国总统不服</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    允许在大括号{}直接写入变量和函数，作为对象的属性和方法，而无需使用键值对的形式
+    <script>
+        var name = 'Harry';
+        var showName = function(name){
+            console.log(name);
+        };
+        var obj = {
+            /* 
+            旧写法，要求完整
+            name:name,
+            showName:showName,
+             */
+
+            // 简化写法 如此简写时，对象属性名即为变量名
+            name,
+            showName,
+            // 声明方法的简化版
+            say(){
+                console.log('说话');
+            }
+        }
+        obj.showName(obj.name);
+        obj.say();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        区别1
+            全局作用域之外，每个函数都会创建自己的作用域，且作用域在函数定义时就已确定
+            全局执行上下文环境是在全局作用域确定之后，JS代码马上执行之前创建的
+            函数执行上下文环境是在调用函数时，函数体代码执行之前创建
+        区别2
+            作用域是静态的，只要函数定义好了就一直存在，且不再变化
+            执行上下文是动态的，调用函数时创建，调用结束时就会被自动释放
+        联系：
+            执行上下文对象是从属于所在的作用域
+            全局执行上下文对象∈全局作用域
+            函数执行上下文对象∈函数作用域
+     -->
+    <script>
+        var a = 20,b = 10;
+        function fn(x){
+            var a = 100,c = 300;
+            console.log('fn()',a,b,c,x);
+            function bar(x){
+                var a = 1000,d = 400;
+                console.log('bar()',a,b,c,d,x);
+            }
+            bar(100);
+            bar(200);
+        }
+        fn(10);
+    </script>
+</body>
+</html>

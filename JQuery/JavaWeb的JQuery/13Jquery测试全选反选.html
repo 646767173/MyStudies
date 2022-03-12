@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>13Jquery测试全选反选</title>
+<script type="text/javascript" src="./jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//1.全选按钮
+        $("#checkedAllBtn").click(function(){
+            $(":checkbox").prop("checked",true);
+        });
+
+		//2.全不选按钮
+        $("#checkedNoBtn").click(function(){
+            $(":checkbox").prop("checked",false);
+        });
+
+		//3.反选按钮
+        $("#checkedRevBtn").click(function(){
+            // 查询全部球类的复选框
+            $(":checkbox[name='items']").each(function(){
+                //有个this可以用
+                this.checked = !this.checked;
+            });
+
+            // 当空全反选时，全选/全不选也要被选上
+            var sportlength = $(":checkbox[name='items']").length; //总共球类个数
+            var now = $(":checkbox[name='items']:checked").length; //当前选中球类个数
+            $("#checkedAllBox").prop("checked",sportlength == now);
+        });
+
+		//4.提交按钮
+        $("#sendBtn").click(function(){
+            $(":checkbox:[name='items']:checked").each(function(){
+                alert( this.value );
+            });
+        });
+
+		//5.全选/全不选复选框
+        $("#checkedAllBox").click(function(){
+            //每一个function函数里面都有一个this，指向当前正在响应的对象
+            $(":checkbox:[name='items']").prop("checked",this.checked);
+        });
+
+        //6.取消选中其他运动，全选/全不选也应当关闭
+        $(":checkbox[name='items']").click(function(){
+            //当取消选中或手动选中全选，应当自动对应【全选/全不选】复选框
+            var sportlength = $(":checkbox[name='items']").length; //总共球类个数
+            var now = $(":checkbox[name='items']:checked").length; //当前选中球类个数 
+            $("#checkedAllBox").prop("checked",sportlength == now);
+        });
+	});
+</script>
+</head>
+<body>
+	<form method="post" action="">
+		你爱好的体育运动是？<input type="checkbox" id="checkedAllBox" />全选/全不选 
+		
+		<br />
+		<input type="checkbox" name="items" value="足球" />足球
+		<input type="checkbox" name="items" value="篮球" />篮球
+		<input type="checkbox" name="items" value="羽毛球" />羽毛球
+		<input type="checkbox" name="items" value="乒乓球" />乒乓球
+		<br />
+		<input type="button" id="checkedAllBtn" value="全　选" />
+		<input type="button" id="checkedNoBtn" value="全不选" />
+		<input type="button" id="checkedRevBtn" value="反　选" />
+		<input type="button" id="sendBtn" value="提　交" />
+	</form>
+
+</body>
+</html>

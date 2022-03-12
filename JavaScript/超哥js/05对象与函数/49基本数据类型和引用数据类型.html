@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            基本数据类型：String、Number、Boolean、Null、Undefined
+            引用数据类型：Object
+
+            JS中的变量都是存储在栈内存中的，
+                基本数据类型的值直接存储在栈内存中，值与值之间是相互独立的
+                引用数据类型的内容是存在堆内存中，栈内存里存的是其内容在堆内存中的地址
+
+            当比较基本数据类型变量时，是比较值是否相等
+            当比较引用数据类型对象时，是比较两个对象的内存地址是否相等
+                -即使两个对象值完全相同，若内存地址不同那么就是不相等
+            
+            浅拷贝和深拷贝：
+                -浅拷贝：基本数据类型
+                    基本数据类型进行赋值拷贝时，
+                    就会发生浅拷贝，
+                    浅拷贝会直接把变量的值从栈内存给复制放到另一个变量值上，
+                    此时两个变量是相互独立的，只是值是相同的而已，
+                    所以修改一个变量，不会对另一变量产生影响。
+
+                -深拷贝：引用数据类型
+                    对象在进行赋值拷贝时，发生深拷贝，
+                    直接将对象存储的堆内存地址拷贝到新对象中，
+                    此时两个对象指向的是同一个堆内存地址，
+                    所以二者任一的属性值发生改变，
+                    都是在对同一个堆内存地址的值进行修改，
+                    所以二者的最后的值仍然相同。
+        */
+        // 浅拷贝例子
+        var a = 'abcd';
+        var b = a;
+        console.log('a的值是'+a); //abcd
+        console.log('b的值是'+b); //复制了a所以是abcd
+        console.log(a==b);//浅拷贝后两个基本数据类型变量是相等的
+        b = 'bcde'; 
+        console.log('b的值是'+b); //重新赋值是bcde
+        console.log('a的值是'+a); //a与b独立，仍是abcd
+        console.log(a==b);//修改值之后就不相等了
+        
+        // 深拷贝例子
+        var obj1 = new Object();
+        var obj2 = new Object();
+        obj1.name = '孙悟空';
+        obj2 = obj1;
+        console.log('obj1.name=' + obj1.name);//孙悟空
+        console.log('obj2.name=' + obj2.name);//同1是孙悟空
+        //深拷贝后，因为指向同一地址，本质上是同一个对象，所以两者是相等的
+        console.log(obj1 == obj2);
+
+        obj2.name = '猪八戒';
+        console.log('obj2.name=' + obj2.name);//2显然是猪八戒
+        console.log('obj1.name=' + obj1.name);//1也变成了猪八戒(因为深拷贝)
+
+        // 重新定义两个对象，即使属性与值相同，但本质是不同对象，无法相等
+        var obj3 = new Object();
+        var obj4 = new Object();
+        obj3.name = '孙悟空';
+        obj4.name = '孙悟空';
+        console.log(obj3==obj4);//值相等的两个对象仍是不相等的，因为本质是两个不同的对象
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

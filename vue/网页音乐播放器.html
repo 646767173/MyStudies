@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页音乐播放器</title>
+    <style>
+        div{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .big{
+            border: black solid 2px;
+            align-self: center;
+            width: 1000px;
+            align-content: center;
+            
+        }
+        .comment{
+            border: black dashed 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- 播放器主体区域 -->
+        <div id="player">
+            <!-- 播放器标题区域 -->
+            <div>
+                <p style="text-align: center; color: red; font-size: 20px;">网易云接口的网页播放器</p>
+                <!-- 搜索歌曲 -->
+                <input type="text" v-model="query" @keyup.enter="searchMusic" autocomplete="off">
+                <input type="button" value="搜索歌曲" @click="searchMusic">
+            </div>
+            <!-- 播放条区域 -->
+            <div>
+                <audio ref="audio" :src="musicUrl" controls autoplay loop class="myaudio"></audio>
+            </div>
+            <!-- mv容器 -->
+            <div v-show="isShow">
+                <video style="margin: auto;" :src="mvUrl" controls="controls" width="512" height="288"></video>
+                <br>
+                <button @click="close">关闭视频</button>
+            </div>
+            <!-- 歌曲信息容器 -->
+            <div class="big">
+                <!-- 歌曲封面 -->
+                <div>
+                    <img :src="picUrl" width="450" height="420">
+                </div>
+                <!-- 搜索歌曲列表 -->
+                <div>
+                    <ul>
+                        歌曲列表
+                        <br>
+                        <li v-for="item in musicList">
+                            <a href="javascript:;" @click="playMusic(item.id)">PLAY</a>
+                            <b>{{ item.name }}</b>
+                            <span v-if="item.mvid!=0" @click="playMV(item.mvid)"><i>播放MV</i></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 评论容器 -->
+            <div class="big">
+                <h5>热门评论</h5>
+                <div>
+                    <dl class="comment" v-for="item in hotComments">
+                        <dt><!-- 用户头像 -->
+                            <img :src="item.user.avatarUrl" width="50" height="50">
+                        </dt>
+                        <dd><!-- 用户昵称 -->
+                            {{item.user.nickname}}
+                        </dd>
+                        <dd><!-- 用户评论 -->
+                            {{item.content}}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告，必须要引入才可以用vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 官方提供的axios在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- 自己的js -->
+    <script src="./网页音乐播放器main.js"></script>
+</body>
+
+</html>

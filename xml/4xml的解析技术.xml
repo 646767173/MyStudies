@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    xml与html一样都可以使用w3c组织制定的dom技术来解析
+    document对象表示的是整个文档，
+    既可以是html文档，也可以是xml文档
+
+    sun公司在JDK5版本对dom解析技术进行升级：SAX（Simple API for XML）
+    SAX解析跟W3C解析不太一样，它是通过类似事件机制通过回调告诉用户当前正在解析的内容
+    一行一行的读取xml文件进行解析的，不会创建大量的dom对象
+    所以在解析xml的时候，在内存使用上、性能上都优于Dom解析
+
+    第三方的解析：
+    jdom在dom的基础上进行了封装、
+    dom4j又对jdom进行了封装。
+    pull主要用在Android手机开发，是在跟sax非常类似都是事件机制解析xml文件
+
+    Dom4j它是第三方的解析技术，我们需要使用第三方给我们提供好的类库才可以解析xml文件
+ -->

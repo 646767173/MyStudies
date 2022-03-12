@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        table 表格标签 width宽度 height高度 align设置表格位置（左右居中）
+        cellspacing单元格间距（通常为0） border为表格线的像素
+        tr 表示 行
+        td 表示 单元格
+        th 表示 标题单元格（默认居中 加粗）
+        b标签为加粗
+        横为行 竖为列，其中属性值"数字" 表示跨几个,即几个合并为一个
+        colspan 属性设置跨列    上下合并
+        rowspan 属性设置跨行    左右合并
+        横成行，竖成列
+    -->
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td>王尼玛</td>
+            <td>男</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>陈尼玛</td>
+            <td>女</td>
+            <td>31</td>
+        </tr>
+    </table>
+
+    <h2>表格的五个相关属性</h2>
+    <table align="center" border="1" cellpadding="0" cellspacing="0" width="400" height="500">
+        <tr>
+            <th>属性名</th>
+            <th>属性值</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td>align</td>
+            <td>left、center、right</td>
+            <td>规定表格相对周围元素的对齐方式</td>
+        </tr>
+        <tr>
+            <td>border</td>
+            <td>1或""</td>
+            <td>规定表格单元是否拥有边框，默认为""，表示没有边框</td>
+        </tr>
+        <tr>
+            <td>cellpadding</td>
+            <td>像素值</td>
+            <td>规定单元边沿与其内容之间的空白，默认1像素</td>
+        </tr>
+        <tr>
+            <td>cellspacing</td>
+            <td>像素值</td>
+            <td>规定单元格之间的空白，默认2像素</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>像素值或百分比</td>
+            <td>规定表格的宽度</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>像素值或百分比</td>
+            <td>规定表格的高度</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

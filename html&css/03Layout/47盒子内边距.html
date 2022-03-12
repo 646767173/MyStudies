@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height: 200px;
+            background-color: orange;
+            border: pink solid 15px;
+
+            /* 内边距 padding
+                -内容区和边距之间的距离——>内边距
+                -内边距一共有四个方向
+                    padding-top
+                    padding-right
+                    padding-bottom
+                    padding-left
+                -内边距设置会影响到盒子的大小
+                -内容区背景色会延伸到内边距
+
+                padding 一样可以简写
+                    padding 上 右 下 左
+            */
+            padding-top: 35px;
+        }
+        .inner{
+            width: 100%;
+            height: 100%;
+            background-color: olivedrab;
+        }
+
+        /* 
+            一般说的盒子大小(即盒子可见框大小)，由
+                内容区、内边距、边框 3个区域共同决定
+            因此计算盒子大小时，需要将这三个区域加在一起计算
+        */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.理解
+            就是一块地盘，一个代码段所在的区域
+            它是静态的(相对于上下文对象)，在编写代码的时候就确定了
+            作用域个数 = n + 1; n-函数和块级的个数，1-全局作用域
+        2.分类
+            -全局作用域
+            -函数作用域
+            -(ES6开始)块作用域
+                块作用域由{}包括，if/for语句里的{}也属于块作用域
+            var定义的变量可以跨'块级作用域'但不能跨'函数作用域'访问
+                -因为在块级作用域里的var会提前到全局作用域里声明变量
+            let定义的变量，只能在'块级作用域'里访问
+            const用来定义常量，定义时必须赋值，且只能在'块级作用域'里访问
+            无关键字声明变量，会逐级向上找同名变量，如到全局作用域都没找到，则成为window的属性
+        3.作用
+            隔离变量，不同作用域下同名变量不会有冲突
+
+        if(false){
+            var h = 3;//跳出块级作用域变量提前，执行该行代码时才将其赋值为3
+            j = 3;//如果执行到该语句，会逐级往上找有无j，找不到则将其添加为window属性
+            let k = 3;//只限在块级作用域内访问的变量
+            const l = 3;//不能再赋值了，且只在块级作用域内可访问
+        }
+        console.log(h,j,k,l);
+     -->
+    <script>
+        var a = 20,b = 10;
+        function fn(x){
+            var a = 100,c = 300;
+            console.log('fn()',a,b,c,x);
+            function bar(x){
+                var a = 1000,d = 400;
+                console.log('bar()',a,b,c,d,x);
+            }
+            bar(100);
+            bar(200);
+        }
+        fn(10);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onclick</title>
+    <script>
+        // 静态注册
+        function peaceFun(){
+            alert("静态注册的onclick事件");
+        }
+
+        // 动态注册
+        window.onload = function(){
+            // 1.获取标签对象
+            /*
+                document是JavaScript提供的一个对象（文档），该对象表示整个html页面里的所有内容
+                get获取     element元素/标签    ById通过id属性方式 
+            */ 
+            var mr = document.getElementById("moveRegister");
+
+            // 2.通过标签对象.事件名 = function(){}
+            mr.onclick = function(){
+                alert("动态注册的onclick事件");
+            }
+
+        } 
+    </script>
+</head>
+<body>
+    <!-- 静态注册onclick事件 -->
+    <button onclick="peaceFun();">静态注册onclick</button>
+    
+    <!-- 动态注册onclick事件 -->
+    <button id="moveRegister">动态注册onclick</button>
+</body>
+</html>

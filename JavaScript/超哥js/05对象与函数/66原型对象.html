@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            原型对象 prototype
+            每个函数都有一个由解析器创建的属性，叫prototype，原型对象
+            当该函数以普通函数调用时，那么原型对象基本没什么用
+            当该函数以构造函数调用时，创建的全部实例中，也有一个隐含属性
+                __proto__ 指向的是该构造函数下的原型对象prototype
+            
+            他改善了我们一开始往全局作用域提取方法简化代码，
+            因为往全局作用域添加内容会减少全局下的命名空间，
+            容易造成不经意间的重名函数，导致函数体代码被覆盖
+        */
+        function MyClass(){//定义一个MyClass函数
+            console.log(MyClass.prototype);
+        }
+
+        var mc = new MyClass();//创建实例mc
+        console.log(mc,mc.__proto__ == MyClass.prototype);//两个属性指向同一对象 故相等
+        
+        var mc2 = new MyClass();
+        var mc3 = new MyClass();
+        console.log(mc.__proto__ == mc2.__proto__);
+        console.log(mc3.__proto__ == mc2.__proto__);
+
+        /*
+            因此，我们构造函数公共内容就可以写在prototype里
+            实例也可以通过__proto__访问到
+            但顺序是，实例先找自己本身有没有该属性，没有则去原型对象里找
+        */
+        MyClass.prototype.a = 123;
+        mc.a = 321;//mc自己有
+        console.log(mc.a);//显示自己的
+        console.log(mc2.a);//mc2没有，找原型对象的
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

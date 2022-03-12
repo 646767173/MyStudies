@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun(a,b){
+            console.log(this);
+            console.log('a = '+a);
+            console.log('b = '+b);
+        }
+        /* 
+            call() apply()
+            -这两个都是函数对象的方法，需要通过函数对象来调用
+            -当对函数对象调用call()和apply()都会调用函数执行
+            -但在调用call()和apply()时，可以指定一个对象作为第一个参数
+                此时该对象就会成为函数执行中的this对象
+            
+            总结this:
+                1.当以函数调用时，this永远是window对象
+                2.当以方法调用时，this是调用该方法的对象
+                3.当以构造函数形式调用，this是新创建的对象
+                4.当使用call、apply，this是参数指定的对象
+        */
+        // 三者调用效果是一样的  都是window对象 
+        // fun();
+        // fun.call();
+        // fun.apply();
+
+        var obj = {
+            name:'obj',
+            sayName:function(){
+                console.log(this.name);
+            }
+        };
+        var obj2 = {name:'obj2'};
+
+        /* 
+            function fun(a,b){...}
+            -call()可以在指定对象后，逐个传入实参
+            -apply()需要在指定对象后，传入实参数组
+        */
+        var f1 = new fun(3,4);
+        f1.name="f1";
+        fun.call(obj,3,4);//逐个传入
+        fun.apply(obj2,[3,4]);//数组传入
+        // 使用call或apply优点之一，可以指定this
+        obj.sayName.apply(obj2);//这样的话this仍是我们指定的对象obj2
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

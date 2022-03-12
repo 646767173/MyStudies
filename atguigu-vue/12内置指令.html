@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令</title>
+    <style>
+        /* 样式的属性选择器 */
+        [v-v-cloak]{ 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <p ref="content">Hanguang</p>
+        <button @click="hint">提示标签内容</button>
+        <p v-cloak>{{msg}}</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#demo',
+            data:{
+                msg:"何汉光"
+            },
+            methods:{
+                hint(){
+                    alert(this.$refs.content.textContent);
+                }
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            字面量创建正则表达式
+            语法： var 变量 = /正则表达式/匹配模式
+            正则表达式中不要有任何空白字符
+        */
+        var reg = /a/i;
+        console.log(reg.test('abc'));
+        /* 
+            使用 | 、 [] 表示或     a|b == [ab]
+
+        */
+        // 判断字符串是否含有a或b或c
+        reg = /a|b|c/;
+        console.log(reg.test('bde'));   
+
+        // 判断字符串是否含有字母   /[a-z]/表示任意小写字母，/[A-z]/表示任意字母
+        reg = /[A-z]/;
+
+        // 判断字符串中是否含有abc、adc、aec
+        reg = /a[bde]c/;
+
+        // [^xxx]表示是否含有任意除了xxx外的字符
+        reg = /[^ab]/;//abc则成立，因为含有非a或b的字符c
+
+        // [0-9]表示任意数字，[^0-9]表示含有除了数字以外字符即可
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

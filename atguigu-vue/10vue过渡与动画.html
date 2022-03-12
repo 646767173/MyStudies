@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue过渡与动画</title>
+    <style>
+        /*   demo1:
+        显示/隐藏的过渡效果  */
+        .abc-enter-active,.abc-leave-active{
+            transition: opacity 1s;
+        }
+        /*   隐藏时的样式   */
+        .abc-enter,.abc-leave-to{
+            opacity: 0;
+        }
+
+            /* demo2 */
+        /* 显示的过渡效果 */
+        .move-enter-active{
+            transition: all 0.3s;
+        }
+        /* 隐藏的过渡效果 */
+        .move-leave-active{
+            transition: all 1s;
+        }
+        /*   隐藏时的样式   */
+        .move-enter,.move-leave-to{
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+    </style>
+</head>
+
+<!-- 
+        1.在目标元素外包裹<transition name="xxx">
+        2.定义class样式
+        指定过渡样式:transition
+        指定隐藏时的样式:opacity/其他
+ -->
+
+<body>
+    <div id="demo1">
+        <button @click="isShow=!isShow">toggle</button>
+        <transition name="abc">
+            <p v-show="isShow">HeHanguang</p>
+        </transition>
+    </div>
+
+    <div id="demo2">
+        <button @click="isShow=!isShow">toggle</button>
+        <transition name="move">
+            <p v-show="isShow">HeHanguang!!!</p>
+        </transition>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm1 = new Vue({
+            el:'#demo1',
+            data:{
+                isShow:true
+            },
+            methods:{
+
+            },
+            computed:{
+                
+            }
+        })
+
+        const vm2 = new Vue({
+            el:'#demo2',
+            data:{
+                isShow:true
+            },
+            methods:{
+
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

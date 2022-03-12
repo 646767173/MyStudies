@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            prompt() 可以弹出一个提示框，该提示框中会带有一个文本框
+            用户可以在文本框中输入内容，
+            同时函数需要一个字符串作为弹出框中的提示信息
+            需要一个变量去接收用户从页面文本框中输入的内容
+
+            该函数返回值是string类型
+        */
+        /*
+            小明成绩
+            为100时，'奖励一辆车'
+            为[80-100)时，'奖励一台iphone手机'
+            为[60-80)时，'奖励一本参考书'
+            为其他时，无奖励
+        */    
+        while(1){
+            var score = prompt("请输入小明的期末成绩");
+            if(score<60){
+                alert('没有奖励');
+            }else if(60 <= score && score < 80){//中间的&&不能省略
+                alert('奖励一本参考书');
+            }else if(80 <= score && score < 100){
+                alert('奖励一台iphone手机');
+            }else if(score == 100){
+                alert('奖励一辆车');
+            }else{
+                alert('没有奖励');
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

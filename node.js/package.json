@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@types/node": "^16.4.1"
+  },
+  "dependencies": {
+    "math": "^0.0.3"
+  },
+  "name": "node",
+  "version": "1.0.0",
+  "description": "hello node",
+  "main": "10npm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hahaha",
+  "license": "ISC"
+}

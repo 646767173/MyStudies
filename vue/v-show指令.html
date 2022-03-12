@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show指令</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换显示状态" @click="changeShow">
+        <input type="button" value="年龄加一" @click="addAge">
+        <input type="button" value="年龄减一" @click="subAge">
+        <p>年龄：{{age}}</p>
+        <img v-show="isShow" src="C:\Users\Administrator\Pictures\黎明使者.jpg" alt="">
+        <img v-show="age>=18" src="C:\Users\Administrator\Pictures\黎明使者.jpg" alt="">
+    </div>
+    
+    <!-- 1.开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isShow:false,
+                age:17
+            },
+            methods:{
+                changeShow:function(){
+                    this.isShow=!this.isShow;
+                },
+                addAge:function(){
+                    this.age++;
+                },
+                subAge:function(){
+                    this.age--;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

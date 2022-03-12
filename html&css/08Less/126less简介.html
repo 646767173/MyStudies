@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS&LESS/126随便写一个less.css">
+    <style>
+        html{
+            /* CSS也支持设置变量(不过是新特性，使用的兼容性较差) */
+            /* 使用变量的好处就是，修改时对变量进行修改即可 */
+            /* calc()是CSS提供的计算，会自动帮你计算列出的式子，也是新特性 */
+            --color:orange;
+            --length:150px;
+            --long:calc(200px*2)
+        }
+        .box1{
+            width: var(--long);
+            height: var(--long);
+            background-color: var(--color);
+        }
+        .box2{
+            width: var(--length);
+            height: var(--length);
+            color: var(--color);
+
+        }
+        .box3{
+            width: var(--length);
+            height: var(--length);
+            border:5px solid var(--color);
+        }
+        /* 
+            因为众多CSS的新特性不支持或者格式固定很麻烦，使用起来很不方便
+            所以有less语言
+                less是一种css的预处理语言
+                    -使用less可以用更通俗易懂的语法去书写样式(即less语法)
+                    -样式写完时，会生成一个less语言下对应的CSS样式文件
+                    -最后根据网页样式引入仍是css
+                    -使用less就相当于我们用了简易的语法去编写复杂的css样式代码
+                    -使用的插件 'Easy LESS'
+                    -可能唯一的缺点是会生成两个样式文件(css&less)
+        */
+    </style>
+</head>
+<body>
+    <div class="box1">aaa</div>
+    <div class="box2">aaa</div>
+    <div class="box3">aaa</div>
+</body>
+</html>

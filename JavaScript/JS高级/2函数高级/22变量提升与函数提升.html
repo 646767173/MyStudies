@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        提升 同 提前
+        先执行函数声明提前，再执行变量声明提前
+        1.变量声明提升
+            通过var定义(声明)的变量，在定义语句之前就可以访问到
+            值undefined
+        2.函数声明提升
+            通过function声明的函数，可以在声明代码前就调用
+            值：函数定义(对象)
+        3.问题：变量提升和函数提升是如何产生的？
+     -->
+    <script>
+        // 面试题：输出undefined，为什么？
+        var a = 3;
+        function fn(){
+            console.log(a);//这种我们称为变量提升
+            var a = 4;
+        }
+        fn();//undefined
+        // 因为函数内部用var重新定义了变量a，但未赋值
+        // 所以输出的是局部变量a而非全局变量a
+
+
+        fn2();//我们可以调用fn2，这种称为函数提升
+        function fn2(){
+            console.log('fn2()');
+        }
+
+        fn3();//不能调用，因为这里只是变量声明提前了，fn3的值是undefined
+        var fn3 = function(){
+            console.log('fn3()');
+        }
+    </script>
+</body>
+</html>

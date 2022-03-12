@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            函数的参数分为 形参和实参
+            函数定义的时候，a和b就是自定义的形参
+            function fun(a,b){
+                //形参里面的a和b就相当于在函数里定义了两个变量a和b
+                //接下来就可以直接使用a和b了
+                console.log('a和b字符串拼接:'+a+b);//这样写就会变成字符串的拼接
+            }
+            fun(2,3);//这里的2和3就是我们传入函数中的实参，对应形参的a和b
+            
+            没有实参的形参默认值是undefined
+        */
+        
+        function sum(a,b){
+            console.log(a+b);
+            console.log(arguments);
+        }
+        sum(300,400);
+        sum(321,456);
+        /*
+            但是在传参时解析器不会审核实参数据类型
+            因此可能会接收到不合法的实参类型
+            如果不想接收到非法数据就要自行对实参类型进行一个审核检查
+        */ 
+        sum(321,'bca');
+        sum(true,false);
+        /* 
+            同样，解析器也不会审核传入参数是否超出形参个数
+            超出个数则只会保留对应的个数
+            全部参数变量都会存入隐藏数组属性arguments中
+        */
+        sum(12,23,34,45);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

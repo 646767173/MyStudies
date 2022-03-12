@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind指令</title>
+    <style>
+        .active{
+            border:solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <img v-bind:src="imgSrc" alt=""> -->
+        <P>{{imgTitle}}</P>
+        <img :src="imgSrc" :title="imgTitle+'锐雯'"
+        :class="isActive?'active':''" @click="toggleActive" alt="">
+        <br>
+        <img :src="imgSrc" :title="imgTitle+'锐雯'"
+        :class="{active:isActive}" @click="toggleActive" alt="">
+        
+    </div>
+    
+    <!-- 1.开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"C:/Users/Administrator/Pictures/黎明使者.jpg",
+                imgTitle:"黎明使者",
+                isActive:false
+            },
+            methods:{
+                toggleActive:function(){
+                    this.isActive=!this.isActive;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

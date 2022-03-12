@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.自定义函数的显式原型对象指向的对象：默认是空Object实例对象(Object对象不满足)
+            该空Object对象会有一些属性
+                -__proto__指向Object的显式原型对象
+                -constructor指向自定义函数本身
+        2.所有函数都是Function的实例，包括Function也是它自身的实例
+        3.Object的原型对象是原型链的尽头
+    -->
+    <script>
+        function fn(){}
+        console.log(fn.prototype);
+
+        console.log('\n');
+        // 1.所以只有Object的显式原型对象是 非Object的实例对象的
+        console.log(fn.prototype instanceof Object);//true
+        console.log(Object.prototype instanceof Object);//false
+        console.log(Function.prototype instanceof Object);//true
+        // Function的显式原型对象就是Object的实例对象
+        console.log(Function.prototype.__proto__ === Object.prototype);
+        
+        // 2.Function是它自身的实例
+        console.log(Function.__proto__===Function.prototype);
+
+        // 3.原型链有尽头，因为Object显式原型对象的隐式原型对象是null了
+        console.log(Object.prototype.__proto__);//null
+    </script>
+</body>
+</html>

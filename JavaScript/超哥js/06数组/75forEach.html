@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            我们使用for循环去遍历数组
+            然而Js给我们提供了一个方法用于遍历数组
+                forEach()-仅支持IE8以上浏览器
+        */
+        var arr = ['a','b','c','d','e'];
+        /* 
+            forEach()方法需要一个函数作为参数
+            我们书写这个函数来完成我们自己的需求(就是需要遍历去做什么，完成什么)
+            ———像这种函数，由我们创建，但不由我们调用，称之为回调函数
+            函数执行的次数 = 数组的元素个数
+            每次执行时，浏览器会将当次遍历到的元素，以函数参数的形式传递进来
+            ————浏览器会自行定义三个函数参数，按顺序分别是
+                当次遍历元素、当次遍历索引、当前数组本身
+        */
+        arr.forEach( function( value , index , obj){//函数形参自定义
+            console.log(value);
+            console.log(index);
+            console.log(obj);
+        } );
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

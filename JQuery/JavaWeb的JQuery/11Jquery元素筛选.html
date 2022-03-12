@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery元素筛选</title>
+</head>
+<script type="text/javascript" src="./jquery-1.7.2.js"></script>
+<script>
+    $(function () { //相当于window.onload事件，表示页面加载完成后
+        $("#btn0").click(function () {
+            $("*").css("background", "white");
+        });
+        $("#btn1").click(function () {
+            $("").css("background", "green");
+
+        });
+        $("#btn2").click(function () {
+            $("").css("background", "green");
+
+        });
+    });
+</script>
+
+<body>
+    <div>
+        同 基本过滤器：
+        eq() 获取给定索引的元素 功能跟:eq() 一样
+        first() 获取第一个元素 功能跟 :first 一样
+        last() 获取最后一个元素 功能跟 :last 一样
+        filter(exp) 留下匹配的元素
+        is(exp) 判断是否匹配给定的选择器，只要有一个匹配就返回true
+        has(exp) 返回包含有匹配选择器的元素的元素 功能跟 :has 一样
+        not(exp) 删除匹配选择器的元素 功能跟 :not 一样
+        同 层级选择器：
+        children(exp) 返回匹配给定选择器的子元素 功能跟 parent>child 一样
+        find(exp) 返回匹配给定选择器的后代元素 功能跟 ancestor descendant 一样
+        next() 返回当前元素的下一个兄弟元素 功能跟 prev + next 功能一样
+        nextAll() 返回当前元素后面所有的兄弟元素 功能跟 prev ~ siblings 功能一样
+        nextUntil() 返回当前元素到指定匹配的元素为止的后面元素
+        parent() 返回父元素
+        prev(exp) 返回当前元素的上一个兄弟元素
+        prevAll() 返回当前元素前面所有的兄弟元素
+        prevUnit(exp) 返回当前元素到指定匹配的元素为止的前面元素
+        siblings(exp) 返回所有兄弟元素
+        add() 把add匹配的选择器的元素添加到当前 jquery 对象中
+    </div>
+    <button id="btn0">还原</button>
+    <button id="btn1"></button>
+    <button id="btn2"></button>
+</body>
+
+</html>

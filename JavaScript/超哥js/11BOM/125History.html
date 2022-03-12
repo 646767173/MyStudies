@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            History
+            -代表浏览器的历史记录(一关闭浏览器就会销毁记录)
+        */
+        window.onload = function(){
+            // length属性可以获取当前访问的链接数量
+            console.log(history.length);
+            var btn1 = document.getElementById('btn1');
+            var btn2 = document.getElementById('btn2');
+            var btn3 = document.getElementById('btn3');
+            btn1.onclick = function(){
+                // back()方法可以用来回退到上一个页面，和浏览器的后退按钮功能一样
+                history.back();
+            }
+            btn2.onclick = function(){
+                // forward()方法可以用来前进到下一个页面，和浏览器的前进按钮功能一样
+                history.forward();
+            }
+            btn3.onclick = function(){
+                /* 
+                    go()方法可以指定加载history列表中第几个的url
+                    需要传个整数作为参数
+                    1:往前跳转一个页面 相当于forward()
+                    2:往前跳转两个页面
+                    ...
+                    -1:往后跳转一个页面 相当于back()
+                    -2:往后跳转两个页面
+                    ...
+                */
+                history.go(3);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>我是History</h1>
+    <a href="./test1.html">去test1</a>
+    <button id="btn1">回退</button>
+    <button id="btn2">前进</button>
+    <button id="btn3">到history列表的第3个页面去</button>
+</body>
+</html>

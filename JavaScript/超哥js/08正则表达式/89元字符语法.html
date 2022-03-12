@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            正则表达式元字符，即含有特殊意义的字符
+            当要检查具有特殊意义字符时，使用转义字符\ 使其表达为原来字符的意义
+                ！要检查 \ 同样需要使用它本身作为转义字符 即\\
+                ！不仅在正则表达式中，在JS中 \ 就是转义字符，要表示\需要使用两个\，即\\
+                ！比如在构造函数创建的正则表达式则需要写 \\ 来表示 \
+            比如：
+                检查一个字符串是否含有.
+                元字符 . 表示含有任意字符
+                所以正确的正则表达式要写成 var reg = /\./;
+            元字符：
+            1-  .   表示含有任意字符
+            2-  \w  表示任意字母、数字、下划线_————\w即JS中的单词(字母数字下划线)
+            3-  \W  表示除了字母、数字、下划线_以外的任意
+            4-  \d  任意数字
+            5-  \D  除了数字
+            6-  \s  空格
+            7-  \S  除了空格
+            8-  \b  表示 单词与其他非单词 的边界线
+            9-  \B  表示 单词与单词 或 非单词与非单词 的边界线
+                
+        */
+        // 检查字符串中是否有单词child，使用\b \b会将其识别为一个单词，遇到形近的字符是没用的
+        var reg = /\bchild\b/;//判断是否含有单词child
+        var reg1 = /c\Bh\Bi\Bl\Bd/;//判断是否含有child这五个字符,效果同/child/
+        console.log(reg.test('Hi children'));//识别到无单词child,false
+        console.log(reg.test('Hi child'));//识别到有单词child,true
+        console.log(reg1.test('Hi 1child1'));//识别到有child,true
+        console.log(reg1.test('Hi c h i l d'));//识别到无单词child,false
+
+        // 用户输入字符串时可能不小心在字符串前后输入了空格
+        var str = prompt('请输入字符串：');
+        // 去除用户输入在字符串前后的空格(保留字符串内部的空格),即用空串代替输入的空格
+        // 1.去除字符串前面的空格 str = str.replace(/^\s*/,'');
+        // 2.去除字符串后面的空格 str = str.replace(/\s*$/,'');
+        // 3.整合两个正则表达式
+        str = str.replace(/^\s*|\s*$/g,'');//开启全局模式g，则或的内容都会满足
+        console.log(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

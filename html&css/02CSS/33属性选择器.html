@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            属性选择器(通常要配合其他选择器复合使用，比如元素选择器)
+            -[属性名]           选择含有属性值的元素
+            -[属性名=属性值]    选择含有属性名=属性值的元素
+            -[属性名^=属性值]   选择含有属性名以属性值开头的元素
+            -[属性名$=属性值]   选择含有属性名以属性值结尾的元素
+
+            eg:
+            p[title]{...}           选择p标签中含有title属性的元素
+            p[title=abc]{...}       选择p标签中含有title属性值为abc的元素
+            p[title^=abc]{...}      选择p标签中含有title属性值以abc开头的元素
+            p[title$=abc]{...}      选择p标签中含有title属性值以abc结尾的元素
+         */
+        p[title]{
+            color: red;
+        }           
+        p[title=abc]{
+            color: blue;
+        }       
+        p[title^=abc]{
+            color: green;
+        }
+        p[title$=abc]{
+            color:pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <p>abc(无title)</p>
+    <p title="abc">abc</p>
+    <p title="abcdef">abcdef</p>
+    <p title="cba">cba</p>
+    <p title="abcba">abcba</p>
+    <p title="bcabc">bcabc</p>
+    <p title="bac">bac</p>
+</body>
+</html>

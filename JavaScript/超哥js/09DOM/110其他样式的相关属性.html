@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+        }
+        #box{
+            width:250px;
+            height: 380px;
+            background-color: #aaf;
+            padding: 10px;
+            border: 10px solid #faf;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+            var btn = document.getElementById('btn');
+            btn.onclick = function(){
+                /* 
+                    clientWidth     返回元素可见宽度
+                    clientHeight    返回元素可见高度
+                    会计算 内容区+内边距 (width/height+padding)
+                    这些属性的返回值是不带px的数字，可以直接进行计算
+                    -返回的都是只读属性，不能修改
+                */
+                console.log('box.clientWidth:'+box.clientWidth);
+                console.log('box.clientHeight:'+box.clientHeight);
+                /* 
+                    offsetWidth     返回元素整个宽度
+                    offsetHeight    返回元素整个高度
+                    会计算 内容区+内边距+边框 (width/height+padding+border)
+                */
+                console.log('box.offsetWidth:'+box.offsetWidth);
+                console.log('box.offsetHeight:'+box.offsetHeight);
+                /* 
+                    offsetParent    获取最近开启定位的祖先元素(否则是body)
+                */
+                console.log('box.offsetParent:'+box.offsetParent);
+                /* 
+                    offsetLeft      当前元素相对于其定位元素的水平偏移量
+                    offsetTop       当前元素相对于其定位元素的垂直偏移量
+                    其定位元素即offsetParent
+                */
+                console.log('box.offsetLeft:'+box.offsetLeft);
+                console.log('box.offsetTop:'+box.offsetTop);
+                /* 
+                    scrollWidth     获取元素整个滚动区域的宽度
+                    scrollHeight    获取元素整个滚动区域的高度
+                */
+                console.log('box.scrollWidth:'+box.scrollWidth);
+                console.log('box.scrollHeight:'+box.scrollHeight);
+                /* 
+                    scrollLeft      获取元素水平滚动条滚动的距离
+                    scrollTop      获取元素垂直滚动条滚动的距离
+
+                    当 scrollHeight - scrollTop == clientHeight 时 
+                    说明滚动条滚动到最下了
+
+                    当 scrollWidth - scrollLeft == clientWidth 时 
+                    说明滚动条滚动到最后了
+                */
+                console.log('box.scrollLeft:'+box.scrollLeft);
+                console.log('box.scrollTop:'+box.scrollTop);
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <br>
+    <br>
+    <div>
+        <div id="box"></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: xx-large;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            /* 必须要开启定位了，偏移量才会生效 */
+            position: relative;
+            top: -100px;
+            left: 100px;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: dodgerblue;
+            /* 未开启定位，偏移量不生效 */
+            top: 1000px;
+        }
+        /* 
+            定位(position)
+                这是一种更高级的布局手段
+                通过定位可以将元素摆放到页面任一位置
+                通过position属性来设置定位
+                    -static     默认值，元素静止未开启定位
+                    -relative   开启元素相对定位
+                    -absolute   开启元素绝对定位
+                    -fixed      开启元素固定定位
+                    -sticky     开启元素粘滞定位
+                
+                当元素的position设置成relative则开启相对定位
+                    开启相对定位的特点
+                    1.不设置偏移量则位置不会发生变化
+                    2.定位只有自己的位置会变化，不会影响其他元素的位置
+                    3.相对定位的定位位置是该元素在文档流的位置，以该位置左上角点为坐标轴原点
+                    4.相对定位会提高元素的层级
+                    5.相对定位不会脱离文档流
+                    6.相对定位不会改变元素的display
+
+                偏移量(offset)
+                    -当元素开启定位后，可以通过偏移量来调整位置(值越大距离越远)
+                        top
+                            -定位元素和定位位置上边的距离
+                        bottom
+                            -定位元素和定位位置下边的距离
+                    定位元素的垂直位置受top和bottom共同影响，通常只会设置其中之一
+                        left
+                            -定位元素和定位位置左边的距离
+                        right
+                            -定位元素和定位位置右边的距离
+                    定位元素的水平位置受left和right共同影响，通常只会设置其中之一
+
+        */
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

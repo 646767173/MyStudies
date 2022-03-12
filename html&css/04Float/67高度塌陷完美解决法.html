@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            border: 10px blue solid;
+        }
+        .inner{
+            width: 100px;
+            height: 200px;
+            background-color: orange;
+            float: left;
+        }
+        .other{
+            clear: left;
+            /* 借助父元素的另一个子元素clear来实现
+                高度塌陷的解决办法，同时子元素里面不需要写内容
+                但是这是利用了 结构 去解决 表现 上出现的问题
+                应该由表现自己解决自己的问题
+                这时可以使用伪类达到同样的效果!
+            */
+        }
+        .outer::after{
+            /* 默认是行内元素，要切换成块元素 */
+            display: block;
+            /* 添加一个空内容 */
+            content: '';
+            /* 设置clear */
+            clear: both;
+        }
+        /* 这就是高度塌陷最好的解决方法 */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+        <!-- <div class="other"></div> -->
+    </div>
+</body>
+</html>

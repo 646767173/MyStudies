@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            匿名函数对象需要用一个括号括起来，表明它是一个整体
+            立即执行函数IIFE
+                -即函数定义完就立即被调用执行
+                -立即执行函数往往只会执行一次(因为大多都是匿名函数，没有用变量去接收它)
+        */ 
+        //在函数对象后面加上括号，则表示调用函数，匿名函数同理
+        (function(){
+            console.log('我是一个匿名函数');
+        })();
+
+        (function(a,b){
+            console.log('a='+a);
+            console.log('b='+b);
+        })(321,655);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

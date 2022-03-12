@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JQ和JS的页面加载完后的区别</title>
+<script type="text/javascript" src="./jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    // 原生JS页面加载完成之后
+	window.onload = function () {
+		alert("原生JS1");
+	}
+	window.onload = function () {
+		alert("原生JS2");
+	}
+	window.onload = function () {
+        alert("原生JS3");
+    }
+
+	// JQuery的页面加载完成之后
+    /*  原来的标准写法：
+        $(document).ready(function(){
+
+        });
+
+    */ 
+	$(function () {
+		alert("JQuery1");
+	});
+	$(function () {
+		alert("JQuery2");
+	});
+	$(function () {
+		alert("JQuery3");
+	});
+
+    /*
+        结果：
+        1、两者执行的顺序？
+            先执行JQuery的、后执行原生JS的
+        2、分别是在什么时候执行的呢？
+            JQuery的是  在浏览器解析完标签并创建好DOM对象之后   就会马上执行
+            原生JS的是  在浏览器解析完标签并创建好DOM对象，还要等标签内需要显示的内容加载完成后   才会执行
+        3、执行的次数？
+            原生JS无论写多少次 window.onload 永远只会执行一次且是最后的那一次函数；
+            JQuery写了多少次    $(function(){}) 就会执行对应的多少次；
+    */ 
+</script>
+</head>
+<body>
+	<button>我是按钮</button>
+	<br>
+    <!-- ↓这些就是标签内需要显示的内容 -->
+	<iframe src="http://localhost:8080"></iframe>
+	<img src="https://localhost:8080/1.gif" title="百度一下你就知道" alt="图片找不到了"/>
+</body>
+</html>

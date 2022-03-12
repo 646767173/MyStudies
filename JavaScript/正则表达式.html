@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+<script>
+    // 表示要求字符串中包含字母e
+    // var patt = new RegExp("e");//标准写法 RegExp正则表达式对象
+    // 简易写法——————var patt = /e/;
+    
+    /* 
+        !!!!!
+        包含的意思是，只要有符合要求的字符存在就行了
+        不会管后面的字符是否符合要求，只要有符合严要求的，它就成立返回true
+        !!!!!
+    */  
+
+    // var meaning ="表示要求字符串中包含a或b或c任一字母";
+    // var patt = /[abc]/;
+
+    // var meaning ="表示包含任一从a到z的小写字母";
+    // var patt = /[a-z]/;
+
+    // var meaning ="表示包含任一从A到Z的大写字母";
+    // var patt = /[A-Z]/;
+
+    // var meaning ="表示包含任一数字";
+    // var patt = /[0-9]/; 
+
+    // var meaning ="表示包含集合外任一字符";
+    // var patt = /[^abcdef]/; //有任一非abcdef就行，只要存在非abcdef的字符，就算其中同时含有abcdef都是合法的 
+
+    // var meaning ="表示包含任一字符串，即字母、数字、下划线";
+    // var patt = /\w/; 
+
+    // var meaning ="表示输入的内容中包含至少一个a";
+    // var patt = /a+/;
+    
+    // var meaning ="表示输入的内容中包含0个或多个a";
+    // var patt = /a*/;
+
+    // var meaning ="表示输入的内容中包含0个或1个a";
+    // var patt = /a?/;
+    
+    // var meaning ="表示输入的内容中包含连续3个a";
+    // var patt = /a{3}/;  
+
+    // var meaning ="表示输入的内容中包含至少连续3个a，至多连续5个a。（实际上当前规则下超过5个也会为true）";
+    // var patt = /a{3,5}/;
+
+    // var meaning ="表示输入的内容中至少包含3个a，未限制至多";
+    // var patt = /a{3,}/;
+    
+    // var meaning ="表示输入的内容必须以a结尾";
+    // var patt = /a$/;
+
+    // var meaning ="表示输入的内容必须以a开头";
+    // var patt = /^a/;
+
+    // var meaning ="表示输入的内容必须以a开头且以a结尾（中间有别的东西、多个a都不行，此条件下答案只能是一个a）";
+    // var patt = /^a$/;
+    
+    // var meaning ="表示输入的内容从头到尾必须完全匹配至少连续3个a，至多连续5个a。（中间有别的或a超出个数都不行）";
+    // var patt = /^a{3,5}$/;
+    
+    var meaning ="表示输入的是字符串(字母数字下划线)且长度为5-12位";
+    var patt = /^\w{5,12}$/;
+    
+    var str = "adaa_a"; //输入检验的字符串，只要存在符合要求的任一字符串，就成立
+
+    alert("正则表达式内不要输入空格等不相干字符！"+
+        "\n\n当前输入的正则表达式是" + patt +
+        "\n\n该表达式的含义是：" + meaning +
+        "\n\n输入的字符串是" + str +
+        "\n\n合法性：" + patt.test(str)
+        );
+
+</script>
+<body>
+    
+</body>
+</html>

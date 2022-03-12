@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            数组字面量快速创建数组
+            可以在创建时就设置数组元素
+        */
+        var arr = [10];//表示创建一个第一个数值为10的数组
+        console.log(arr);
+
+        var arr1 = new Array(10);//表示创建一个长度为10的数组，值为undefined
+        console.log(arr1);
+
+        // 数组元素也可以是任意数据类型的内容
+        var arr2 = [123,'String',true,['又一个数组'],{name:'对象'},
+                    (function bac(){}),null,undefined ];
+        console.log(arr2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

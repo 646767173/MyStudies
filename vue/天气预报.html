@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div>天气预报</div>
+            <div>
+                <input type="text" v-model="city" @keyup.enter="searchWeather" placeholder="请输入要查询天气的城市"/>
+                <button @click="searchWeather">查询</button>
+            </div>
+            <div>
+                <a href="javascript:;" @click="changeCity('北京')">北京</a>
+                <a href="javascript:;" @click="changeCity('上海')">上海</a>
+                <a href="javascript:;" @click="changeCity('广州')">广州</a>
+                <a href="javascript:;" @click="changeCity('深圳')">深圳</a>
+            </div>
+        </div>
+        <ul>
+            <li v-for="item in weatherList">
+                <div><span>{{item.date}}</span></div>
+                <div>
+                    <span>{{item.type}}</span>
+                </div>
+                <div>
+                    <b>{{item.low}}</b>~<b>{{item.high}}</b>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 官方提供的axios在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- 自己的js -->
+    <script src="./天气预报main.js"></script>
+</body>
+
+</html>

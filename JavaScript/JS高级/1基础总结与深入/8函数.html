@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1什么是函数？
+            能实现特定功能的n条语句的对象
+            只有函数是可以执行的，其它类型数据不能执行
+        2为什么要使用函数？
+            提高代码复用
+            便于阅读交流
+        3如何定义函数？
+            函数声明、赋值表达式
+        4如何调用(执行)函数？
+            test(); 直接调用
+            obj.test(); 通过对象调用
+            new test(); new调用构造函数
+            test.call/apply(obj); 临时让test成为obj方法进行调用
+     -->
+    <script>
+        /* 
+            编程实现以下功能：
+                1.根据年龄输出对应信息
+                2.如果小于18，输出：未成年！
+                3.如果大于60，输出：算了吧！
+                4.其他，输出：刚刚好！
+        */
+        var age = prompt('请输入年龄!');//prompt会弹窗并要求我们输入内容
+        checkAge(age);
+        function checkAge(age){
+            switch(true){//设置true后，当case中的表达式为true，就会匹配
+                case age<18:
+                    alert('未成年！');
+                    break;
+                case age>60:
+                    alert('算了吧！');
+                    break;
+                default:
+                    alert('刚刚好！');
+                    break;
+            }
+        }
+
+        function fn(){}//函数声明
+        var fn1 = function(){}//表达式
+        
+        var obj = {name:'obj'};
+        function test(){console.log(this);}
+        //obj.test(); // 这样是不行的，因为obj中没有test方法
+        test.call(obj);// 让test临时成为obj的方法，相当于调用了obj中的test,this会指向obj对象
+        test.apply(obj);// 同上
+    </script>
+</body>
+</html>

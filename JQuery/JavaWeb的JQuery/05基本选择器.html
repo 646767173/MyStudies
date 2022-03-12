@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本选择器</title>
+</head>
+<script src="./jquery-1.7.2.js"></script>
+<script>
+    $(function () {//==onload页面加载完成后
+        $("#btn1").click(function () {//1
+            $("#id").css("background-color", "#bbffaa");
+        });
+
+        $("#btn2").click(function () {//2
+            $("span").css("background-color", "#bbbbbb");
+        });
+
+        $("#btn3").click(function () {
+            $(".yes").css("background-color", "#ffffff");
+        });
+
+        $("#btn4").click(function () {
+            $("*").css("background-color", "#008000");
+        });
+
+        $("#btn5").click(function () {
+            $("div,span,p.yes").css("background-color", "#ffa500");
+        });
+    })
+</script>
+<!-- 
+    常见转义字符：
+    字符        十进制      转义字符
+    "           &#34;        &quot;
+    &           &#38;        &amp;
+    <           &#60;        &lt;
+    >           &#62;        &gt;
+    空格        &#160;       &nbsp;
+ -->
+<body>
+    按id查找 $("#id")<br>
+    return一个document对象的数组 [DOM] 即Jquery对象
+    <div id="id">#id</div>
+    <button id="btn1">按id查找</button>
+
+    <hr>
+    按TagName标签名查找 $("TagName")<br>
+    return一个document对象的数组 [DOM] 即Jquery对象
+    <br><span>是个span</span><br>
+    <button id="btn2">按TagName查找</button>
+
+    <hr>
+    按class类名查找 $(".class")<br>
+    return一个document对象的数组 [DOM] 即Jquery对象
+    <button id="btn3">按class类名查找</button>
+
+    <hr>
+    匹配所有元素 $("*")<br>
+    return一个document对象的数组 [DOM] 即Jquery对象
+    <button id="btn4">查找所有</button>
+
+    <hr>
+    将每一个选择器匹配到的元素合并到一起后返回<br>
+    $("div,span,p.yes");<br>
+    <div>div</div>
+    <span>span</span>
+    <p class="yes">p1</p>
+    <p>p2</p>
+    <button id="btn5">混合查询</button><br>
+    &#60;div&#62;div&#60;/div&#62;<br>
+    &#60;span&#62;span&#60;/span&#62;<br>
+    &#60;p class=&#34;yes&#34;&#62;p1&#60;/p&#62;<br>
+    &#60;p class=&#34;no&#34;&#62;p2&#60;/p&#62;<br>
+    return->[ &#60;div&#62;div&#60;/div&#62;,&#60;span&#62;span&#60;/span&#62;,&#60;p class=&#34;yes&#34;&#62;p1&#60;/p&#62; ]
+
+</body>
+
+</html>

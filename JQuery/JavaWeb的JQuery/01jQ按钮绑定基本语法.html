@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery第一课</title>
+</head>
+    <script type="text/javascript" src="./jquery-1.7.2.js"></script>
+    <script>
+        $(function(){ //相当于window.onload事件，表示页面加载完成后
+           var $btnDOM = $("#btnId"); //表示document.getElementById;
+           $btnDOM.click(function(){ //绑定单击事件
+               alert("jQuery的单击事件");
+           })
+        });
+    </script>
+    
+<body>
+<button id="btnId">hello world</button>    
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            伪元素：表示页面中一些特殊的并不真实存在的元素(特殊的位置)
+                -！！区分与伪类，伪类表示的是元素的一种特殊状态！！！
+            伪元素使用:: 开头
+                ::first-letter  表示第一个字母
+                ::first-line    表示第一行
+                ::selection     表示选中的内容
+                
+                ::before        表示元素的开始  
+                ::after         表示元素的最后  
+                    -before和after必须结合content属性使用
+        */
+        p::first-letter{ /* 这就相当于给首字母加上了一个span标签 */
+            font-size: 50px;
+        }
+        p::first-line{
+            background-color: aliceblue;
+        }
+        p::selection{
+            background-color: green;
+        }
+        div::before{
+            content:'/通过css用content属性添加的，无法选中/';
+            color: goldenrod;
+        }
+        div::after{
+            content:'/通过css用content属性添加的，无法选中/';
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div>Here is a div</div>
+    <p>
+        The man is whom i meet before.Whatever you like；The man is whom i meet before.Whatever you likeThe man is whom i meet before.Whatever you likeThe man is whom i meet before.Whatever you like
+    </p>
+</body>
+</html>

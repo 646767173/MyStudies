@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            自定义对象，有些什么属性我们是知道的。
+            但是像内建对象和宿主对象，非自建的对象，我们并不知道里面有什么属性。
+            因此需要枚举看看其有写什么属性
+            -枚举使用 for 变量 in 对象；
+        */ 
+        var obj = {
+            name:'hahaha',
+            age:18,
+            gender:'male'
+        };
+
+        for(n in obj){//obj有多少个属性，就会循环多少次
+            console.log(n+':'+obj[n]);//将当前属性名赋值给n,将当前属性值赋值给obj[n]
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

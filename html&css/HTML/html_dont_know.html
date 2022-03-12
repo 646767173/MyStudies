@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html那些我不知道的小细节</title>
+</head>
+
+<body>
+    font标签
+    <!-- 
+        可用于规定文本的字体、字体尺寸、字体颜色
+        face = "字体名"
+        size = "1~7"
+        color = ""
+
+     -->
+
+    特殊字符!!
+    <!-- 
+        当输入了多个连续空白符，会被自动屏蔽并省略剩下一个 
+        特殊字符要写  
+
+        <       ==> &lt     lessthan
+        空格    ==> &nbsp   niubispace
+        >       ==> &gt     greatthan
+    -->
+
+    列表
+    <!-- 
+        ul   unorderlist 无序列表
+            里面的type可以设置列表元素项的前标号，none则为无前标号
+        ol   orderlist   有序列表
+     -->
+
+    src目录
+    <!-- 
+    在JavaSE中----------
+        相对路径：从工程名开始算起
+
+        绝对路径：盘符:/目录/文件名
+
+    在Web中------------
+        相对路径：
+            .           表示当前目录
+            ..          表示当前目录的上一级目录
+            文件名      表示在当前目录下的某文件，即./文件名，其中 ./ 可以省略
+        绝对路径：
+            http://IP地址:port端口号/工程名/资源路径
+
+     -->
+
+    img标签
+    <!-- 
+         alt属性设置当指定路径找不到图片时,用来替代图片显示的文字
+         title属性设置鼠标悬停在图片上时出现的文字
+      -->
+
+    表格标签
+    <!-- 
+        table 表格标签 width宽度 height高度 align设置表格位置（左右居中）
+        cellspacing单元格间距（通常为0） border为表格线的像素
+        tr 表示 行
+        td 表示 单元格
+        th 表示 标题单元格（默认居中 加粗）
+        b标签为加粗
+        横为行 竖为列，其中属性值"数字" 表示跨几个,即几个合并为一个
+        colspan 属性设置跨列
+        rowspan 属性设置跨行
+    -->
+    <br>
+    <iframe src="" width="600" height="500" frameborder="0" name="iAmiframe"></iframe>
+    <!-- 
+    iframe是在页面中单独开辟一个区域开启新页面
+        iframe标签与a标签组合使用的步骤：
+            1.在iframe标签中使用name属性定义一个名称
+            2.在a标签的target属性上设置iframe的name属性值
+            对align无效
+    iframe不允许单标签，必须是双标签
+    -->
+    <br>
+    <a href="..\vue\网页音乐播放器.html" target="iAmiframe">在iframe打开————自制网页播放器</a>
+    <br>
+
+    <!-- 
+        input type="radio" 要默认选中某一项
+        则在该项的input中输入 checked="checked"
+        select中要默认则option标签里写selected="selected"属性
+        表单的格式化：在form标签中嵌套使用table以及下属标签
+
+        表单提交的细节：
+            action属性设置提交的服务器地址
+            method属性设置提交的方式GET(默认值)或POST
+
+        表单提交的时候，数据没有发送给服务器的三种情况：
+            1.表单项没有name属性值
+            2.单选、复选（下拉列表中的option标签）都需要添加value属性，以便发送给服务器
+            3.表单项不在提交的form标签中
+
+        GET请求的特点：
+            1.浏览器地址栏中的地址是：action属性[+?+请求参数]
+                请求参数：name=value&name=value;
+            2.不安全，传参的数据出现在地址栏上
+            3.它对传送的参数有长度的限制
+
+        POST请求的特点：
+            1.浏览器地址只有action属性值
+            2.相对于GET请求要安全
+            3.理论上没有数据长度的限制
+
+    -->
+    <form action="http://localhost:8080" method="GET">
+        <input type="hidden" name="action" value="login"> <!-- 定义隐藏的输入字段,通常是需要传送的数值但又不需要出现在页面中 -->
+        <table align="center">
+            <tr>
+                <td>表单————</td>
+            </tr>
+            <tr>
+                <td>用户名称：</td>
+                <td><input type="text" name="username" value="默认值" /></td>
+            </tr>
+            <tr>
+                <td>用户密码：</td>
+                <td><input type="password" name="password" value="abc" /></td>
+            </tr>
+            <!-- <tr>
+                <td>确认密码：</td>
+                <td><input type="password"  name="password" value="abc" /></td>
+            </tr> -->
+            <tr>
+                <td>性别：</td>
+                <td>
+                    <input type="radio" name="sex" value="boy" checked="checked" />男
+                    <input type="radio" name="sex" value="girl" />女
+                </td>
+            </tr>
+            <tr>
+                <td>兴趣爱好：</td>
+                <td>
+                    <input type="checkbox" value="Java" name="hobby" checked="checked" />Java
+                    <input type="checkbox" value="JavaScript" name="hobby"/>JavaScript
+                    <input type="checkbox" value="Vue" name="hobby"checked="checked" />Vue
+                </td>
+            </tr>
+            <tr>
+                <td>国籍：</td>
+                <td>
+                    <select  name="country">
+                        <option value="none">————请选择国国籍————</option>
+                        <option value="China" selected="selected">中华人民共和国</option>
+                        <option value="Japan">小日本</option>
+                        <option value="America">漂亮国</option>
+                        <option value="Russia">老毛子</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>自我评价：</td>
+                <td><textarea cols="20" rows="10"  name="introduction">默认值在这里哦</textarea></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="提交">
+                </td>
+                <td>
+                    <input type="reset" value="重置">
+                </td>
+                <td>
+                    <input type="button" value="按钮">
+                </td>
+            </tr>
+        </table>
+        <!-- 
+        用户名称：<input type="text" value="默认值"/><br>
+        用户密码：<input type="password" value="abc"/><br>
+        确认密码：<input type="password" value="abc"/><br>
+        性别：<input type="radio" name="sex" checked="checked" />男<input type="radio" name="sex" />女<br>
+        兴趣爱好：<input type="checkbox" checked="checked" />Java<input type="checkbox" />JavaScript<input type="checkbox" checked="checked" />Vue <br>
+        国籍：
+        <select>
+            <option>————请选择国国籍—————</option>
+            <option selected="selected">中华人民共和国</option>
+            <option>小日本</option>
+            <option>漂亮国</option>
+            <option>老毛子</option>
+        </select><br>
+        自我评价：
+        <textarea cols="20" rows="10">默认值在这里哦</textarea>
+        <br> 
+    -->
+    </form>
+
+    <br>
+    其他标签
+    <!-- 
+        div标签         默认独占一行
+        span标签        长度为封装数据的长度
+        p标签           段落标签，默认一个标签一行，还会把标签后的换行
+     -->
+</body>
+
+</html>

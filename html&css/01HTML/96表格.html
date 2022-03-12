@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" width="20%">
+        <tr>
+            <td rowspan="2">1</td>
+            <!-- rowspan纵向合并单元格 -->
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td colspan="2">2</td>
+            <!-- colspan横向合并单元格 -->
+        </tr>
+    </table>
+    <!-- 长表格 border边框，-->
+    <table border="1" width="50%" align="center">
+        <!-- 
+            thead-表头
+            tbody-主体
+            tfoot-底部
+                三个标签无论顺序怎么放，呈现的效果是一样的
+         -->
+        <tfoot>
+            <tr>
+                <td></td>
+                <td>合计</td>
+                <td>xxx</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr>
+                <!-- 
+                <td>表头1</td>
+                <td>表头2</td>
+                <td>表头3</td> 
+                th可以替换td，实现标题加粗-->
+                <th>表头1</th>
+                <th>表头2</th>
+                <th>表头3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>主体1</td>
+                <td>主体2</td>
+                <td>主体3</td>
+            </tr>
+            <tr>
+                <td>主体1</td>
+                <td>主体2</td>
+                <td>主体3</td>
+            </tr>
+            <tr>
+                <td>主体1</td>
+                <td>主体2</td>
+                <td>主体3</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

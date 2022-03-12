@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement</title>
+    <script>
+        /*
+            通过js代码来创建一个html的标签，并显示在页面上
+            标签的内容是：<div>芜湖起飞~</div>
+        */
+        window.onload = function () {//整个过程必须要在页面加载完成后
+            // 方法一
+
+            var divDOM = document.createElement("div"); //此时标签存在内存中
+            divDOM.innerHTML = "芜湖起飞~"; //此时标签仍然是在内存中
+
+            //需要给body标签添加子节点 , appendChild
+            document.body.appendChild(divDOM);
+
+            // 方法二
+
+            var spanDOM = document.createElement("span");
+            // 给body添加子节点
+            document.body.appendChild(spanDOM);
+
+            var TextDOM = document.createTextNode("hhg超级帅的");
+            // 给div添加对应的文本子节点
+            spanDOM.appendChild(TextDOM);
+        }
+    </script>
+</head>
+
+<body>
+    <div>芜湖~</div>
+    <div>起飞~</div>
+</body>
+
+</html>

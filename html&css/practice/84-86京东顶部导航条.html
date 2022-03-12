@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东顶部导航条</title>
+    <link rel="stylesheet" href="../CSSTools/reset.css">
+    <style>
+        /* clearfix */
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        /* 设置总体字体样式 */
+        body{
+            font:12px/1.5 '微软雅黑' 
+        }
+
+        /* 外部容器的样式 */
+        .whole-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #e3e4e5;
+            /* 设置行高调整字体居中 */
+            line-height: 30px;
+        }
+
+        /* 内部容器样式 */
+        .inner-bar{
+            width: 1190px;
+            margin:0 auto;
+            position: relative;
+        }
+
+        /* 分别设置浮动，使其水平排列 */
+        .location{
+            float: left;
+        }
+        /* menu-bar */
+        .menu-bar{
+            float: right;
+        }
+
+        .menu-bar li{
+            float: left;
+        }
+
+        /* 城市列表的样式 */
+        .cities{
+            width: 320px;
+            height: 440px;
+            background-color: white;
+            border:1px solid rgb(204,204,204);
+            /* 一开始是隐藏的，且位置在当前城市的正下方 */
+            display: none;
+            position: absolute;
+            top: 30px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+            /* 开启层级 */
+            z-index: 999;
+        }
+        /* 设置移入时，显示城市列表 */
+        .location:hover .cities{
+            display: block;
+        }
+        /* 当前城市的样式 */
+        .current-city{
+            padding: 0 10px;
+            /* 设置层级使其盖过城市列表的边框 */
+            position: relative;
+            z-index: 1000;
+            /* 一开始也有边框 */
+            border: 1px solid transparent;
+            border-bottom: none;
+        }
+        /* 移入时，显示当前城市的样式 */
+        .location:hover .current-city{
+            background-color: white;
+            border: 1px solid rgb(204,204,204);
+            border-bottom: none;
+        }
+
+        /* 设置分隔线样式 */
+        .line{
+            width: 1px;
+            height: 10px;
+            background-color: #999;
+            margin: 10px 10px;
+        }
+        /* 设置字体颜色 */
+        a,.menu-bar li span{
+            color: #999;
+            text-decoration: none;
+        }
+        .high-light,a:hover{
+            color: #f10215;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 导航条容器 -->
+    <div class="whole-bar clearfix">
+        <!-- 内部容器 -->
+        <div class="inner-bar">
+            <!-- 左侧城市容器 -->
+            <div class="location">
+                <!-- 当前城市 -->
+                <div class="current-city">
+                    <a href="javascript:;">广州</a>
+                </div>
+                <!-- 放置一个城市列表的div -->
+                <div class="cities">
+
+                </div>
+
+            </div>
+            <!-- 右侧菜单栏 -->
+            <ul class="menu-bar clearfix">
+                <li>
+                    <a href="javascript:;">你好，请登录</a>
+                    <a class="high-light" href="javascript:;">免费注册</a>
+                </li>
+                <!-- 分割竖线 -->
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的订单</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的京东</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">京东会员</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a class="high-light" href="javascript:;">企业采购</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>客户服务</span>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>网站导航</span>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>手机京东</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>

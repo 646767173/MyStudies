@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4原生ajax请求实例</title>
+    <style>
+        #result{
+            width: 200px ;
+            height: 100px;
+            border:solid 1px #90b;
+        }
+    </style>
+</head>
+<script>
+    var btn = document.getElementById("#btn1");
+    var result = document.getElementById("#result");
+    function ajaxRequest(){
+        // 1.创建XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        // 2.open(请求类型，URL，是否异步boolean)
+        xhr.open("GET","http://localhost:8080/ajaxRequest",true);
+        // 3.send方法发送请求
+        xhr.send();
+        // 4.在send方法前绑定onreadystatechange事件，处理请求完成后的操作
+        xhr.onreadystatechange == function(){
+            if(xhr.readyState == 4){
+                if(xhr.status > 200 && xhr.status < 300)
+                    result.innerHTML == xhr.response;
+            }
+        }
+    }
+</script>
+<body>
+    <button id="btn1">获取ajax请求</button>
+    <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            函数作用域
+                -调用函数时创建函数作用域，函数执行完毕后，函数作用域销毁
+                -每调用一次函数就会创建一个新的函数作用域，它们之间是相互独立的
+                -函数作用域里可以访问到全局作用域的变量，而函数作用域的变量只在其本身函数作用域内生效
+                -如遇同名变量，则优先选择自身作用域内的变量，若无再逐级往上找
+                    直至全局作用域都没有找到该变量，则报错
+        */
+        var a = 10;
+        function fun(){
+            var a = 12;
+            ab();
+            function ab(){
+                var a = 22;
+                console.log(window.a);//可以通过window对象来访问全局作用域中的变量
+            }
+        }
+        fun();
+
+        /*
+            函数的声明提前
+                使用函数声明形式创建的函数 function xxx(){...} 
+                会自动在所有代码执行前创建
+
+                使用函数表达式创建的函数 var xxx = function(){...}
+                只会提前变量的声明，函数赋值仍按照原代码顺序
+        */
+        console.log(fun1);
+        console.log(fun2);
+        var fun1 = function(){
+            return 1;
+        };
+        function fun2(){
+            return 2;
+        }
+
+        /*
+            在函数作用域中var同样有变量声明提前，会在所有函数代码前声明
+            同样函数声明提前也是一样的
+        */ 
+        function funion(){
+            
+            console.log(b);
+            var b = 33;
+        }
+
+        /*
+            函数作用域中未用var声明的变量，都是全局变量
+            修改的话会直接影响到全局变量
+        */ 
+        var c = 100;
+        function v3(){
+            console.log(c);//这时代码顺序执行时只有全局变量c，是100
+            c = 10;//没有内部变量c，所以是全局变量c赋值为10
+            // d=200,没有写var关键字就相当于
+            window.d = 200;
+        }
+        console.log(c);//全局变量c已经变成10
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

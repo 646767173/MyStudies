@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            在底层，字符串是以字符数组的形式保存的
+            str会保存成如下形式：
+                ['S','t','r','i','n','g']
+            字符串的所有方法都不会影响到原字符串
+        */
+        var str = 'String';
+        console.log('str.length='+str.length);//length属性表示字符串长度
+        console.log('str[1]='+str[1]);
+        // charAt() 返回字符串中指定位置的字符，效果同 str[i]
+        console.log( 'str.charAt(1)='+str.charAt(1) );
+
+        // charCodeAt 返回字符串指定位置的字符的Unicode编码
+        console.log( 'str.charCodeAt(1)='+str.charCodeAt(1));
+
+        // String.fromCharCode() 根据Unicode编码去获取对应字符
+        console.log('String.fromCharCode(72)='+String.fromCharCode(72));
+
+        // concat() 返回拼接的两个或多个字符串的结果
+        console.log("str.concat('654321','abc')="+str.concat('654321','abc'));
+
+        /*
+            indexof() 检索一个字符串中是否包含指定字符
+            -有则返回其首次出现的索引
+            -无则返回-1
+            第二个参数可以指定一个开始查找位置
+
+            lastIndexOf() 从最后开始往前检索某字符
+            -有则返回其从后往前数第一次出现的位置索引(索引是正方向数过来)
+            -也可以指定开始查找位置，从那里开始后往前找
+        */
+        console.log("str.indexOf('g',2)="+str.indexOf('g',2));
+        
+        console.log("str.lastIndexOf('i',4)="+str.lastIndexOf('i',4));
+        
+        // slice() 截取某段，两个参数分别指定始 末位置
+        // substring() 基本同slice，但是不接受负值(转为0)，且第一个参数小于第二个参数，否则调转两个参数位置
+        // substr() 截取字符串，参数1表示开始位置，参数2表示截取长度(ES还未标准化,反对使用)
+
+
+        /*
+            split() 可以将一个字符串拆分为一个数组
+            参数：
+                -需要一个字符串作为参数(参数也可以是一个正则表达式)，据其去拆分为数组
+                -如果传一个空串则每一个字符都会作为一个元素
+        */ 
+        str = 'abc,def,ghi';
+        var result = str.split(',');
+        console.log(result);
+
+        /*
+            toUpperCase()
+            -将一个字符串转换为大写并返回
+            toLowerCase()
+            -将一个字符串转换为小写并返回
+        */ 
+        str = 'aBcdEfgHiJkl';
+        console.log(str);
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

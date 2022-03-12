@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments隐形参数</title>
+</head>
+<script>
+    function hahaha() {
+            // !!function函数里面有 arguments隐形参数
+            // 不需要定义，但却可以直接用来获取所有参数的变量，称之为隐形参数
+            // 通过在
+            alert(arguments[0]);
+            alert(arguments[1]);
+            alert(arguments[2]);
+            var a = arguments[0];
+            var b = arguments[1];
+            var c = arguments[2];
+            alert(a + b + c);
+    }
+
+</script>
+
+<body>
+    <button id="btn1" onclick="hahaha(1,'b',true)">触发agruments</button>
+    <div>
+        函数体的样子：<br>
+        a=1,b="b",c=true<br>
+        function hahaha() {<br>
+            // !!function函数里面有 arguments隐形参数<br>
+            // 不需要定义，但却可以直接用来获取所有参数的变量，称之为隐形参数<br>
+            // 通过在<br>
+            alert(arguments[0]);<br>
+            alert(arguments[1]);<br>
+            alert(arguments[2]);<br>
+            var a = arguments[0];<br>
+            var b = arguments[1];<br>
+            var c = arguments[2];<br>
+            alert(a + b + c);<br>
+        }
+    </div>
+</body>
+
+</html>

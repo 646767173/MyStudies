@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        不同设备的完美视口大小是不一样的
+            i6      375px
+            i6plus  414px
+        当我们设计自己内容时，如果内容宽度设置了375px，则用i6p看就会缺了一块
+        如果设置为414px，用i6看就会溢出，所以继续使用px单位是很不合适的
+        使用百分比%单位看似完美，但由于参照物会不停的变换，也是不合适的
+
+        vw(viewport width)表示视口宽度，
+            100vw   = 一个视口的宽度
+            1vw     = 百分之1个视口宽度
+        看似vw与百分比很像，但是很重要的一点是，vw的参照物永远不会变！1vw占多少视口宽度永远是固定的
+
+        移动端页面设计图通常宽度都是 750px、1175px，刚好是375px的两倍或三倍
+
+        如果要设计一个 48px*35px 大小的元素
+        则 100vw = 750px(设计图的像素)
+           1vw = 0.13333333px
+           6.4vw = 48px
+           4.667vw = 35px
+        这样每次都要计算有点麻烦，因此我们要利用 不变的东西去完成设计，如rem
+        
+    -->
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+</body>
+</html>

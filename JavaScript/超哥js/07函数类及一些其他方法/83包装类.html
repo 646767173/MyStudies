@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            JS为我们提供了三个包装类，通过这三个包装类，我们能
+            -String()
+                将基本数据类型字符串转换为String对象
+            -Number()
+                将基本数据类型数字值转换为Number对象
+            -Boolean()
+                将基本数据类型布尔值转换为Boolean对象
+               
+            但是，我们基本不会使用基本数据类型的对象
+            因为如果使用，在进行一些比较的时候可能会带来不可预期的结果
+            
+            总结：这些包装类都是给浏览器底层自己进行类型转换的时候使用的，我们开发基本不用
+        */
+
+        var str = 'str',num = 123,bool = true;
+
+        var obj_str = new String(str);
+        var obj_num = new Number(num);
+        var obj_bool = new Boolean(bool);
+
+        console.log(obj_str);
+        console.log(typeof obj_str);
+        console.log(obj_num);
+        console.log(typeof obj_num);
+        console.log(obj_bool);
+        console.log(typeof obj_bool);
+
+        /* 
+            方法和属性只能添加给对象，不能添加给基本数据类型
+                但是，当我们对一些基本数据类型的值去调用属性和方法时，
+                浏览器会临时使用包装类将其转为对象，再调用其中的属性和方法
+                调用完以后，再将其转回基本数据类型(执行某些方法后可能会变成其它基本数据类型)
+        */
+        var s = 123;
+        s = s.toString();//明明基本数据类型没方法，为什么可以用？
+        console.log(s);
+        console.log(typeof s);//真的变成string类了
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

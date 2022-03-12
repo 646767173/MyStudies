@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSSTools/reset.css">
+    <style>
+        .img-list{
+            width: 590px;
+            height: 470px;
+            margin: 0 auto;
+            /* 开启相对定位才可以让其中的div不对着根元素进行定位 */
+            position: relative;
+        }
+        li{
+            position: absolute;
+        }
+        li:nth-child(1){
+            /* 想让谁显示就让child变成谁 */
+            z-index: 1;
+        }
+        img{
+            width: 590px;
+        }
+
+        .pointer{
+            position: absolute;
+            /* 给小点设置优先级至最高 */
+            z-index: 9999;
+            /* 设置小点排的位置 */
+            bottom: 20px;
+            left: 30px;
+        }
+        .pointer a{
+            /* 使其水平排列 */
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            /* 小点互相的间距 */
+            margin-left: 4px;
+            background-color: rgba(255, 255, 255, 0.6);
+            /* 让背景颜色只涉及到内容区而不是延伸到边框 */
+            background-clip: content-box;
+            /* 也设置一个边框，但是颜色为透明 */
+            border:2px solid transparent;
+        }
+        /* 设置小圆点选中的样式 */
+        .pointer a.active,.pointer a:hover{
+            background-color: rgba(255, 255, 255, 0.9);
+            border:2px solid rgba(255, 255, 255, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        <li>
+            <a href="#">
+                <img src="https://img13.360buyimg.com/pop/s1180x940_jfs/t1/181299/26/16331/88101/6100bfbcEa73d44dd/44ba9726e2d715a0.jpg.webp">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="https://img13.360buyimg.com/pop/s1180x940_jfs/t1/52250/23/17456/72970/60efb0a9Ed9ab5dc8/e517ff0a61da586c.jpg.webp">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="https://imgcps.jd.com/img-cubic/creative_server_cia/v2/2000366/57777907768/FocusFullshop/CkRqZnMvdDEvMTg2NDQxLzI3LzEyMzI5LzE5MjM3NS82MGU2Y2NhN0VlZWMxMjQ5NC9jMmNhMWU5NTU0NTdmMzBmLnBuZxIJMi10eV8wXzUzMAI47ot6QhMKD-WFiOenkeayueeDn-acuhAAQhYKEueyvuW9qeS4jeWuuemUmei_hxABQhAKDOeri-WNs-aKoui0rRACQgoKBueyvumAiRAHWLjQ057XAQ/cr/s/q.jpg">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="https://imgcps.jd.com/ling4/100012940842/6Ziy6Zuo6Ziy5rGb5b-F5aSH/54iG5qy-5L2O6IezOS455YWD/p-5bd8253082acdd181d02f9d8/a45cd7c3/cr/s/q.jpg">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="https://imgcps.jd.com/img-cubic/creative_server_cia/v2/2000366/3987745/FocusFullshop/CkJqZnMvdDEvMTgyNDMwLzUvMTIxMzMvNzgyMjAvNjBkZDM1ODJFNGEwMjYzMWQvYmRjZThmNjg0ZDQ5MzJiZi5qcGcSCjk5OS10eV8wXzEwATjui3pYobLzAQ/cr/s/q.jpg">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="https://imgcps.jd.com/ling4/100002308745/55S16ISR5pWw56CB6L-Q5Yqo5Lya/6L-Q5Yqo5omL546v5L2O6IezOOaKmA/p-5bd8253082acdd181d02fa75/00a51f51/cr/s/q.jpg">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="https://img11.360buyimg.com/pop/s1180x940_jfs/t1/182447/3/17173/101359/61078a27Ea7373bdb/276a21d588449338.jpg.webp">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="https://imgcps.jd.com/ling4/100008925295/5bel5Lia6L-Q5Yqo5Lya/5oqi5Yi4MjAw5YePNTA/p-5bd8253082acdd181d02fa75/4f53cf4c/cr/s/q.jpg">
+            </a>
+        </li>
+
+        <div class="pointer">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </ul>
+</body>
+</html>

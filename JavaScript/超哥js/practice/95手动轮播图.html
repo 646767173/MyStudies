@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            // 获取图片对象
+            var img = document.getElementById('img');
+            // 获取按钮对象
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+            // 获取p标签提示信息对象
+            var p = document.getElementById('msg');
+            
+            // 定义一个数组去保存图片路径
+            var imgArr = ['img/1.webp','img/2.webp','img/3.webp','img/4.webp'];
+            // 创建一个变量，保存当前图片的索引
+            var index = 0;
+            p.innerHTML = '一共'+imgArr.length+'张图，现在是第'+(index+1)+'张';
+            prev.onclick = function(){
+                // 上一张
+                index--;
+                // 判断是否已经是第一张
+                if(index<0){
+                    // 是，则回到最后一张图
+                    index = imgArr.length-1;
+                }
+                // 修改img的src属性
+                img.src = imgArr[index];
+                // 更新提示信息
+                p.innerHTML = '一共'+imgArr.length+'张图，现在是第'+(index+1)+'张';
+            }
+
+            next.onclick = function(){
+                // 下一张
+                index++;
+                // 判断是否已经是最后一张
+                if(index>imgArr.length-1){
+                    // 是，则回到第一张图
+                    index = 0;
+                }
+                // 修改img的src属性
+                img.src = imgArr[index];
+                // 更新提示信息
+                p.innerHTML = '一共'+imgArr.length+'张图，现在是第'+(index+1)+'张';
+            }
+        }
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #outer{
+            width: 500px;
+            margin: 30px auto;
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <p id="msg"></p>
+        <img id="img" src="img/1.webp">
+        <br>
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+
+</body>
+
+</html>

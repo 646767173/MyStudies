@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            font-size: 50px;
+            font-family: 微软雅黑;
+            /* 
+                text-decoration 设置文本修饰
+                    -none
+                    -underline      下划线
+                    -line-through   删除线
+                    -overline       上划线
+                在新版里还可以在后面写 颜色 和 线的样式,但IE等旧版不支持
+            */
+            text-decoration: underline red dotted;
+            }
+            .box2{
+                width: 300px;
+                /* 
+                    white-space设置网页如何处理空白(即结构里写的那些换行符、空格等)
+                        -normal     正常(超出页面就正常换行，空格就一个，跟平常一样)
+                        -nowrap     不换行(一行写到底)
+                        -pre        保留空白(就是标签里面怎么写就怎么显示)
+                */
+                white-space: normal;
+                overflow: hidden;
+                /* 
+                    文本溢出，text-overflow
+                        -ellipsis       后续显示为...
+                 */
+                text-overflow: ellipsis;
+            }
+    </style>
+</head>
+<body>
+    <div class="box2">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo nesciunt voluptatibus accusantium incidunt unde, delectus odio! Placeat, facere. Dignissimos recusandae eos rem consequuntur maxime dolor earum in facere maiores alias?
+        aa
+            bb
+                cc
+    </div>
+    <div class="box1">
+        今天天气真好
+    </div>
+</body>
+</html>

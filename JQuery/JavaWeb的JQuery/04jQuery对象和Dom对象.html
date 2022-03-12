@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>区分JQuery对象和DOM对象</title>
+</head>
+<script src="./jquery-1.7.2.js"></script>
+<script>
+    alert("Dom对象,通过document.方法 查询和创建出来的标签对象就是Dom对象\n[object HTMLElement]");
+    /*
+        getElementById()
+        getElementsByName()
+        getElementsByTagName()
+        createElement()
+        以上查询或创建出来的都是dom对象
+    */ 
+
+    alert("JQuery对象，通过JQ提供的API创建的对象、JQ包装的dom对象、JQ提供API查到的对象，都是JQuery对象\n[object Object]")
+    /*
+        通过JQ提供的API创建的对象、JQ包装的dom对象、JQ提供API查到的对象，都是JQuery对象
+    */
+
+    // dom对象的属性和方法(例如innerHTML)，jquery对象是用不了的
+    /*
+        反之也一样，
+        $("#abc").click(function(){
+            alert("click()是jQuery对象的方法");
+        })
+    */ 
+    
+        /*
+            互相转换
+
+            dom->jquery
+            1.先有dom对象
+            2. $(dom对象)就可以用转换为jQuery对象
+
+            jquery->dom
+            1.先有jquery对象
+            2.jquery对象[下标]取出对应对象
+        */ 
+
+</script>
+<body>
+    <div id="abc">
+        一、jquery对象本质是dom对象数组+jquery提供的一系列功能函数
+    </div>
+</body>
+</html>

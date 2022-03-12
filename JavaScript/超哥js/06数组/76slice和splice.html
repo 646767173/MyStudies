@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['a','b','c','d','e'];
+        /* 
+            slice方法：
+                可以从数组中提取指定元素
+                不会改变原数组，只会将截取后的新数组作为返回值返回
+            有2个参数：
+                1-截取开始的位置的索引(含开始位置)
+                2-截取结束的位置的索引(不含结束位置)
+                    参数2可以不写，表示截取从开始位置往后的全部元素
+                    参数可以传递负值，表示倒数第几个元素
+                        -1 即倒数第一个(最后一个)
+                        -2 即倒数第二个
+        */
+        var result = arr.slice(0,2);//截取第0个和第2个之间的元素(不含第2个)
+        var result1 = arr.slice(3);//截取第3个以及往后全部元素
+        console.log('原数组：'+arr);
+        console.log('result：'+result);
+        console.log('result1：'+result1);
+
+        console.log('\n');
+        /* 
+            splice方法：
+                可以删除数组中指定元素(,并引入新元素代替)
+                会改变原数组，将删除的元素作为返回值返回
+            有2个参数：
+                1-删除开始的位置的索引
+                    可以只写参数1，表示删除开始位置的往后所有元素
+                2-删除的数量
+                第3个及以后的参数
+                    -传递一些新的元素，这些元素会插入到第1个参数的位置索引前
+            我们通过使用splice方法，输入不同参数不同数值，以达到对数组进行多功能操作
+        */
+        console.log('原数组：'+arr);
+        var result2 = arr.splice(1);
+        console.log('splice后原数组：'+arr);
+        console.log('删除元素result2：'+result2);
+    </script>
+</head>
+<body>
+    <p>换行前是slice函数</p>
+    <p>换行后是splice函数</p>
+</body>
+</html>

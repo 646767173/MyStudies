@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1,.box2{
+            width: 200px;
+            height: 200px;
+        }
+        .box1{
+            background-color: green;
+            margin-bottom: 100px;
+        }
+        .box2{
+            background-color: #bfa;
+            margin-top: 100px;
+        }
+        /* 
+            垂直外边距的重叠
+                相邻的垂直方向的外边距会发生重叠现象
+                    -兄弟元素之间的
+                        -当兄弟元素之间的外边距取值都为正时，
+                        则取两者的最大值
+                        -特殊情况：
+                            1.如果外边距有一正一负，则二者相加
+                            2.如果都为负数，则取绝对值较大的
+                    -兄弟元素的外边距重叠是有利于开发的，一般无需进行处理
+
+                    -父子元素之间的
+                        -父子元素间相邻外边距，子元素会传递给父元素(上外边距)
+                        -父子外边距的折叠会影响到页面的布局，必须进行处理
+                            1.让父子元素的外边距不相邻,用border或别的方式隔开同时调整垂直方向大小
+                            2.不使用外边距,改用内边距和调整垂直方向大小
+        */
+        .box3{
+            width: 200px;
+            height: 150px;/* 方法1 height: 199px;
+                             方法2 height: 150px; */
+            background-color: greenyellow;
+            /* 方法2 不用外边距 */
+            padding-top: 50px;/* 方法2 不用外边距 */
+            /* 方法1 使不相邻 */
+            /* 方法1 border: 1px greenyellow solid; */
+        }
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            /* margin-top: 50px;直接这样写外边距也会传递给父元素 
+            方法1 改为margin-top:49px;
+            方法2 不用外边距，使用内边距padding-top替代 
+            */
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box1"></div>
+    <div class="box2"></div> -->
+    <tr></tr>
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+</body>
+</html>

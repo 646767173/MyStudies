@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- action是表单提交给服务器的地址
+            配合submit使用 -->
+    <form action="https://www.baidu.com" autocomplete="off">
+        <!-- 要想服务器接收到文本框数据，必须有name属性 -->
+        输入框
+        <input type="text" name="abc">
+        <br>
+
+        <!--    autocomplete="off"会关闭提示补全和历史输入记录
+                readonly    表示表单只读不改
+                disabled    表示表单不可用
+                autofocus   设置表单项会自动获取焦点(一进入网页时)
+        -->
+        <input type="text" name="abcd" autocomplete="off" autofocus>
+        <br>
+
+        <!-- 单选按钮，必须要有相同的name属性,value为选中的值
+                设置checked可以默认选中 -->
+        单选按钮
+        <input type="radio" name="haha" value="radio1">
+        <input type="radio" name="haha" value="radio2" checked>
+        <br>
+
+        <!-- 多选框name要一致 -->
+        多选框
+        <input type="checkbox" name="test" value="1" checked>
+        <input type="checkbox" name="test" value="2">
+        <input type="checkbox" name="test" value="3">
+        <br>
+
+        <!-- 下拉列表 默认选中用selected-->
+        下拉列表
+        <select name="selection">
+            <option value="a1">a1</option>
+            <option value="a2">a2</option>
+            <option value="a3" selected>a3</option>
+            <option value="a4">a4</option>
+        </select>
+        <br>
+
+        <!-- input的type还可以设置email,提交时会检查是否输入正确邮箱格式 -->
+        <input type="email" name="email">
+        <br>
+
+        <!-- input的type还可以设置tel,
+            但是提交时并不会自动检查是否输入正确电话格式
+            解释是因为全世界的电话号码格式太多了无法统一归类-->
+        <input type="tel" name="telephone" autocomplete="off">
+        <br>
+
+
+        提交按钮
+        <input type="submit">
+
+        
+    </form>
+</body>
+</html>

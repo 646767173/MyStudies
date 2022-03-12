@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            对象的属性可以是任何值
+            当对象的属性是一个函数时
+            则称之为是该对象的方法
+            执行该方法则称为调用(xxx对象的)yyy方法
+        */ 
+
+        // 调用方法和调用函数，实质上都是执行函数，只不过触发背景不同
+
+        var obj = new Object();
+        obj.name = 'hahaha';
+        obj.age = 20;
+        obj.method = function(){
+            console.log('我是obj对象里面的method方法');
+        };
+        console.log(obj);
+        // 调用method方法
+        obj.method();
+
+        // 调用method函数
+        (function method(){
+            console.log('我是method函数');
+        })();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

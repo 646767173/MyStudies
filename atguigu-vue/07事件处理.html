@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+</head>
+<body>
+    <div id="demo">
+        <h2>1.绑定监听</h2>
+        <button @click="test1">test1</button>
+        <button @click="test2('cba')">test2</button>
+        <button @click="test3($event)">test3</button>
+        <!--不写$event一样有用 
+            <button @click="test3()">test3</button> -->
+        <button @click="test4(321,$event)">test4</button>
+        
+        <h2>2.事件修饰符</h2>
+        <div style="width: 200px;height: 200px;background: red;" @click="test5">
+            <div style="width: 100px;height: 100px;background: blue;" @click.stop="test6"> </div>
+                                                            <!-- ↑ 重叠了，要停止事件冒泡 -->
+        </div>
+        
+        <a href="https://www.baidu.com/" @click.prevent="test7">去百度</a>
+        <!-- 阻止事件的默认行为 -->
+
+        <h2>3.按键修饰符</h2>
+        <input type="text" @keyup.enter="test8">
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#demo',
+            data:{
+
+            },
+            methods:{
+                test1(){
+                    alert('test1');
+                },
+                test2(msg){
+                    alert(msg);
+                },
+                test3(event){
+                    alert(event.target.innerHTML);
+                },
+                test4(num,event){
+                    alert(num + '///' + event.target.innerHTML);
+                },
+                test5(){
+                    alert("外面");
+                },
+                test6(){
+                    //event.stopPropagation() //停止事件冒泡
+                    alert("里面");
+                },
+                test7(){
+                    //event.preventDefault() //阻止事件默认行为
+                    alert("点击了test7");
+                },
+                test8(event){
+                    alert(event.target.value);
+                }
+                
+            },
+            computed:{
+
+            }
+        })
+    </script>
+</body>
+</html>

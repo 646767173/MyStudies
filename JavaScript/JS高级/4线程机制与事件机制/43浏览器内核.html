@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器内核</title>
+</head>
+<body>
+    <h1>内核是支撑浏览器运行的最核心的程序</h1>
+
+    <h1>不同浏览器内核可能不一样</h1>
+    <div>
+        <p>Chrome,Safari:Webkit</p>
+        <p>firefox:Gecko</p>
+        <p>IE:Trident</p>
+        <p>360等国内浏览器:Webkit + Trident</p>
+    </div>
+
+    <h1>内核由很多模块组成</h1>
+    <div>
+        <h2>主线程：</h2>
+        <p>JS引擎模块：负责js程序的编译与运行</p>
+        <p>HTML,CSS文档解析模块：负责页面文本的解析</p>
+        <p>DOM/CSS模块：负责dom/css在内存中的相关处理</p>
+        <p>布局和渲染模块：负责页面的布局和效果的绘制(内存中的对象)</p>
+        <h2>......</h2>
+        <h2>分线程：</h2>
+        <p>定时器模块：负责定时器的管理</p>
+        <p>DOM事件响应模块：负责事件的管理</p>
+        <p>网络请求模块：负责ajax请求</p>
+    </div>
+</body>
+</html>

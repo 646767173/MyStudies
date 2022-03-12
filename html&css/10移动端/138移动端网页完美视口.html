@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--
+        meta标签设置视口大小,device-width表示设备完美视口,
+        initial-scale=1.0表示初始化缩放为1.0倍
+        写两个是为了防止未知的意外发生
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 375px;
+            height: 200px;
+            background-color: #faf;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        移动端默认视口980csspx
+            像素比 = 980/移动端宽度物理像素(i6->750) = 1.31   比值(>1)越大越看不清,
+        因此我们编写页面的时候，需要有一个比较合理的像素比
+            1css : 2物理像素
+            1css : 3物理像素
+        这些比值都是可以的
+            要调整比值，就需要通过调整视口大小来改变
+        因此，我们需要通过meta标签来设置视口大小
+        
+        -每一款移动设备设计时，都会有一个最佳的像素比
+            一般我们只需要将像素比设置为该值即可得到一个最佳效果
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            这个标签就是完美视口的标准写法
+     -->
+    <div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 10px solid goldenrod;
+            outline:10px solid goldenrod;
+            /*
+                outline用于设置轮廓，用法与border一模一样
+                    outline:10px solid goldenrod
+                轮廓不会影响可见框的大小
+            */
+            /* 
+                box-shadow用于设置元素的阴影效果，阴影不会影响页面布局
+                    box-shadow:0px 0px 10px red;
+                前两个数值表示阴影在x轴y轴的偏移量，第三个值表示阴影的模糊半径
+                阴影在盒子正下方，默认我们俯视是看不到的，只有修改偏移量才能看到
+            */
+            /*
+                border-radius用于设置圆角,圆角设置圆的半径大小
+                有四个方向的：
+                    border-top-left-radius
+                    border-top-right-radius
+                    border-bottom-left-radius
+                    border-bottom-right-radius
+                        可以有两个值，表示水平方向和垂直方向上的圆半径，
+                        当值不同则会变成椭圆
+                变成圆形——border-radius:50%
+            */
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <span>hello</span>
+</body>
+</html>

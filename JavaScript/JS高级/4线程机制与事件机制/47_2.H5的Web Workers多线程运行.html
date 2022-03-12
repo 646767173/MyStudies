@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>请输入一个数字，计算其所在位置下的fibonacci数列的数值(1 1 3 5 8 13 ...)</p>
+    <input type="text" id="input" placeholder="数值">
+    <button id="btn">计算</button>
+    <script>
+        // 1 1 2 3 5 8 ... f(n) = f(n-1) + f(n-2) ;(n>2) 当前数是其前两个数之和
+        var input = document.getElementById('input');
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            var number  = input.value;
+            // 创建一个Worker对象
+            var worker = new Worker('47WebWorker.js');
+            // 向分线程发送消息
+            worker.postMessage(number);
+            console.log('主线程向分线程发送数据：'+number);
+            // 接收返回的消息(回调函数)
+            worker.onmessage = function(event){
+                console.log('主线程接收分线程返回的数据：'+event.data);
+                alert(event.data);
+            }
+        }
+    </script>
+</body>
+</html>

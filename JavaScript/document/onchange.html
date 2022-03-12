@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onchange</title>
+    <script>
+        // 静态注册
+        function pChange(){
+            alert("静态onchange，内容发生改变");
+        }
+
+        // 动态注册
+        window.onload = function(){
+            // 1.获取标签对象
+            var choice = document.getElementById("choice");
+            // 2.通过标签对象.方法名 = function(){};
+            choice.onchange = function(){
+                alert("动态onchange，喜欢的歌手选择已经改变");
+            };
+        }
+    </script>
+</head>
+<body>
+    <p style="font-size: large;color: blue;">请选择喜欢的歌手</p>
+    <select onchange="pChange();">
+        <option>歌手singer</option>
+        <option>邓紫棋</option>
+        <option>陈奕迅</option>
+        <option>周杰伦</option>
+        <option>周柏豪</option>
+        <option>邓园长</option>
+    </select>
+    <hr>
+    <select id="choice">
+        <option>歌手singer</option>
+        <option>邓紫棋</option>
+        <option>陈奕迅</option>
+        <option>周杰伦</option>
+        <option>周柏豪</option>
+        <option>邓园长</option>
+    </select>
+
+</body>
+</html>

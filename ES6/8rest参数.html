@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6引入rest参数来获取实参列表，用于代替arguments
+        
+        // ES5
+        function data(){
+            console.log(arguments);
+        }
+        data(6,5,4,3,2,1);
+
+        // ES6的rest参数 ...args，rest参数必须放在最后面
+        function rest(...args) {
+            console.log(args);// filter some every map
+        }
+        rest('a','c','b','d');
+    </script>
+</body>
+</html>

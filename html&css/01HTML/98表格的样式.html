@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 30%;
+            border: 1px solid black;
+            margin: 0 auto;
+            /* 指定边框距离 */
+            /* border-spacing: 0px; */
+            /* 设置边框合并 */
+            border-collapse: collapse;
+        }
+        td{
+            height: 50px;
+            border:1px solid green;
+            /* 元素默认情况下垂直居中,vertical-align可以调节 */
+            vertical-align: bottom;
+            /* text-align调节元素文字格式 */
+            text-align: center;
+        }
+
+        .box1{
+            background-color: cadetblue;
+            width: 300px;
+            height: 300px;
+            /* 将元素设置为单元格td */
+            display: table-cell;
+            /* 然后就可以使用vertical使子元素垂直居中 */
+            vertical-align: middle;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+            /* 水平居中 */
+            margin: 0 auto;
+        }
+
+        /* 如果我们创建table直接使用tr，
+            浏览器则会自动为我们创建tbody并把所有tr放进去
+            使用tr的父元素是tbody */
+        tbody>tr:nth-child(odd){
+            background-color: cornflowerblue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <table>
+        <tr>
+            <td>No</td>
+            <td>Name</td>
+            <td>Age</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>John</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Tom</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Jerry</td>
+            <td>19</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+            btn.onclick = function(){
+                console.log(getStyle(box,'width'));
+            }
+            /* 
+                当我们不知道用户使用的浏览器是什么版本时
+                我们需要创建一个函数，去兼容两种版本
+                获取元素当前的样式
+                -obj    要获取样式的元素
+                -name   样式名
+
+                上述两种方法(currentStyle/getComputedStyle)
+                    获取的样式都是只读的，不能修改的
+            */
+            function getStyle(obj,name){
+                if(window.getComputedStyle)//不加window会找不到方法而报错
+                    // 其他高于IE8的浏览器
+                    return getComputedStyle(obj,null)[name];    
+                else
+                    // IE8及以下版本浏览器
+                    return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+    <br>
+    <br>
+    <button id="btn">点我获取元素样式</button>
+
+</body>
+</html>
